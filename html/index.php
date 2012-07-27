@@ -1,9 +1,9 @@
 <?php
 
 namespace html {
-	session_name('_g');
+	
+	session_name('_d');
 	session_start();
-
 	$start = microtime(true);
 	ob_start();
 	require_once("../setup.php");

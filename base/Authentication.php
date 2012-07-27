@@ -21,8 +21,7 @@ class Authentication {
 	public function init($data){
 		$this->portal = $this->sandbox->getMeta('portal');
 		if(!$this->shieldPortal()) {
-			$message = "Access to portal not allowed";
-			error_log($message);
+			$message = "access to portal not allowed";
 			return $this->sandbox->fire('authentication.failed', $message);
 		}
 		if($this->shieldPortlets()){
@@ -30,7 +29,7 @@ class Authentication {
 			$this->sandbox->setMeta('portal', $this->portal);
 			$this->sandbox->fire('authentication.passed', $this->portal);
 		} else {
-			$message = "Access to any portlets not allowed";
+			$message = "access to any portlets not allowed";
 			$this->sandbox->fire('authentication.failed', $message);
 		}
 	}
@@ -87,33 +86,8 @@ class Authentication {
 		$this->portal = simplexml_load_string(implode("\n", $portal));		
 	}
 	
-	public function attestUser($access){
-		if(isset($access->user)){
-			foreach($access->user as $user){
-				if((string) $user === "everyone") return true;
-				if($this->user->getLogin() === (string) $user) return true;
-			}
-			return false;
-		} else {
-			return false;
-		}
-	}
-	
-	public function attestRole($access){
-		if(isset($access->role)){
-			foreach($access->role as $role){
-				if((string) $role === "everyone") return true;
-				$roles = $this->user->getRoles();
-				if(is_null($roles)) return false;
-				if(in_array((string) $role, $roles)) return true;
-			}
-			return false;
-		} else {
-			return false;
-		}
-	}
-	
 	public function attestPermissions($permission){
+		error_log($permission." : ".json_encode($this->user->getPermissions()));
 		return in_array($permission, $this->user->getPermissions());
 	}
 		

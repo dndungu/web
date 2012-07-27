@@ -41,8 +41,8 @@ class Sandbox {
 		return NULL;
 	}
 	public function fire($type = NULL, &$data = NULL){
-		if(is_null($type) || !array_key_exists($type, $this->events)) return;
 		error_log($type);
+		if(is_null($type) || !array_key_exists($type, $this->events)) return;
 		$listeners = $this->events[$type];
 		$parameter = is_array($data) ? ($data) : array(&$data);
 		$results = NULL;
