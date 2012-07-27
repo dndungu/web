@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="signin">
+	<field name="login" type="varchar" length="255">
+	    <element name="login" type="text" label="login.label" value="">
+	        <class>text-input</class>
+	    </element>
+	</field>
+	<field name="password" type="varchar" length="32">
+	    <element name="password" type="password" label="password.label">
+	        <class>text-input</class>
+	    </element>
+	</field>
+	<button name="action" type="submit" value="action.signin">
+	    <class>button</class>
+	</button>
+</form>

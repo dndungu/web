@@ -1,0 +1,14 @@
+#sidebar #main-nav li a.nav-top-item {
+	background: transparent url(../images/bg-menu-item-blue.gif) right
+		center no-repeat;
+}
+
+a,ul.content-box-tabs li a:hover,.action-button span:hover {
+	color: #0078cc;
+}
+
+.button,.pagination a.current {
+	background: #004a95 url(../images/bg-button-blue.gif) top left repeat-x
+		!important;
+	border-color: #004994 !important;
+}
