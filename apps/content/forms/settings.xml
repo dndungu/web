@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="settings" title="settings.label" primarykey="service_provider_id">
+	<field name="service_provider" type="varchar" length="30">
+		<element name="service_provider" type="text" label="service_provider.label" placeholder="service_provider.placeholder"></element>
+	</field>
+	<field name="business_number" type="varchar" length="20">
+		<element name="business_number" type="text" label="business_number.label" placeholder="business_number.placeholder"></element>
+	</field>
+	<field name="first_operator" type="varchar" length="30">
+		<element name="first_operator" type="text" label="first_operator.label" placeholder="first_operator.placeholder"></element>
+	</field>
+	<field name="first_operator_pwd" type="varchar" length="50">
+		<element name="first_operator_pwd" type="text" label="first_operator_pwd.label" placeholder="first_operator_pwd.placeholder"></element>
+	</field>
+	<field name="second_operator" type="varchar" length="30">
+		<element name="second_operator" type="text" label="second_operator.label" placeholder="second_operator.placeholder"></element>
+	</field>
+	<field name="second_operator_pwd" type="varchar" length="50">
+		<element name="second_operator_pwd" type="text" label="second_operator_pwd.label" placeholder="second_operator_pwd.placeholder"></element>
+	</field>
+	<field name="organization_name" type="varchar" length="50">
+		<element name="organization_name" type="text" label="organization_name.label" placeholder="organization_name.placeholder"></element>
+	</field>
+	<field name="processing_mode" type="int" length="11">
+		<element name="processing_mode" type="text" label="processing_mode.label" placeholder="processing_mode.placeholder"></element>
+	</field>
+	<field name="default_trx_type" type="varchar" length="30">
+		<element name="default_trx_type" type="text" label="default_trx_type.label" placeholder="default_trx_type.placeholder"></element>
+	</field>
+	<field name="solid_balance" type="double">
+		<element name="solid_balance" type="text" label="solid_balance.label" placeholder="solid_balance.placeholder"></element>
+	</field>
+	<field name="utility_balance" type="double">
+		<element name="utility_balance" type="text" label="utility_balance.label" placeholder="utility_balance.placeholder"></element>
+	</field>
+	<field name="desc" type="text">
+		<element name="desc" type="text" label="desc.label" placeholder="desc.placeholder"></element>
+	</field>
+	<field name="service_url" type="varchar" length="150">
+		<element name="service_url" type="text" label="service_url.label" placeholder="service_url.placeholder"></element>
+	</field>
+	<field name="submit">
+		<element name="action" type="submit" value="action.submit"></element>
+	</field>
+	<field name="reset">
+		<element name="action" type="reset" value="action.reset"></element>
+	</field>
+</form>

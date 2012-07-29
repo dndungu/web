@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="system_alerts" title="system_alerts.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+	<records>
+		<leftjoin></leftjoin>
+		<ordercolumn>id</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<search parameters="1">`id` = %d</search>
+	</records>
+	<columns primarykey="id">
+		<column name="id" field="id" title="id.label" class="grid2of10 column"></column>
+		<column name="alert_time" field="alert_time" title="alert_time.label" class="grid2of10 column"></column>
+		<column name="alert_type" field="alert_type" title="alert_type.label" class="grid2of10 column"></column>
+		<column name="recipient" field="recipient" title="recipient.label" class="grid2of10 column"></column>
+		<column name="message" field="message" title="message.label" class="grid2of10 column"></column>
+		<column name="date_sent" field="date_sent" title="date_sent.label" class="grid2of10 column"></column>
+	</columns>
+</grid>

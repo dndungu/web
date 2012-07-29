@@ -94,7 +94,9 @@ class Form {
 	
 	protected function createFields($fields){
 		foreach($fields as $field){
-			$html[] = $this->createField($field);
+			if(strlen((string) $field->attributes()->type)){
+				$html[] = $this->createField($field);
+			}
 		}
 		return join("\n", $html);
 	}
@@ -199,7 +201,8 @@ class Form {
 		if(strlen($table)){
 			$value = (string) $element->attributes()->value;
 			$display = (string) $element->attributes()->display;
-			$options =$this->getStorage()->select(array("table" => $table, 'constraints' => array('inTrash' => 'No')));
+			$order = (string) $element->attributes()->order;
+			$options =$this->getStorage()->select(array("table" => $table, 'constraints' => array('inTrash' => 'No'), 'order' => (strlen($order) ? array($order, 'ASC') : array('ID', 'ASC'))));
 			if($options){
 				foreach($options as $option){
 					$select = $default == $option[$value] ? ' selected="selected"' : '';
@@ -249,7 +252,7 @@ class Form {
 	}
 	
 	protected function createButtons(&$buttons){
-		$html = array();
+		$html[] = '<span class="gridFormButtons">';
 		foreach($buttons->button as $button){
 			$type = (string) $button->attributes()->type;
 			switch($type){
@@ -264,6 +267,7 @@ class Form {
 					break;
 			}
 		}
+		$html[] = '</span>';
 		return join("\n", $html);
 	}
 	
@@ -357,7 +361,7 @@ class Form {
 		foreach($fields as $field){
 			$type = (string) $field->attributes()->type;
 			$key = (string) $field->attributes()->name;
-			if(strlen($type) && $type != "options") {
+			if(!in_array($type, array("options"))) {
 				$record['content'][$key] = $this->getContent($key);
 			}
 		}
@@ -536,7 +540,7 @@ class Form {
 		$fields = $this->getFields();
 		foreach($fields as $field){
 			$type = (string) $field->attributes()->type;
-			if(strlen($type) && $type != 'options'){
+			if(strlen($type) && !in_array($type, array("options"))) {
 				$columns[] = (string) $field->attributes()->name;				
 			}
 		}

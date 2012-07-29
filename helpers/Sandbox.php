@@ -23,9 +23,9 @@ class Sandbox {
 		$this->setGlobalStorage($storage);
 		$this->initHelper('Input');
 		$this->initHelper('Session');
-		$this->initHelper('User');
 		$this->initHelper('Site');
 		$this->getHelper("site")->autoSetup();
+		$this->initHelper('User');
 		$this->initHelper('Grid');
 		$this->initHelper('Form');
 		$this->initHelper('Cell');

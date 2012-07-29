@@ -16,7 +16,7 @@ core.control.extend('grid', function(){
 			insertable:false,
 			sortable: false,
 			searchable: false,
-			paginateable: false,
+			paginatable: false,
 			activity: new Object(),
 			readyCallback: false,
 			renderGrid: function(){
@@ -25,11 +25,11 @@ core.control.extend('grid', function(){
 				this.initGridCell();
 				this.renderLegend();
 				this.renderPaginator();
-				if(this.paginateable){
+				if(this.paginatable){
 					this.initPaginator();
 				}
-				if(_private.sortable){
-					_private.initSorter();
+				if(this.sortable){
+					this.initSorter();
 				}
 				if(this.readyCallback){
 					this.readyCallback();
@@ -80,7 +80,7 @@ core.control.extend('grid', function(){
 			},
 			initPaginator: function(){
 				var that = this;
-				$('.gridFooter a.button', this.html).unbind('mousedown').mousedown(function(event){
+				$('.gridFooter a.pagenavigator', this.html).unbind('mousedown').mousedown(function(event){
 					var name = $(this).attr('name');
 					var rowCount = that.records.footer['rowCount'];
 					var pageCount = Math.ceil(rowCount/that.limit);
@@ -109,20 +109,15 @@ core.control.extend('grid', function(){
 				});
 			},
 			initSorter: function(){
-				var columns = $('.gridColumns>div', this.html);
-				this.ordercolumn = this.records.ordercolumn;
-				this.orderdirection = this.records.orderdirection;
 				var orderclass = this.orderdirection.toLowerCase();
 				$('.gridColumns>div>span[name="'+this.ordercolumn+'"]', this.html).addClass(orderclass);
-				var that = this;
-				columns.unbind('mousedown').mousedown(function(){
+				$('.gridColumns>div', this.html).unbind('mousedown').mousedown(function(){
 					var icon = $(this).children('span');
-					that.orderdirection = icon.hasClass('asc') ? 'desc' : 'asc';
-					that.ordercolumn = icon.attr('name');
-					$('.gridColumns>div>span.asc', this.html).not(this).removeClass('asc');
-					$('.gridColumns>div>span.desc', this.html).not(this).removeClass('desc');
-					icon.addClass(that.orderdirection);
-					that.reset();
+					_private.orderdirection = icon.hasClass('asc') ? 'desc' : 'asc';
+					_private.ordercolumn = icon.attr('name');
+					$('.gridColumns>div>span.sort-icon', this.html).not(this).removeClass('asc').removeClass('desc');
+					icon.removeClass('asc').removeClass('desc').addClass(_private.orderdirection);
+					_private.reset();
 					control.refresh();
 				});
 			},
@@ -291,7 +286,7 @@ core.control.extend('grid', function(){
 					that.template = arguments[0].responseText;
 					that.html = $(that.template);
 					that.setUp();
-					_private.renderGrid();
+					that.renderGrid();
 				});
 			},
 			setUp: function(){
@@ -299,7 +294,7 @@ core.control.extend('grid', function(){
 				_private.insertable = _private.html.hasClass('insertable');
 				_private.searchable = _private.html.hasClass('searchable');
 				_private.sortable = _private.html.hasClass('sortable');
-				_private.paginateable = _private.html.hasClass('paginateable');
+				_private.paginatable = _private.html.hasClass('paginatable');
 				if(_private.insertable || _private.updateable){
 					control.setForm(_private.source.replace('/grid/', '/form/'));
 					_private.form.setGrid(control);
@@ -342,6 +337,7 @@ core.control.extend('grid', function(){
 			},
 			refresh: function(){
 				_private.html = $(_private.template);
+				_private.setUp();
 				_private.getRecords('browse');
 			}
 		};

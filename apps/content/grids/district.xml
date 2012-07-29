@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="district" title="districts.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+	<records>
+		<leftjoin>`province` ON (`district`.`province` = `province`.`ID`)</leftjoin>
+		<ordercolumn>`district`.`ID`</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<search parameters="1">`ID` = %d</search>
+		<filter field="`district`.`inTrash`" value="No"/>
+	</records>
+	<columns primarykey="`district`.`ID`">
+		<column name="ID" field="`district`.`ID`" title="id.label" class="grid1of10 column"></column>
+		<column name="title" field="`district`.`title`" title="district.label" class="grid4of10 column"></column>
+		<column name="province" field="`province`.`title`" title="province.label" class="grid3of10 column"></column>
+		<column name="creationTime" field="`district`.`creationTime`" title="creationTime.label" class="grid2of10 column"></column>
+	</columns>
+</grid>

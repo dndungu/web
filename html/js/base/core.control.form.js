@@ -48,9 +48,7 @@ core.control.extend('form', function(){
 				core.ajax.post(url, data, function(){
 					if(arguments[0].readyState != 4 || arguments[0].status != 200) return;
 					that.grid.refresh();
-					if(command == "update"){
-						that.html.slideUp();
-					}
+					that.html.slideUp();
 				});
 				event.preventDefault();
 			});

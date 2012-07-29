@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="order" title="order.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+	<records>
+		<leftjoin></leftjoin>
+		<ordercolumn>ID</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<search parameters="1">`ID` = %d</search>
+	</records>
+	<columns primarykey="ID">
+		<column name="ID" field="ID" title="ID.label" class="grid2of10 column"></column>
+		<column name="creator" field="creator" title="creator.label" class="grid2of10 column"></column>
+		<column name="beneficiary" field="beneficiary" title="beneficiary.label" class="grid2of10 column"></column>
+		<column name="amount" field="amount" title="amount.label" class="grid2of10 column"></column>
+		<column name="type" field="type" title="type.label" class="grid2of10 column"></column>
+		<column name="notes" field="notes" title="notes.label" class="grid2of10 column"></column>
+		<column name="MSISDN" field="MSISDN" title="MSISDN.label" class="grid2of10 column"></column>
+		<column name="sourceIP" field="sourceIP" title="sourceIP.label" class="grid2of10 column"></column>
+		<column name="approvalOne" field="approvalOne" title="approvalOne.label" class="grid2of10 column"></column>
+		<column name="approvalOneUser" field="approvalOneUser" title="approvalOneUser.label" class="grid2of10 column"></column>
+		<column name="approvalOneTime" field="approvalOneTime" title="approvalOneTime.label" class="grid2of10 column"></column>
+		<column name="approvalOneNotes" field="approvalOneNotes" title="approvalOneNotes.label" class="grid2of10 column"></column>
+		<column name="approvalOneAmount" field="approvalOneAmount" title="approvalOneAmount.label" class="grid2of10 column"></column>
+		<column name="approvalTwo" field="approvalTwo" title="approvalTwo.label" class="grid2of10 column"></column>
+		<column name="approvalTwoUser" field="approvalTwoUser" title="approvalTwoUser.label" class="grid2of10 column"></column>
+		<column name="approvalTwoTime" field="approvalTwoTime" title="approvalTwoTime.label" class="grid2of10 column"></column>
+		<column name="approvalTwoNotes" field="approvalTwoNotes" title="approvalTwoNotes.label" class="grid2of10 column"></column>
+		<column name="approvalTwoAmount" field="approvalTwoAmount" title="approvalTwoAmount.label" class="grid2of10 column"></column>
+		<column name="approvalThree" field="approvalThree" title="approvalThree.label" class="grid2of10 column"></column>
+		<column name="approvalThreeUser" field="approvalThreeUser" title="approvalThreeUser.label" class="grid2of10 column"></column>
+		<column name="approvalThreeTime" field="approvalThreeTime" title="approvalThreeTime.label" class="grid2of10 column"></column>
+		<column name="approvalThreeNotes" field="approvalThreeNotes" title="approvalThreeNotes.label" class="grid2of10 column"></column>
+		<column name="approvalThreeAmount" field="approvalThreeAmount" title="approvalThreeAmount.label" class="grid2of10 column"></column>
+		<column name="approvalFour" field="approvalFour" title="approvalFour.label" class="grid2of10 column"></column>
+		<column name="approvalFourUser" field="approvalFourUser" title="approvalFourUser.label" class="grid2of10 column"></column>
+		<column name="approvalFourTime" field="approvalFourTime" title="approvalFourTime.label" class="grid2of10 column"></column>
+		<column name="approvalFourNotes" field="approvalFourNotes" title="approvalFourNotes.label" class="grid2of10 column"></column>
+		<column name="approvalFourAmount" field="approvalFourAmount" title="approvalFourAmount.label" class="grid2of10 column"></column>
+		<column name="approvalFive" field="approvalFive" title="approvalFive.label" class="grid2of10 column"></column>
+		<column name="approvalFiveUser" field="approvalFiveUser" title="approvalFiveUser.label" class="grid2of10 column"></column>
+		<column name="approvalFiveTime" field="approvalFiveTime" title="approvalFiveTime.label" class="grid2of10 column"></column>
+		<column name="approvalFiveNotes" field="approvalFiveNotes" title="approvalFiveNotes.label" class="grid2of10 column"></column>
+		<column name="approvalFiveAmount" field="approvalFiveAmount" title="approvalFiveAmount.label" class="grid2of10 column"></column>
+		<column name="approvalSix" field="approvalSix" title="approvalSix.label" class="grid2of10 column"></column>
+		<column name="approvalSixUser" field="approvalSixUser" title="approvalSixUser.label" class="grid2of10 column"></column>
+		<column name="approvalSixTime" field="approvalSixTime" title="approvalSixTime.label" class="grid2of10 column"></column>
+		<column name="approvalSixNotes" field="approvalSixNotes" title="approvalSixNotes.label" class="grid2of10 column"></column>
+		<column name="approvalSixAmount" field="approvalSixAmount" title="approvalSixAmount.label" class="grid2of10 column"></column>
+		<column name="scheduleTime" field="scheduleTime" title="scheduleTime.label" class="grid2of10 column"></column>
+		<column name="creationTime" field="creationTime" title="creationTime.label" class="grid2of10 column"></column>
+	</columns>
+</grid>

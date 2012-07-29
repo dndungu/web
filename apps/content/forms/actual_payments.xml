@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="actual_payments" title="actual_payments.label" primarykey="trx_id">
+	<field name="id" type="bigint" length="20">
+		<element name="id" type="text" label="id.label" placeholder="id.placeholder"></element>
+	</field>
+	<field name="sys_date" type="timestamp">
+		<element name="sys_date" type="text" label="sys_date.label" placeholder="sys_date.placeholder"></element>
+	</field>
+	<field name="service_provider_id" type="int" length="11">
+		<element name="service_provider_id" type="select" label="service_provider_id.label" placeholder="service_provider_id.placeholder" lookup="lkpservice_provider" display="service_provider_des" value="service_provider_id"></element>
+	</field>
+	<field name="trx_date" type="datetime">
+		<element name="trx_date" type="text" label="trx_date.label" placeholder="trx_date.placeholder"></element>
+	</field>
+	<field name="trx_type" type="varchar" length="20">
+		<element name="trx_type" type="text" label="trx_type.label" placeholder="trx_type.placeholder"></element>
+	</field>
+	<field name="msisdn" type="varchar" length="20">
+		<element name="msisdn" type="text" label="msisdn.label" placeholder="msisdn.placeholder"></element>
+	</field>
+	<field name="withdrawn" type="double">
+		<element name="withdrawn" type="text" label="withdrawn.label" placeholder="withdrawn.placeholder"></element>
+	</field>
+	<field name="paid_in" type="double">
+		<element name="paid_in" type="text" label="paid_in.label" placeholder="paid_in.placeholder"></element>
+	</field>
+	<field name="charges" type="double">
+		<element name="charges" type="text" label="charges.label" placeholder="charges.placeholder"></element>
+	</field>
+	<field name="identity_name" type="varchar" length="50">
+		<element name="identity_name" type="text" label="identity_name.label" placeholder="identity_name.placeholder"></element>
+	</field>
+	<field name="details" type="text">
+		<element name="details" type="text" label="details.label" placeholder="details.placeholder"></element>
+	</field>
+	<field name="processed_status" type="int" length="11">
+		<element name="processed_status" type="text" label="processed_status.label" placeholder="processed_status.placeholder"></element>
+	</field>
+	<field name="status_desc" type="varchar" length="100">
+		<element name="status_desc" type="text" label="status_desc.label" placeholder="status_desc.placeholder"></element>
+	</field>
+	<field name="completion_date" type="datetime">
+		<element name="completion_date" type="text" label="completion_date.label" placeholder="completion_date.placeholder"></element>
+	</field>
+	<field name="trx_status_details" type="varchar" length="100">
+		<element name="trx_status_details" type="text" label="trx_status_details.label" placeholder="trx_status_details.placeholder"></element>
+	</field>
+	<field name="submit">
+		<element name="action" type="submit" value="action.submit"></element>
+	</field>
+	<field name="reset">
+		<element name="action" type="reset" value="action.reset"></element>
+	</field>
+</form>

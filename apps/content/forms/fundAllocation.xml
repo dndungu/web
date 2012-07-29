@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="fundAllocation" title="fundAllocation.label" primarykey="ID">
+	<field name="user" type="int" length="20">
+		<element name="user" type="text" label="user.label" placeholder="user.placeholder"></element>
+	</field>
+	<field name="debit" type="decimal" length="12" precision="2">
+		<element name="debit" type="text" label="debit.label" placeholder="debit.placeholder"></element>
+	</field>
+	<field name="credit" type="decimal" length="12" precision="2">
+		<element name="credit" type="text" label="credit.label" placeholder="credit.placeholder"></element>
+	</field>
+	<field name="budget" type="int" length="5">
+		<element name="budget" type="text" label="budget.label" placeholder="budget.placeholder"></element>
+	</field>
+	<field name="financier" type="int" length="5">
+		<element name="financier" type="text" label="financier.label" placeholder="financier.placeholder"></element>
+	</field>
+	<field name="sourceIP" type="varchar" length="15">
+		<element name="sourceIP" type="text" label="sourceIP.label" placeholder="sourceIP.placeholder"></element>
+	</field>
+	<field name="notes" type="tinytext">
+		<element name="notes" type="text" label="notes.label" placeholder="notes.placeholder"></element>
+	</field>
+	<field name="creationTime" type="int" length="10">
+		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
+	</field>
+	<field name="inTrash" type="enum" length="'Yes'" precision="'No'">
+		<element name="inTrash" type="text" label="inTrash.label" placeholder="inTrash.placeholder"></element>
+	</field>
+	<field name="submit">
+		<element name="action" type="submit" value="action.submit"></element>
+	</field>
+	<field name="reset">
+		<element name="action" type="reset" value="action.reset"></element>
+	</field>
+</form>

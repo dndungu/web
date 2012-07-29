@@ -15,20 +15,20 @@
 			<body id="login">
 				<div id="login-wrapper" class="png_bg">
 					<div id="login-top">
-						<h1><xsl:value-of select="/response/user/*/*/title"/></h1>
+						<h1><xsl:value-of select="/response/core/*/*/title"/></h1>
 					</div>
 					<div id="login-content">
-						<xsl:for-each select="/response/user/*/*/message">
+						<xsl:for-each select="/response/core/*/*/message">
 							<div class="notification information png_bg">
 								<div><xsl:value-of select="node-0"/></div>
 							</div>
 						</xsl:for-each>
-						<xsl:for-each select="/response/user/*/*/error">
+						<xsl:for-each select="/response/core/*/*/error">
 							<div class="notification error png_bg">
 								<div><xsl:value-of select="node-0"/></div>
 							</div>							
 						</xsl:for-each>
-						<xsl:value-of select="/response/user/*/*/body" disable-output-escaping="yes"/>
+						<xsl:value-of select="/response/core/*/*/content" disable-output-escaping="yes"/>
 						<ul class="authentication">
 							<xsl:for-each select="/response/core/Navigation/*/authentication/*/*">
 								<xsl:if test="uri != /response/core/SiteSetting/*/uri">

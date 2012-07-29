@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow name="actual_payments">
+	<select access="actual_payments.select.permission"></select>
+	<insert access="actual_payments.insert.permission"></insert>
+	<update access="actual_payments.update.permission" form="actual_payments"></update>
+	<delete access="actual_payments.delete.permission"></delete>
+</flow>

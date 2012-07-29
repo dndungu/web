@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="activity" title="activity.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+	<records>
+		<leftjoin></leftjoin>
+		<ordercolumn>ID</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<search parameters="1">`ID` = %d</search>
+	</records>
+	<columns primarykey="ID">
+		<column name="ID" field="ID" title="ID.label" class="grid2of10 column"></column>
+		<column name="user" field="user" title="user.label" class="grid2of10 column"></column>
+		<column name="activityType" field="activityType" title="activityType.label" class="grid2of10 column"></column>
+		<column name="description" field="description" title="description.label" class="grid2of10 column"></column>
+		<column name="resource" field="resource" title="resource.label" class="grid2of10 column"></column>
+		<column name="getData" field="getData" title="getData.label" class="grid2of10 column"></column>
+		<column name="postData" field="postData" title="postData.label" class="grid2of10 column"></column>
+		<column name="creationTime" field="creationTime" title="creationTime.label" class="grid2of10 column"></column>
+	</columns>
+</grid>

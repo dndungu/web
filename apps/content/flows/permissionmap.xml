@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow name="permissionmap">
+	<select access="permissionmap.select.permission"></select>
+	<insert access="permissionmap.insert.permission"></insert>
+	<update access="permissionmap.update.permission" form="permissionmap"></update>
+	<delete access="permissionmap.delete.permission"></delete>
+</flow>

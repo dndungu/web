@@ -79,9 +79,11 @@ class Grid {
 		if(!$this->records) return;
 		$settings = $this->sandbox->getHelper('site')->getSettings();
 		foreach($this->records as $key => $record){
-			foreach($record as $field => $value){
-				if(array_key_exists($field, array('creationTime', 'expiryTime'))){
-					$this->records[$key][$field] = date($settings['timeformat'], $record[$field]);
+			$recordKeys = array_keys($record);
+			$timeKeys = array('creationTime', 'expiryTime');
+			foreach($timeKeys as $timeKey){
+				if(in_array($timeKey, $recordKeys)){
+					$this->records[$key][$timeKey] = date($settings['timeformat'], $record[$timeKey]);
 				}
 			}
 		}

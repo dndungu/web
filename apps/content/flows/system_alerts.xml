@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow name="system_alerts">
+	<select access="system_alerts.select.permission"></select>
+	<insert access="system_alerts.insert.permission"></insert>
+	<update access="system_alerts.update.permission" form="system_alerts"></update>
+	<delete access="system_alerts.delete.permission"></delete>
+</flow>

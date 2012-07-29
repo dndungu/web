@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="district" title="district.label" primarykey="ID" storage="local">
+	<field name="title" type="varchar" length="64">
+		<element name="title" type="text" label="district.label" placeholder="district.placeholder">
+			<class>required</class>
+		</element>
+	</field>
+	<field name="province" type="int" length="5">
+		<element name="province" type="select" lookup="province" value="ID" display="title" label="province.label" placeholder="province.select.placeholder">
+			<class>required</class>
+		</element>
+	</field>
+	<field name="creationTime">
+		<element name="creationTime" type="hidden" label="creationTime.label" placeholder="creationTime.placeholder"></element>
+	</field>
+	<button name="action" type="submit" value="action.continue"><class>gridPrimaryButton</class></button>
+	<button name="cancel" type="button" value="action.dismiss"><class>gridSecondaryButton</class></button>
+</form>

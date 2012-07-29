@@ -98,7 +98,7 @@ class Cell {
 					}
 					break;
 				case 'select':
-					$html[] = "\t\t".'<div class="contentCell">'.$this->selectReference($field, $element).'</div>';
+					$html[] = "\t\t".'<div class="contentCell">'.$this->selectReference($element).'</div>';
 					break;
 				default:
 					$html[] = "\t\t".'<div class="contentCell">'.$this->record[0][$name].'</div>';
@@ -109,14 +109,15 @@ class Cell {
 		return join("\n", $html);
 	}
 	
-	private function selectReference(&$field, &$element){
+	private function selectReference(&$element){
 		$value = (string) $element->attributes()->value;
+		$name = (string) $element->attributes()->name;
 		$display = (string) $element->attributes()->display;
 		$select['table'] = (string) $element->attributes()->lookup;
 		$select['fields'][] = $display;
-		$select['constraints'][$value] = $this->record[0][$value];
+		$select['constraints'][$value] = $this->record[0][$name];
 		$rows = $this->getStorage()->select($select);
-		return $rows ? $rows[0][$display] : "ERROR";
+		return $rows ? $rows[0][$display] : "";
 	}
 	
 	private function selectOptions(&$field, &$element){

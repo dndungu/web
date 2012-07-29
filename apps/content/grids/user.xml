@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="user" title="user.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+	<records>
+		<leftjoin></leftjoin>
+		<ordercolumn>ID</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<search parameters="1">`ID` = %d</search>
+	</records>
+	<columns primarykey="ID">
+		<column name="login" field="login" title="login.label" class="grid2of10 column"></column>
+		<column name="firstname" field="firstname" title="firstname.label" class="grid2of10 column"></column>
+		<column name="lastname" field="lastname" title="lastname.label" class="grid2of10 column"></column>
+		<column name="expiryTime" field="expiryTime" title="expiryTime.label" class="grid2of10 column"></column>
+		<column name="creationTime" field="creationTime" title="creationTime.label" class="grid2of10 column"></column>
+	</columns>
+</grid>

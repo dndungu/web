@@ -49,14 +49,17 @@ class Controller {
 		$type = (string) $this->sandbox->getMeta('portal')->attributes()->type;
 		if($type == "html"){
 			$URI = $this->sandbox->getMeta('URI');
-			if($URI === "/signin") {
-				$address = "/";
-			}else{
-				$address = "/signin";
+			switch($URI){
+				case '/signin':
+					$this->sendHeader403();
+					exit;
+					break;
+				default:
+					$this->sandbox->getHelper('session')->write('destination', $URI);
+					header("Location: /signin");
+					exit;
+					break;
 			}
-			$this->sandbox->getHelper('session')->write('destination', $URI);
-			header("Location: $address");
-			exit;
 		} else {
 			$this->sendHeader403();
 		}

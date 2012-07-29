@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="navigation" title="navigation.label" primarykey="ID">
+	<field name="uri" type="varchar" length="128">
+		<element name="uri" type="text" label="uri.label" placeholder="uri.placeholder"></element>
+	</field>
+	<field name="label" type="varchar" length="128">
+		<element name="label" type="text" label="label.label" placeholder="label.placeholder"></element>
+	</field>
+	<field name="group" type="int" length="5">
+		<element name="group" type="text" label="group.label" placeholder="group.placeholder"></element>
+	</field>
+	<field name="parent" type="int" length="20">
+		<element name="parent" type="text" label="parent.label" placeholder="parent.placeholder"></element>
+	</field>
+	<field name="weight" type="int" length="5">
+		<element name="weight" type="text" label="weight.label" placeholder="weight.placeholder"></element>
+	</field>
+	<field name="creationTime" type="int" length="10">
+		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
+	</field>
+	<field name="inTrash" type="enum" length="'Yes'" precision="'No'">
+		<element name="inTrash" type="text" label="inTrash.label" placeholder="inTrash.placeholder"></element>
+	</field>
+	<field name="submit">
+		<element name="action" type="submit" value="action.submit"></element>
+	</field>
+	<field name="reset">
+		<element name="action" type="reset" value="action.reset"></element>
+	</field>
+</form>

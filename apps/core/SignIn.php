@@ -32,7 +32,7 @@ class SignIn extends \apps\Application {
 		try {
 			$form->setSource("$base/apps/core/forms/signin.xml");
 			$page['title'] = $translator->translate('signin');
-			$page['body'] = $form->asHTML();
+			$page['content'] = $form->asHTML();
 			return $page;
 		}catch(HelperException $e){
 			throw new \apps\ApplicationException($e->getMessage());

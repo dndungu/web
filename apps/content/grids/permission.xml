@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="permission" title="permission.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+	<records>
+		<leftjoin></leftjoin>
+		<ordercolumn>ID</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<search parameters="1">`ID` = %d</search>
+	</records>
+	<columns primarykey="ID">
+		<column name="ID" field="ID" title="ID.label" class="grid2of10 column"></column>
+		<column name="title" field="title" title="title.label" class="grid2of10 column"></column>
+		<column name="module" field="module" title="module.label" class="grid2of10 column"></column>
+		<column name="creationTime" field="creationTime" title="creationTime.label" class="grid2of10 column"></column>
+	</columns>
+</grid>

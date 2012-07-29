@@ -29,14 +29,43 @@ class Site {
 		$this->setHome($site['home']);
 		$settings = $this->findSettings();
 		$this->setSettings($settings);
+		$this->initTranslation();
+		$this->initLocalStorage();
+		$this->initParentStorage();
+	}
+	
+	protected function initTranslation(){
+		try {
+			$this->sandbox->initHelper('Translation');
+		}catch(\helpers\HelperException $e){
+			throw new BaseException($e->getMessage());
+		}
+	}
+	
+	protected function initLocalStorage(){
+		$settings = $this->sandbox->getMeta('settings');
+		$storage = new \helpers\Storage($settings);
+		$this->sandbox->setLocalStorage($storage);
+	}
+	
+	public function initParentStorage(){
+		$parent = $this->sandbox->getHelper('site')->getParent();
+		$rows = $this->sandbox->getGlobalStorage()->query(sprintf("SELECT * FROM `setting` WHERE `site` = %d", $parent));
+		if(!$rows) return;
+		foreach($rows as $row){
+			$setting[$row['key']] = $row['value'];
+		}
+		$storage = new \helpers\Storage($setting);
+		$this->sandbox->setParentStorage($storage);
 	}
 	
 	private function findSite(){
-		$query = sprintf("SELECT `site`, `parent`, `home` FROM `alias` LEFT JOIN `site` ON `alias`.`site` = `site`.`ID` WHERE `alias`.`title` = '%s' LIMIT 1", $this->getAlias());
+		$query = sprintf("SELECT `site`, `parent`, `home`, `source`, `title` FROM `alias` LEFT JOIN `site` ON `alias`.`site` = `site`.`ID` WHERE `alias`.`title` = '%s' LIMIT 1", $this->getAlias());
 		$sites = $this->sandbox->getGlobalStorage()->query($query);
 		if(is_null($sites)) {
 			return NULL;
 		} else {
+			$this->sandbox->setMeta('site', $sites[0]);
 			return $sites[0];
 		}
 	}
@@ -51,6 +80,7 @@ class Site {
 			foreach($rows as $row){
 				$settings[$row['key']] = $row['value'];
 			}
+			$this->sandbox->setMeta('settings', $settings);
 			return $settings;
 		}
 	}

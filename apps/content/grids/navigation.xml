@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="navigation" title="navigation.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+	<records>
+		<leftjoin></leftjoin>
+		<ordercolumn>ID</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<search parameters="1">`ID` = %d</search>
+	</records>
+	<columns primarykey="ID">
+		<column name="ID" field="ID" title="ID.label" class="grid2of10 column"></column>
+		<column name="uri" field="uri" title="uri.label" class="grid2of10 column"></column>
+		<column name="label" field="label" title="label.label" class="grid2of10 column"></column>
+		<column name="group" field="group" title="group.label" class="grid2of10 column"></column>
+		<column name="parent" field="parent" title="parent.label" class="grid2of10 column"></column>
+		<column name="weight" field="weight" title="weight.label" class="grid2of10 column"></column>
+		<column name="creationTime" field="creationTime" title="creationTime.label" class="grid2of10 column"></column>
+		<column name="inTrash" field="inTrash" title="inTrash.label" class="grid2of10 column"></column>
+	</columns>
+</grid>

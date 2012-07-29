@@ -12,6 +12,12 @@ class User {
 	
 	protected $email = NULL;
 	
+	protected $province = NULL;
+	
+	protected $district = NULL;
+	
+	protected $facility = NULL;
+	
 	protected $password = NULL;
 	
 	protected $creationTime = NULL;
@@ -42,15 +48,15 @@ class User {
 		$user['roles'][] = 'guest';
 		$user['email'] = NULL;
 		$user['isGuest'] = 'Yes';
-		$this->sandbox->getGlobalStorage()->insert($insert);
-		$user['ID'] = $this->sandbox->getGlobalStorage()->getInsertID();
+		$this->getStorage()->insert($insert);
+		$user['ID'] = $this->getStorage()->getInsertID();
 		$user['login'] = 'guest-'.$user['ID'];
 		$user['permissions'] = $this->getGuestPermissions();
 		return $user;
 	}
 	
 	protected function getGuestPermissions(){
-		$permissions = $this->sandbox->getGlobalStorage()->query("SELECT `title` FROM `permissionmap` LEFT JOIN `permission` ON (`permissionmap`.`permission` = `permission`.`ID`) WHERE `role` IN (SELECT `ID` FROM `role` WHERE `title` = 'guest')");
+		$permissions = $this->getStorage()->query("SELECT `title` FROM `permissionmap` LEFT JOIN `permission` ON (`permissionmap`.`permission` = `permission`.`ID`) WHERE `role` IN (SELECT `ID` FROM `role` WHERE `title` = 'guest')");
 		$this->permissions = array();
 		if($permissions){
 			foreach($permissions as $row){
@@ -112,6 +118,30 @@ class User {
 		return $this->password;
 	}
 	
+	public function setProvince($province) {
+		$this->province = $province;
+	}
+	
+	public function getProvince() {
+		return $this->province;
+	}
+
+	public function setDistrict($district) {
+		$this->district = $district;
+	}
+	
+	public function getDistrict() {
+		return $this->district;
+	}
+
+	public function setFacility($facility) {
+		$this->facility = $facility;
+	}
+	
+	public function getFacility() {
+		return $this->facility;
+	}	
+	
 	public function setCreationTime($creationTime) {
 		$this->creationTime = $creationTime;
 	}
@@ -146,15 +176,15 @@ class User {
 	public function signUp(){
 		try {
 			$user = $this->validateSignUp();
-			$user['login'] = $user['email'];
+			$user['login'] = $user['login'];
 			$user['creationTime'] = time();
 			$user['site'] = $this->sandbox->getHelper('site')->getID();
 			$insert['table'] = 'user';
 			$insert['content'] = $user;
-			$this->sandbox->getGlobalStorage()->insert($insert);
+			$this->getStorage()->insert($insert);
 			$user['isGuest'] = 'No';
 			$user['roles'] = NULL;
-			$user['ID'] = $this->sandbox->getGlobalStorage()->getInsertID();
+			$user['ID'] = $this->getStorage()->getInsertID();
 			$this->setUser($user);
 			$this->sandbox->getHelper('session')->write('user', $this->getUser());
 		} catch(HelperException $e){
@@ -171,7 +201,7 @@ class User {
 		if(!$user['email']) throw new HelperException($translator->translate('invalid.email'));
 		
 		$user['login'] = $input->postString('login');
-		if(!$user['login'] || !strlen($user['login'])) {$user['login'] = $$user['email'];}
+		if(!$user['login']) throw new HelperException($translator->translate('invalid.login'));
 		
 		if($this->userExists($user['email'])) throw new HelperException($user['email'].$translator->translate('email.inuse'));
 		$user['password'] = $input->postPassword('password');
@@ -187,20 +217,21 @@ class User {
 	public function userExists($login){
 		$site = $this->sandbox->getHelper('site')->getID();
 		$query = sprintf("SELECT COUNT(*) AS n FROM `user` WHERE `site` = %d AND `login` = '%s'", $site, $login);
-		$rows = $this->sandbox->getGlobalStorage()->query($query);
+		$rows = $this->getStorage()->query($query);
 		return $rows[0]['n'] > 0 ? true : false;
 	}
 	
 	public function signIn(){
 		try {
 			
-			$storage = $this->sandbox->getGlobalStorage();
+			$storage = $this->getStorage();
 			$translator = $this->sandbox->getHelper('translation');
 			
 			$input = $this->validateSignIn();
 			
 			$site = $this->sandbox->getHelper('site')->getID();
-			$loginQuery = sprintf("SELECT * FROM `user` WHERE `site` = %d AND `login` = '%s'", $site, $storage->sanitize($input['login']));
+			$login = $storage->sanitize($input['login']);
+			$loginQuery = sprintf("SELECT * FROM `user` WHERE `site` = %d AND (`login` = '%s' OR `email` = '%s')", $site, $login, $login);
 			$users = $storage->query($loginQuery);
 			
 			if(is_null($users)) throw new \apps\ApplicationException($translator->translate('incorrect.login'));
@@ -209,14 +240,14 @@ class User {
 				$user = $users[0];
 				$this->ownGuest($user['ID']);
 				$permissionQuery = sprintf("SELECT `title` FROM `permissionmap` LEFT JOIN `permission` ON (`permissionmap`.`permission` = `permission`.`ID`) WHERE `site` = %d AND `role` IN (SELECT `role` FROM `rolemap` WHERE `site` = %d AND `user` = %d)", $site, $site, $user['ID']);	
-				$permissions = $this->sandbox->getGlobalStorage()->query($permissionQuery);
+				$permissions = $this->getStorage()->query($permissionQuery);
 				$this->permissions = array();
 				if($permissions){
 					foreach($permissions as $row){
 						$this->permissions[] = $row['title'];
 					}
 				}
-				$roles = $this->sandbox->getGlobalStorage()->query(sprintf("SELECT `title` FROM `rolemap` LEFT JOIN `role` ON (`rolemap`.`role` = `role`.`ID`) WHERE `user` = %d AND `rolemap`.`site` = %d", $user['ID'], $site));
+				$roles = $this->getStorage()->query(sprintf("SELECT `title` FROM `rolemap` LEFT JOIN `role` ON (`rolemap`.`role` = `role`.`ID`) WHERE `user` = %d AND `rolemap`.`site` = %d", $user['ID'], $site));
 				$this->roles = array();
 				if($roles){
 					foreach($roles as $row){
@@ -257,7 +288,7 @@ class User {
 		$update['table'] = 'guest';
 		$update['content'] = array('user' => $ID);
 		$update['constraints'] = array('ID' => $this->getID());
-		$this->sandbox->getGlobalStorage()->update($update);
+		$this->getStorage()->update($update);
 		$this->isGuest('No');
 	}	
 	
@@ -271,7 +302,7 @@ class User {
 			$update['table'] = 'user';
 			$update['content'] = array('password' => $password);
 			$update['constraints'] = array('ID' => $this->getID());
-			$this->sandbox->getGlobalStorage()->update($update);
+			$this->getStorage()->update($update);
 			$this->sandbox->getHelper('session')->purge();
 		}catch(HelperException $e){
 			throw new \apps\ApplicationException($e->getMessage());
@@ -309,8 +340,8 @@ class User {
 		if(!$login) throw new \apps\ApplicationException($translator->translate('invalid.login'));
 		
 		$site = $this->sandbox->getHelper('site')->getID();
-		$loginQuery = sprintf("SELECT `ID`, `firstname` FROM `user` LEFT JOIN `contact` ON (`user`.`ID` = `contact`.`user`) WHERE `site` = %d AND `login` = '%s'", $site, $this->sandbox->getGlobalStorage()->sanitize($login));
-		$users = $this->sandbox->getGlobalStorage()->query($loginQuery);
+		$loginQuery = sprintf("SELECT `ID`, `firstname` FROM `user` LEFT JOIN `contact` ON (`user`.`ID` = `contact`.`user`) WHERE `site` = %d AND `login` = '%s'", $site, $this->getStorage()->sanitize($login));
+		$users = $this->getStorage()->query($loginQuery);
 		if(is_null($users)) throw new \apps\ApplicationException($translator->translate('incorrect.login'));
 		$user = $users[0];
 		
@@ -331,7 +362,7 @@ class User {
 				$insert['content']['user'] = $user['ID'];
 				$insert['content']['hash'] = $hash;
 				$insert['content']['creationTime'] = time();
-				$recoverID = $this->sandbox->getGlobalStorage()->insert($insert);
+				$recoverID = $this->getStorage()->insert($insert);
 				return $recoverID;
 			}else{
 				throw new \apps\ApplicationException($translator->translate('emailer.error'));
@@ -343,7 +374,7 @@ class User {
 	
 	public function recoverPassword(){
 		
-		$storage = $this->sandbox->getGlobalStorage();
+		$storage = $this->getStorage();
 		$translator = $this->sandbox->getHelper('translation');
 		$input = $this->sandbox->getHelper('input');
 		
@@ -366,9 +397,12 @@ class User {
 		$update['table'] = 'user';
 		$update['content'] = array('password' => $password);
 		$update['constraints'] = array('ID' => $this->getID());
-		$this->sandbox->getGlobalStorage()->update($update);
+		$this->getStorage()->update($update);
 	}
 	
+	private function getStorage(){
+		return $this->sandbox->getLocalStorage();
+	}
 	
 	public function randomString($size=8){
 		$chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz023456789";

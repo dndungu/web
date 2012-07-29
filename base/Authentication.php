@@ -21,7 +21,8 @@ class Authentication {
 	public function init($data){
 		$this->portal = $this->sandbox->getMeta('portal');
 		if(!$this->shieldPortal()) {
-			$message = "access to portal not allowed";
+			$message = "Access to portal not allowed";
+			error_log($message);
 			return $this->sandbox->fire('authentication.failed', $message);
 		}
 		if($this->shieldPortlets()){
@@ -29,7 +30,7 @@ class Authentication {
 			$this->sandbox->setMeta('portal', $this->portal);
 			$this->sandbox->fire('authentication.passed', $this->portal);
 		} else {
-			$message = "access to any portlets not allowed";
+			$message = "Access to any portlets not allowed";
 			$this->sandbox->fire('authentication.failed', $message);
 		}
 	}
@@ -85,9 +86,8 @@ class Authentication {
 		$portal[] = "</portal>";
 		$this->portal = simplexml_load_string(implode("\n", $portal));		
 	}
-	
+		
 	public function attestPermissions($permission){
-		error_log($permission." : ".json_encode($this->user->getPermissions()));
 		return in_array($permission, $this->user->getPermissions());
 	}
 		

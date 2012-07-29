@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="actual_payments" title="actual_payments.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+	<records>
+		<leftjoin></leftjoin>
+		<ordercolumn>trx_id</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<search parameters="1">`trx_id` = %d</search>
+	</records>
+	<columns primarykey="trx_id">
+		<column name="id" field="id" title="id.label" class="grid2of10 column"></column>
+		<column name="sys_date" field="sys_date" title="sys_date.label" class="grid2of10 column"></column>
+		<column name="service_provider_id" field="service_provider_id" title="service_provider_id.label" class="grid2of10 column"></column>
+		<column name="trx_id" field="trx_id" title="trx_id.label" class="grid2of10 column"></column>
+		<column name="trx_date" field="trx_date" title="trx_date.label" class="grid2of10 column"></column>
+		<column name="trx_type" field="trx_type" title="trx_type.label" class="grid2of10 column"></column>
+		<column name="msisdn" field="msisdn" title="msisdn.label" class="grid2of10 column"></column>
+		<column name="withdrawn" field="withdrawn" title="withdrawn.label" class="grid2of10 column"></column>
+		<column name="paid_in" field="paid_in" title="paid_in.label" class="grid2of10 column"></column>
+		<column name="charges" field="charges" title="charges.label" class="grid2of10 column"></column>
+		<column name="identity_name" field="identity_name" title="identity_name.label" class="grid2of10 column"></column>
+		<column name="details" field="details" title="details.label" class="grid2of10 column"></column>
+		<column name="processed_status" field="processed_status" title="processed_status.label" class="grid2of10 column"></column>
+		<column name="status_desc" field="status_desc" title="status_desc.label" class="grid2of10 column"></column>
+		<column name="completion_date" field="completion_date" title="completion_date.label" class="grid2of10 column"></column>
+		<column name="trx_status_details" field="trx_status_details" title="trx_status_details.label" class="grid2of10 column"></column>
+	</columns>
+</grid>

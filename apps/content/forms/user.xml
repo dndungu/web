@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="user" title="user.label" primarykey="ID">
+	<field name="login" type="varchar" length="255">
+		<element name="login" type="text" label="login.label" placeholder="login.placeholder"></element>
+	</field>
+	<field name="email" type="varchar" length="255">
+		<element name="email" type="text" label="email.label" placeholder="email.placeholder"></element>
+	</field>
+	<field name="firstname" type="varchar" length="128">
+		<element name="firstname" type="text" label="firstname.label" placeholder="firstname.placeholder"></element>
+	</field>
+	<field name="lastname" type="varchar" length="128">
+		<element name="lastname" type="text" label="lastname.label" placeholder="lastname.placeholder"></element>
+	</field>
+	<field name="province" type="int" length="5">
+		<element name="province" type="select" lookup="province" value="ID" display="title" label="province.label" placeholder="province.placeholder"></element>
+	</field>
+	<field name="district" type="int" length="5">
+		<element name="expiryTime" type="select" lookup="district" value="ID" display="title" label="district.label" placeholder="district.placeholder"></element>
+	</field>
+	<field name="expiryTime" type="int" length="10">
+		<element name="expiryTime" type="text" label="expiryTime.label" placeholder="expiryTime.placeholder"></element>
+	</field>
+	<button name="action" type="submit" value="action.continue"><class>gridPrimaryButton</class></button>
+	<button name="cancel" type="button" value="action.dismiss"><class>gridSecondaryButton</class></button>
+</form>

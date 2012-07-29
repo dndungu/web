@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="orderType" title="orderType.label" primarykey="ID">
+	<field name="title" type="varchar" length="64">
+		<element name="title" type="text" label="title.label" placeholder="title.placeholder"></element>
+	</field>
+	<field name="creationTime" type="int" length="10">
+		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
+	</field>
+	<field name="inTrash" type="enum" length="'Yes'" precision="'No'">
+		<element name="inTrash" type="text" label="inTrash.label" placeholder="inTrash.placeholder"></element>
+	</field>
+	<field name="submit">
+		<element name="action" type="submit" value="action.submit"></element>
+	</field>
+	<field name="reset">
+		<element name="action" type="reset" value="action.reset"></element>
+	</field>
+</form>

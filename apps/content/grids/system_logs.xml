@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="system_logs" title="system_logs.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+	<records>
+		<leftjoin></leftjoin>
+		<ordercolumn>id</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<search parameters="1">`id` = %d</search>
+	</records>
+	<columns primarykey="id">
+		<column name="id" field="id" title="id.label" class="grid2of10 column"></column>
+		<column name="date_time" field="date_time" title="date_time.label" class="grid2of10 column"></column>
+		<column name="severity" field="severity" title="severity.label" class="grid2of10 column"></column>
+		<column name="log_type" field="log_type" title="log_type.label" class="grid2of10 column"></column>
+		<column name="application_name" field="application_name" title="application_name.label" class="grid2of10 column"></column>
+		<column name="description" field="description" title="description.label" class="grid2of10 column"></column>
+		<column name="host_ipaddress" field="host_ipaddress" title="host_ipaddress.label" class="grid2of10 column"></column>
+	</columns>
+</grid>

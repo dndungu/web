@@ -35,7 +35,7 @@ class SignUp extends \apps\Application {
 			$form->setSource("$base/apps/core/forms/signup.xml");
 			$this->title = $translator->translate('signup');
 			$this->body = $form->asHTML();
-			return array('title' => $this->title, 'body' => $this->body);
+			return array('title' => $this->title, 'content' => $this->body);
 		}catch(\apps\ApplicationException $e){
 			throw new \apps\ApplicationException($e->getMessage());
 		}

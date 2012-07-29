@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="county" title="county.label" primarykey="ID" storage="local">
+	<field name="title" type="varchar" length="64">
+		<element name="title" type="text" label="county.label" placeholder="county.placeholder"></element>
+	</field>
+	<field name="creationTime">
+		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
+	</field>
+	<button name="action" type="submit" value="action.continue"><class>gridPrimaryButton</class></button>
+	<button name="cancel" type="button" value="action.dismiss"><class>gridSecondaryButton</class></button>	
+</form>

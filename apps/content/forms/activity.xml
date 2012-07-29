@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="activity" title="activity.label" primarykey="ID">
+	<field name="user" type="int" length="20">
+		<element name="user" type="text" label="user.label" placeholder="user.placeholder"></element>
+	</field>
+	<field name="activityType" type="varchar" length="32">
+		<element name="activityType" type="text" label="activityType.label" placeholder="activityType.placeholder"></element>
+	</field>
+	<field name="description" type="varchar" length="255">
+		<element name="description" type="text" label="description.label" placeholder="description.placeholder"></element>
+	</field>
+	<field name="resource" type="varchar" length="255">
+		<element name="resource" type="text" label="resource.label" placeholder="resource.placeholder"></element>
+	</field>
+	<field name="getData" type="text">
+		<element name="getData" type="text" label="getData.label" placeholder="getData.placeholder"></element>
+	</field>
+	<field name="postData" type="text">
+		<element name="postData" type="text" label="postData.label" placeholder="postData.placeholder"></element>
+	</field>
+	<field name="creationTime" type="int" length="10">
+		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
+	</field>
+	<field name="submit">
+		<element name="action" type="submit" value="action.submit"></element>
+	</field>
+	<field name="reset">
+		<element name="action" type="reset" value="action.reset"></element>
+	</field>
+</form>

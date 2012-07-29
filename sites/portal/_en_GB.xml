@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language code="GB" name="English UK">
+	
+	<label index="reports">Reports</label>
+	
+	<label index="permissions.label">Permissions</label>
+	<label index="approve.label">Approve</label>
+	<label index="reject.label">Reject</label>
+	<label index="authorize.label">Authorize</label>
+	<label index="unauthorize.label">Unauthorize</label>
+
+    <label index="uploaded">uploaded</label>
+    <label index="photo">photo</label>
+    <label index="photos">photos</label>
+    <label index="video">video</label>
+    <label index="videos">videos</label>
+    <label index="home">Home</label>
+    
+    <label index="myaccount">My Account</label>
+    <label index="accountcreated">Your account at TB Care</label>
+    
+    
+    <label index="medium.label">How do you wish to donate</label>
+    
+    <label index="role.label">Role</label>
+    <label index="role.placeholder">Enter role name</label>
+    
+
+    <label index="userautocreate.mail">
+		Dear {{FirstName}},
+		
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        
+        Praesent dolor felis, pulvinar adipiscing volutpat et, blandit et magna.
+        
+        Suspendisse eleifend, ligula ac elementum egestas, ligula quam sagittis nunc, eu consequat sem est eu lectus. 
+        
+        Cras condimentum, nibh eu tincidunt adipiscing, odio purus convallis ante, a placerat dolor sapien vitae massa. 
+        
+        Proin dapibus odio eu est tristique porta.
+        		
+		The TB Care Team        
+    </label>
+    <label index="summary">Dashboard</label>
+    <label index="overview">Overview</label>
+    <label index="users">Users</label>
+    <label index="security">Access Rights</label>
+    <label index="users.administrators">Administrators</label>
+    <label index="users.editors">Editors</label>
+    <label index="users.patients">Patients</label>
+    <label index="users.readers">Readers</label>
+    <label index="users.accounts">Users</label>
+    <label index="users.roles">Roles</label>
+    <label index="contacts">Contacts</label>
+    <label index="funds">Funds</label>
+    <label index="funds.overview">Funds</label>
+    <label index="funds.withdraw">WIthdraw</label>
+    <label index="funds.history">History</label>
+    <label index="funds.bank.accounts">Bank Accounts</label>
+    <label index="content">Content</label>
+    <label index="content.posts">Content</label>
+    <label index="content.pages">Pages</label>
+    <label index="content.comments">Comments</label>
+    <label index="content.navigation">Navigation</label>
+    <label index="reconciliation">Reconciliation</label>
+    <label index="statistics">Statistics</label>
+    <label index="statistics.donations">Donations</label>
+    <label index="statistics.visitors">Visitors</label>
+    <label index="statistics.discussion">Discussion</label>
+    <label index="configuration">Configuration</label>
+    <label index="configuration.general">General</label>
+	<label index="order.label">Make Payments</label>
+	<label index="order.approve.label">Approve Payments</label>
+	<label index="order.authorise.label">Authorise Payments</label>
+	<label index="beneficiary.placeholder">Enter beneficiary's name</label>
+	<label index="beneficiary.label">Beneficiary</label>    
+    <label index="payments">Payments</label>
+    <label index="payment.orders">Payment Orders</label>
+    <label index="payment.pending">Pending</label>
+    <label index="payment.completed">Completed</label>
+    <label index="payment.failed">Failed</label>
+    <label index="payments.reversed">Reversed</label>
+    <label index="finance">Finance</label>
+    <label index="finance.budget.label">Budget line</label>
+    <label index="finance.budget.placeholder">Budget line name</label>
+    <label index="finance.budget">Budget Lines</label>
+    <label index="budget.select.placeholder">Select Budget Line</label>
+    <label index="budget_line_id.label">Budgetline ID</label>
+    <label index="permission.orders">Browse Payment Orders</label>
+    <label index="permission.orders.insert">Make Payments</label>
+    <label index="permission.orders.update">Edit Payment Request</label>
+    <label index="permission.orders.delete">Delete Payments</label>
+    <label index="finance.funds_allocation">Allocate Funds</label>
+    <label index="amount.label">Amount</label>
+    <label index="amount.placeholder">0.00</label>
+    <label index="financier.select.placeholder">Select Financier</label>
+    <label index="financiers.label">Financiers</label>
+    <label index="financier_code.label">Abbreviation</label>
+    <label index="financier_code.placeholder">Enter abbreviation</label>
+    <label index="financier.label">Financier</label>
+    <label index="financier_name.label">Financier</label>
+    <label index="financier_name.placeholder">Enter financier name</label>
+    <label index="select.financier_name.placeholder">Select financier</label>
+    <label index="creationTime.label">Time Created</label>
+    <label index="name.label">Name</label>
+    <label index="balance.label">Balance</label>
+	<label index="permission.system.access">Access System</label>
+	<label index="permission.finance.section">Finance Section</label>
+	<label index="permission.budget">Browse budgets</label>
+	<label index="permission.funds_allocation">Browse fund allocations</label>
+	<label index="permission.financier">Browse financiers</label>
+	<label index="permission.payments.section">Payment Section</label>
+	<label index="permission.payments.completed">Browse completed payments</label>
+	<label index="permission.payments.pending">Browse pending payments</label>
+	<label index="permission.payments.failed">Browse failed payments</label>
+	<label index="permission.payments.reversed">Browse reversed payments</label>
+	<label index="permission.reconciliation.section">Reconciliation Section</label>
+	<label index="reconciliation.gateway">Gateway Records</label>
+	<label index="reconciliation.mpesa">Mpesa Records</label>
+	<label index="reconciliation.gatewaynotmpesa">In Gateway Only</label>
+	<label index="reconciliation.mpesanotgateway">In Mpesa Only</label>
+	
+	<label index="permission.configuration.section">Configuration Section</label>
+	<label index="permission.roles">Browse roles</label>
+	<label index="permission.roles.insert">Browse roles</label>
+	<label index="permission.roles.update">Edit roles</label>
+	<label index="permission.roles.delete">Delete roles</label>
+	<label index="permission.users.section">Permissions Section</label>
+	<label index="permission.users.section">Browse users</label>
+	<label index="permission.users.insert">Create users</label>
+	<label index="permission.users.update">Edit users</label>
+	<label index="permission.users.delete">Delete users</label>
+	<label index="administrator.label">Administrator</label>
+	<label index="permission.budget.insert">Create budget line</label>
+	<label index="permission.budget.update">Edit budget line</label>
+	<label index="permission.budget.delete">Delete budget line</label>
+	<label index="permission.funds_allocation.insert">Create funds allocation</label>
+	<label index="permission.funds_allocation.update">Edit funds allocation</label>
+	<label index="permission.funds_allocation.delete">Delete funds allocation</label>
+	<label index="permission.financier.insert">Create financiers</label>
+	<label index="permission.financier.update">Edit financiers</label>
+	<label index="permission.financier.delete">Delete financiers</label>
+	<label index="maintenance.label">Maintenance</label>
+	<label index="district.select.placeholder">Select District</label>
+	<label index="district.placeholder">Enter district name</label>
+	<label index="district.label">District</label>
+	<label index="districts.label">Districts</label>
+	<label index="permission.maintenance.section">Maintenance Section</label>
+	<label index="permission.maintenance.district">Browse Districts</label>
+	<label index="permission.maintenance.district.insert">Create Districts</label>
+	<label index="permission.maintenance.district.update">Edit Districts</label>
+	<label index="permission.maintenance.district.delete">Delete Districts</label>
+	<label index="province.select.placeholder">Select Province</label>
+	<label index="province.placeholder">Enter province name</label>
+	<label index="province.label">Province</label>
+	<label index="provinces.label">Provinces</label>
+	<label index="permission.maintenance.province">Browse Provinces</label>
+	<label index="permission.maintenance.province.insert">Create Provinces</label>
+	<label index="permission.maintenance.province.update">Edit Provinces</label>
+	<label index="permission.maintenance.province.delete">Delete Provinces</label>
+	<label index="facility.select.placeholder">Select Facility</label>
+	<label index="facility.placeholder">Enter facility name</label>
+	<label index="facility.label">Facility</label>
+	<label index="facilities.label">Facilities</label>
+	<label index="permission.maintenance.facility">Browse Facilities</label>
+	<label index="permission.maintenance.facility.insert">Create Facilities</label>
+	<label index="permission.maintenance.facility.update">Edit Facilities</label>
+	<label index="permission.maintenance.facility.delete">Delete Facilities</label>
+	<label index="permission.order.approve">Approve Approve</label>
+	<label index="permission.order.authorize">Authorize Payments</label>
+	<label index="order_type.placeholder">Enter payment type</label>
+	<label index="order_type.label">Payment Type</label>
+	<label index="order_types.label">Payment Types</label>
+	<label index="permission.maintenance.order_type">Browse Payment Types</label>
+	<label index="permission.maintenance.order_type.insert">Create Payment Types</label>
+	<label index="permission.maintenance.order_type.update">Edit Payment Types</label>
+	<label index="permission.maintenance.order_type.delete">Delete Payment Types</label>		
+	<label index="accountant.label">Accountant</label>
+	<label index="auditor.label">Auditor</label>
+</language>

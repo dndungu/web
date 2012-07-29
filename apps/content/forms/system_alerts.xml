@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="system_alerts" title="system_alerts.label" primarykey="id">
+	<field name="alert_time" type="timestamp">
+		<element name="alert_time" type="text" label="alert_time.label" placeholder="alert_time.placeholder"></element>
+	</field>
+	<field name="alert_type" type="varchar" length="20">
+		<element name="alert_type" type="text" label="alert_type.label" placeholder="alert_type.placeholder"></element>
+	</field>
+	<field name="recipient" type="varchar" length="20">
+		<element name="recipient" type="text" label="recipient.label" placeholder="recipient.placeholder"></element>
+	</field>
+	<field name="message" type="text">
+		<element name="message" type="text" label="message.label" placeholder="message.placeholder"></element>
+	</field>
+	<field name="date_sent" type="datetime">
+		<element name="date_sent" type="text" label="date_sent.label" placeholder="date_sent.placeholder"></element>
+	</field>
+	<field name="submit">
+		<element name="action" type="submit" value="action.submit"></element>
+	</field>
+	<field name="reset">
+		<element name="action" type="reset" value="action.reset"></element>
+	</field>
+</form>

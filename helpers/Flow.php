@@ -11,9 +11,7 @@ class Flow {
 	private $user = NULL;
 	
 	private $updateForm = NULL;
-	
-	private $expandView = NULL;
-	
+		
 	private $insertForm = NULL;
 	
 	public function __construct(&$sandbox){
@@ -28,11 +26,7 @@ class Flow {
 	public function getInsertForm(){
 		return (string) $this->insertForm;
 	}
-	
-	public function getExpandView(){
-		return (string) $this->expandView;
-	}
-	
+		
 	public function setSource($filename){
 		if(!is_readable($filename)) {
 			throw new HelperException("'$filename' is not readable");
@@ -61,7 +55,6 @@ class Flow {
 		foreach($this->definition->update as $update){
 			if($this->attestPermissions((string) $update->attributes()->access)) {
 				$this->updateForm = (string) $update->attributes()->form;
-				$this->expandView = (string) $update->attributes()->view;
 				return true;
 			}
 		}

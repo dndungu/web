@@ -10,7 +10,7 @@ class GridQuery {
 		
 	private $offset = 0;
 	
-	private $limit = 25;
+	private $limit = 15;
 	
 	private $order = array('column' => NULL, 'direction' => NULL);
 	
@@ -74,7 +74,8 @@ class GridQuery {
 		$columns[] = (substr_count($key, '.') || substr_count($key, '`') ? $key : "`$key`") . " AS `primarykey`";
 		foreach($this->definition->columns->column as $column){
 			$field = (string) $column->attributes()->field;
-			$columns[] = substr_count($field, '`') ? "$field" : "`$field`";
+			$name = (string) $column->attributes()->name;
+			$columns[] = (substr_count($field, '`') ? "$field" : "`$field`") . " AS `$name`";
 		}
 		$fields = isset($columns) ? join(", ", $columns) : "*";
 		return sprintf("SELECT %s", $fields);
@@ -91,14 +92,23 @@ class GridQuery {
 			$field= (string) $filter->attributes()->field;
 			$value = (string) $filter->attributes()->value;
 			$name = substr_count($field, '.') || substr_count($field, '`') ? $field : "`$field`";
-			if(in_array($value, array('{user}', '{site}'))){
+			if(in_array($value, array('{user}', '{site}', '{province}', '{district}', '{facility}'))){
 				switch($value){
 					case "{user}":
 						$query[] = sprintf("`user` = %d", $this->sandbox->getHelper('user')->getID());
 						break;
-					case "site":
+					case "{site}":
 						$query[] = sprintf("`site` = %d", $this->sandbox->getHelper('site')->getID());
 						break;
+					case "{province}":
+						$query[] = sprintf("`site` = %d", $this->sandbox->getHelper('user')->getProvince());
+						break;
+					case "{district}":
+						$query[] = sprintf("`site` = %d", $this->sandbox->getHelper('user')->getDistrict());
+						break;
+					case "{facility}":
+						$query[] = sprintf("`site` = %d", $this->sandbox->getHelper('user')->getFacility());
+						break;						
 				}
 			}else{
 				if(is_numeric($value)){
@@ -122,14 +132,12 @@ class GridQuery {
 	}
 	
 	protected function buildOrderBy(){
-		$this->order['column'] = (string) $this->definition->records->ordercolumn;
-		$this->order['direction'] = (string) $this->definition->records->orderdirection;
-		$direction = array_key_exists('orderdirection', $_POST) ? trim(strtoupper($_POST['orderdirection'])) : NULL;
-		$this->order['direction'] = in_array($direction, array('DESC', 'ASC')) ? $direction : $this->order['direction'];
+		$ordercolumn = $this->sandbox->getHelper('input')->postString('ordercolumn');
+		$orderdirection = $this->sandbox->getHelper('input')->postString('orderdirection');
+		$this->order['column'] = $ordercolumn ? $ordercolumn : (string) $this->definition->records->ordercolumn;
+		$this->order['direction'] = $orderdirection ? $orderdirection : (string) $this->definition->records->orderdirection;
 		$table = (string) $this->definition->attributes()->name;
 		$columns = $this->getStorage()->getColumns($table);
-		$column = array_key_exists('ordercolumn', $_POST) ? trim($_POST['ordercolumn']) : NULL;
-		$this->order['column'] = array_key_exists($column, $columns) ? $column : $this->order['column'];
 		$orderColumn = substr_count($this->order['column'], '.') || substr_count($this->order['column'], '`') ? $this->order['column'] : '`'.$this->order['column'].'`';
 		return sprintf("ORDER BY %s %s", $orderColumn, $this->order['direction']);
 	}

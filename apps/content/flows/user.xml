@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow name="user">
+	<select access="user.select.permission"></select>
+	<insert access="user.insert.permission"></insert>
+	<update access="user.update.permission" form="user"></update>
+	<delete access="user.delete.permission"></delete>
+</flow>

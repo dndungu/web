@@ -28,7 +28,7 @@ class ResetPassword extends \apps\Application {
 		$base = $this->sandbox->getMeta('base');
 		$form->setSource("$base/apps/core/forms/resetpassword.xml");
 		$page['title'] = $translator->translate('resetpassword');
-		$page['body'] = $form->asHTML();
+		$page['content'] = $form->asHTML();
 		return $page;
 	}	
 	

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="system_logs" title="system_logs.label" primarykey="id">
+	<field name="date_time" type="timestamp">
+		<element name="date_time" type="text" label="date_time.label" placeholder="date_time.placeholder"></element>
+	</field>
+	<field name="severity" type="int" length="11">
+		<element name="severity" type="text" label="severity.label" placeholder="severity.placeholder"></element>
+	</field>
+	<field name="log_type" type="varchar" length="30">
+		<element name="log_type" type="text" label="log_type.label" placeholder="log_type.placeholder"></element>
+	</field>
+	<field name="application_name" type="varchar" length="50">
+		<element name="application_name" type="text" label="application_name.label" placeholder="application_name.placeholder"></element>
+	</field>
+	<field name="description" type="text">
+		<element name="description" type="text" label="description.label" placeholder="description.placeholder"></element>
+	</field>
+	<field name="host_ipaddress" type="varchar" length="20">
+		<element name="host_ipaddress" type="text" label="host_ipaddress.label" placeholder="host_ipaddress.placeholder"></element>
+	</field>
+	<field name="submit">
+		<element name="action" type="submit" value="action.submit"></element>
+	</field>
+	<field name="reset">
+		<element name="action" type="reset" value="action.reset"></element>
+	</field>
+</form>

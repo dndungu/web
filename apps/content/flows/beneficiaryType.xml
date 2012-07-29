@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow name="beneficiaryType">
+	<select access="beneficiaryType.select.permission"></select>
+	<insert access="beneficiaryType.insert.permission"></insert>
+	<update access="beneficiaryType.update.permission" form="beneficiaryType"></update>
+	<delete access="beneficiaryType.delete.permission"></delete>
+</flow>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="settings" title="settings.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+	<records>
+		<leftjoin></leftjoin>
+		<ordercolumn>service_provider_id</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<search parameters="1">`service_provider_id` = %d</search>
+	</records>
+	<columns primarykey="service_provider_id">
+		<column name="service_provider_id" field="service_provider_id" title="service_provider_id.label" class="grid2of10 column"></column>
+		<column name="service_provider" field="service_provider" title="service_provider.label" class="grid2of10 column"></column>
+		<column name="business_number" field="business_number" title="business_number.label" class="grid2of10 column"></column>
+		<column name="first_operator" field="first_operator" title="first_operator.label" class="grid2of10 column"></column>
+		<column name="first_operator_pwd" field="first_operator_pwd" title="first_operator_pwd.label" class="grid2of10 column"></column>
+		<column name="second_operator" field="second_operator" title="second_operator.label" class="grid2of10 column"></column>
+		<column name="second_operator_pwd" field="second_operator_pwd" title="second_operator_pwd.label" class="grid2of10 column"></column>
+		<column name="organization_name" field="organization_name" title="organization_name.label" class="grid2of10 column"></column>
+		<column name="processing_mode" field="processing_mode" title="processing_mode.label" class="grid2of10 column"></column>
+		<column name="default_trx_type" field="default_trx_type" title="default_trx_type.label" class="grid2of10 column"></column>
+		<column name="solid_balance" field="solid_balance" title="solid_balance.label" class="grid2of10 column"></column>
+		<column name="utility_balance" field="utility_balance" title="utility_balance.label" class="grid2of10 column"></column>
+		<column name="desc" field="desc" title="desc.label" class="grid2of10 column"></column>
+		<column name="service_url" field="service_url" title="service_url.label" class="grid2of10 column"></column>
+	</columns>
+</grid>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="financier" title="financier.label" primarykey="ID">
+	<field name="financier_code" type="varchar" length="32">
+		<element name="financier_code" type="text" label="financier_code.label" placeholder="financier_code.placeholder"></element>
+	</field>
+	<field name="financier_name" type="varchar" length="255">
+		<element name="financier_name" type="text" label="financier_name.label" placeholder="financier_name.placeholder"></element>
+	</field>
+	<field name="creationTime" type="int" length="10">
+		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
+	</field>
+	<field name="inTrash" type="enum" length="'Yes'" precision="'No'">
+		<element name="inTrash" type="text" label="inTrash.label" placeholder="inTrash.placeholder"></element>
+	</field>
+	<field name="submit">
+		<element name="action" type="submit" value="action.submit"></element>
+	</field>
+	<field name="reset">
+		<element name="action" type="reset" value="action.reset"></element>
+	</field>
+</form>

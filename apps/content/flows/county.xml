@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow name="county">
+	<select access="county.select.permission"></select>
+	<insert access="county.insert.permission"></insert>
+	<update access="county.update.permission" form="county"></update>
+	<delete access="county.delete.permission"></delete>
+</flow>

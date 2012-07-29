@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="payment" title="payment.label" primarykey="ID">
+	<field name="user" type="int" length="20">
+		<element name="user" type="text" label="user.label" placeholder="user.placeholder"></element>
+	</field>
+	<field name="budget_id" type="int" length="5">
+		<element name="budget_id" type="select" label="budget_id.label" placeholder="budget_id.placeholder" lookup="lkpbudget" display="budget_des" value="budget_id"></element>
+	</field>
+	<field name="order_type" type="int" length="5">
+		<element name="order_type" type="text" label="order_type.label" placeholder="order_type.placeholder"></element>
+	</field>
+	<field name="debit_amount" type="decimal" length="7" precision="2">
+		<element name="debit_amount" type="text" label="debit_amount.label" placeholder="debit_amount.placeholder"></element>
+	</field>
+	<field name="debit_commission" type="decimal" length="7" precision="2">
+		<element name="debit_commission" type="text" label="debit_commission.label" placeholder="debit_commission.placeholder"></element>
+	</field>
+	<field name="credit_amount" type="decimal" length="7" precision="2">
+		<element name="credit_amount" type="text" label="credit_amount.label" placeholder="credit_amount.placeholder"></element>
+	</field>
+	<field name="credit_commission" type="decimal" length="7" precision="2">
+		<element name="credit_commission" type="text" label="credit_commission.label" placeholder="credit_commission.placeholder"></element>
+	</field>
+	<field name="MSISDN" type="varchar" length="16">
+		<element name="MSISDN" type="text" label="MSISDN.label" placeholder="MSISDN.placeholder"></element>
+	</field>
+	<field name="trx_type" type="enum" length="'Pay-in'" precision="'Pay-out'">
+		<element name="trx_type" type="text" label="trx_type.label" placeholder="trx_type.placeholder"></element>
+	</field>
+	<field name="trx_status" type="enum" length="'Pending'" precision="'Validated'">
+		<element name="trx_status" type="text" label="trx_status.label" placeholder="trx_status.placeholder"></element>
+	</field>
+	<field name="trx_id" type="varchar" length="16">
+		<element name="trx_id" type="select" label="trx_id.label" placeholder="trx_id.placeholder" lookup="lkptrx" display="trx_des" value="trx_id"></element>
+	</field>
+	<field name="trx_date" type="datetime">
+		<element name="trx_date" type="text" label="trx_date.label" placeholder="trx_date.placeholder"></element>
+	</field>
+	<field name="trx_desc" type="varchar" length="255">
+		<element name="trx_desc" type="text" label="trx_desc.label" placeholder="trx_desc.placeholder"></element>
+	</field>
+	<field name="trx_status_details" type="varchar" length="255">
+		<element name="trx_status_details" type="text" label="trx_status_details.label" placeholder="trx_status_details.placeholder"></element>
+	</field>
+	<field name="batch_file_path" type="varchar" length="255">
+		<element name="batch_file_path" type="text" label="batch_file_path.label" placeholder="batch_file_path.placeholder"></element>
+	</field>
+	<field name="recipient_name" type="varchar" length="255">
+		<element name="recipient_name" type="text" label="recipient_name.label" placeholder="recipient_name.placeholder"></element>
+	</field>
+	<field name="parent_id" type="int" length="50">
+		<element name="parent_id" type="select" label="parent_id.label" placeholder="parent_id.placeholder" lookup="lkpparent" display="parent_des" value="parent_id"></element>
+	</field>
+	<field name="proposed_recipient_name" type="varchar" length="255">
+		<element name="proposed_recipient_name" type="text" label="proposed_recipient_name.label" placeholder="proposed_recipient_name.placeholder"></element>
+	</field>
+	<field name="proposed_schedule_time" type="datetime">
+		<element name="proposed_schedule_time" type="text" label="proposed_schedule_time.label" placeholder="proposed_schedule_time.placeholder"></element>
+	</field>
+	<field name="trx_schedule_time" type="datetime">
+		<element name="trx_schedule_time" type="text" label="trx_schedule_time.label" placeholder="trx_schedule_time.placeholder"></element>
+	</field>
+	<field name="batch_id" type="varchar" length="32">
+		<element name="batch_id" type="select" label="batch_id.label" placeholder="batch_id.placeholder" lookup="lkpbatch" display="batch_des" value="batch_id"></element>
+	</field>
+	<field name="processing_mode" type="int" length="1">
+		<element name="processing_mode" type="text" label="processing_mode.label" placeholder="processing_mode.placeholder"></element>
+	</field>
+	<field name="processed_status" type="int" length="2">
+		<element name="processed_status" type="text" label="processed_status.label" placeholder="processed_status.placeholder"></element>
+	</field>
+	<field name="service_provider_id" type="int" length="5">
+		<element name="service_provider_id" type="select" label="service_provider_id.label" placeholder="service_provider_id.placeholder" lookup="lkpservice_provider" display="service_provider_des" value="service_provider_id"></element>
+	</field>
+	<field name="completion_date" type="datetime">
+		<element name="completion_date" type="text" label="completion_date.label" placeholder="completion_date.placeholder"></element>
+	</field>
+	<field name="fail_count" type="int" length="5">
+		<element name="fail_count" type="text" label="fail_count.label" placeholder="fail_count.placeholder"></element>
+	</field>
+	<field name="status" type="enum" length="'Incoming'" precision="'Approved'">
+		<element name="status" type="text" label="status.label" placeholder="status.placeholder"></element>
+	</field>
+	<field name="notes" type="tinytext">
+		<element name="notes" type="text" label="notes.label" placeholder="notes.placeholder"></element>
+	</field>
+	<field name="approvalTime" type="int" length="10">
+		<element name="approvalTime" type="text" label="approvalTime.label" placeholder="approvalTime.placeholder"></element>
+	</field>
+	<field name="approvalUser" type="int" length="20">
+		<element name="approvalUser" type="text" label="approvalUser.label" placeholder="approvalUser.placeholder"></element>
+	</field>
+	<field name="approvalNotes" type="tinytext">
+		<element name="approvalNotes" type="text" label="approvalNotes.label" placeholder="approvalNotes.placeholder"></element>
+	</field>
+	<field name="authorisationTime" type="int" length="10">
+		<element name="authorisationTime" type="text" label="authorisationTime.label" placeholder="authorisationTime.placeholder"></element>
+	</field>
+	<field name="authorisationUser" type="int" length="20">
+		<element name="authorisationUser" type="text" label="authorisationUser.label" placeholder="authorisationUser.placeholder"></element>
+	</field>
+	<field name="authorisationNotes" type="tinytext">
+		<element name="authorisationNotes" type="text" label="authorisationNotes.label" placeholder="authorisationNotes.placeholder"></element>
+	</field>
+	<field name="sourceIP" type="varchar" length="15">
+		<element name="sourceIP" type="text" label="sourceIP.label" placeholder="sourceIP.placeholder"></element>
+	</field>
+	<field name="creationTime" type="int" length="10">
+		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
+	</field>
+	<field name="submit">
+		<element name="action" type="submit" value="action.submit"></element>
+	</field>
+	<field name="reset">
+		<element name="action" type="reset" value="action.reset"></element>
+	</field>
+</form>

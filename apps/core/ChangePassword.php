@@ -52,7 +52,7 @@ class ChangePassword extends \apps\Application {
 		$form->setSource("$base/apps/core/forms/signin.xml");
 		$form->setAction('/signin');
 		$page['title'] = $translator->translate('signin');
-		$page['body'] = $form->asHTML();
+		$page['content'] = $form->asHTML();
 		return $page;
 	}	
 	

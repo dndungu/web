@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow name="settings">
+	<select access="settings.select.permission"></select>
+	<insert access="settings.insert.permission"></insert>
+	<update access="settings.update.permission" form="settings"></update>
+	<delete access="settings.delete.permission"></delete>
+</flow>

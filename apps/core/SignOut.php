@@ -1,6 +1,6 @@
 <?php
 
-namespace apps\user;
+namespace apps\core;
 
 class SignOut extends \apps\Application {
 	
@@ -11,7 +11,7 @@ class SignOut extends \apps\Application {
 			$translator = $this->sandbox->getHelper('translation');
 			$form = $this->sandbox->getHelper('form');
 			$base = $this->sandbox->getMeta('base');
-			$form->setSource("$base/apps/user/forms/signin.xml");
+			$form->setSource("$base/apps/core/forms/signin.xml");
 			$form->setAction('/signin');
 			$page['title'] = $translator->translate('signin');
 			$page['body'] = $form->asHTML();

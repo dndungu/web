@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="fundAllocation" title="fundAllocation.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+	<records>
+		<leftjoin></leftjoin>
+		<ordercolumn>ID</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<search parameters="1">`ID` = %d</search>
+	</records>
+	<columns primarykey="ID">
+		<column name="ID" field="ID" title="ID.label" class="grid2of10 column"></column>
+		<column name="user" field="user" title="user.label" class="grid2of10 column"></column>
+		<column name="debit" field="debit" title="debit.label" class="grid2of10 column"></column>
+		<column name="credit" field="credit" title="credit.label" class="grid2of10 column"></column>
+		<column name="budget" field="budget" title="budget.label" class="grid2of10 column"></column>
+		<column name="financier" field="financier" title="financier.label" class="grid2of10 column"></column>
+		<column name="sourceIP" field="sourceIP" title="sourceIP.label" class="grid2of10 column"></column>
+		<column name="notes" field="notes" title="notes.label" class="grid2of10 column"></column>
+		<column name="creationTime" field="creationTime" title="creationTime.label" class="grid2of10 column"></column>
+		<column name="inTrash" field="inTrash" title="inTrash.label" class="grid2of10 column"></column>
+	</columns>
+</grid>

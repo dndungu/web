@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow name="payment">
+	<select access="payment.select.permission"></select>
+	<insert access="payment.insert.permission"></insert>
+	<update access="payment.update.permission" form="payment"></update>
+	<delete access="payment.delete.permission"></delete>
+</flow>

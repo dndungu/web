@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow name="budget">
+	<select access="budget.select.permission"></select>
+	<insert access="budget.insert.permission"></insert>
+	<update access="budget.update.permission" form="budget"></update>
+	<delete access="budget.delete.permission"></delete>
+</flow>

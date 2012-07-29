@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="county" title="counties.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+	<records>
+		<leftjoin></leftjoin>
+		<ordercolumn>ID</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<search parameters="1">`ID` = %d</search>
+		<filter field="inTrash" value="No"/>
+	</records>
+	<columns primarykey="ID">
+		<column name="ID" field="ID" title="id.label" class="grid1of10 column"></column>
+		<column name="title" field="title" title="county.label" class="grid7of10 column"></column>
+		<column name="creationTime" field="creationTime" title="creationTime.label" class="grid2of10 column"></column>
+	</columns>
+</grid>

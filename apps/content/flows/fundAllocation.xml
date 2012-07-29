@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow name="fundAllocation">
+	<select access="fundAllocation.select.permission"></select>
+	<insert access="fundAllocation.insert.permission"></insert>
+	<update access="fundAllocation.update.permission" form="fundAllocation"></update>
+	<delete access="fundAllocation.delete.permission"></delete>
+</flow>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="payment" title="payment.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+	<records>
+		<leftjoin></leftjoin>
+		<ordercolumn>ID</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<search parameters="1">`ID` = %d</search>
+	</records>
+	<columns primarykey="ID">
+		<column name="ID" field="ID" title="ID.label" class="grid2of10 column"></column>
+		<column name="user" field="user" title="user.label" class="grid2of10 column"></column>
+		<column name="budget_id" field="budget_id" title="budget_id.label" class="grid2of10 column"></column>
+		<column name="order_type" field="order_type" title="order_type.label" class="grid2of10 column"></column>
+		<column name="debit_amount" field="debit_amount" title="debit_amount.label" class="grid2of10 column"></column>
+		<column name="debit_commission" field="debit_commission" title="debit_commission.label" class="grid2of10 column"></column>
+		<column name="credit_amount" field="credit_amount" title="credit_amount.label" class="grid2of10 column"></column>
+		<column name="credit_commission" field="credit_commission" title="credit_commission.label" class="grid2of10 column"></column>
+		<column name="MSISDN" field="MSISDN" title="MSISDN.label" class="grid2of10 column"></column>
+		<column name="trx_type" field="trx_type" title="trx_type.label" class="grid2of10 column"></column>
+		<column name="trx_status" field="trx_status" title="trx_status.label" class="grid2of10 column"></column>
+		<column name="trx_id" field="trx_id" title="trx_id.label" class="grid2of10 column"></column>
+		<column name="trx_date" field="trx_date" title="trx_date.label" class="grid2of10 column"></column>
+		<column name="trx_desc" field="trx_desc" title="trx_desc.label" class="grid2of10 column"></column>
+		<column name="trx_status_details" field="trx_status_details" title="trx_status_details.label" class="grid2of10 column"></column>
+		<column name="batch_file_path" field="batch_file_path" title="batch_file_path.label" class="grid2of10 column"></column>
+		<column name="recipient_name" field="recipient_name" title="recipient_name.label" class="grid2of10 column"></column>
+		<column name="parent_id" field="parent_id" title="parent_id.label" class="grid2of10 column"></column>
+		<column name="proposed_recipient_name" field="proposed_recipient_name" title="proposed_recipient_name.label" class="grid2of10 column"></column>
+		<column name="proposed_schedule_time" field="proposed_schedule_time" title="proposed_schedule_time.label" class="grid2of10 column"></column>
+		<column name="trx_schedule_time" field="trx_schedule_time" title="trx_schedule_time.label" class="grid2of10 column"></column>
+		<column name="batch_id" field="batch_id" title="batch_id.label" class="grid2of10 column"></column>
+		<column name="processing_mode" field="processing_mode" title="processing_mode.label" class="grid2of10 column"></column>
+		<column name="processed_status" field="processed_status" title="processed_status.label" class="grid2of10 column"></column>
+		<column name="service_provider_id" field="service_provider_id" title="service_provider_id.label" class="grid2of10 column"></column>
+		<column name="completion_date" field="completion_date" title="completion_date.label" class="grid2of10 column"></column>
+		<column name="fail_count" field="fail_count" title="fail_count.label" class="grid2of10 column"></column>
+		<column name="status" field="status" title="status.label" class="grid2of10 column"></column>
+		<column name="notes" field="notes" title="notes.label" class="grid2of10 column"></column>
+		<column name="approvalTime" field="approvalTime" title="approvalTime.label" class="grid2of10 column"></column>
+		<column name="approvalUser" field="approvalUser" title="approvalUser.label" class="grid2of10 column"></column>
+		<column name="approvalNotes" field="approvalNotes" title="approvalNotes.label" class="grid2of10 column"></column>
+		<column name="authorisationTime" field="authorisationTime" title="authorisationTime.label" class="grid2of10 column"></column>
+		<column name="authorisationUser" field="authorisationUser" title="authorisationUser.label" class="grid2of10 column"></column>
+		<column name="authorisationNotes" field="authorisationNotes" title="authorisationNotes.label" class="grid2of10 column"></column>
+		<column name="sourceIP" field="sourceIP" title="sourceIP.label" class="grid2of10 column"></column>
+		<column name="creationTime" field="creationTime" title="creationTime.label" class="grid2of10 column"></column>
+	</columns>
+</grid>

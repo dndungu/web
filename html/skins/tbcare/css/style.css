@@ -1428,3 +1428,8 @@ ul.content-box-tabs li a:hover,.shortcut-button span:hover {
 	text-transform:capitalize;
 	display:inline-block;
 }
+
+.gridFormButtons {
+	display:block;
+	padding-left:26%;
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="rolemap" title="rolemap.label" primarykey="ID">
+	<field name="site" type="int" length="20">
+		<element name="site" type="text" label="site.label" placeholder="site.placeholder"></element>
+	</field>
+	<field name="user" type="int" length="20">
+		<element name="user" type="text" label="user.label" placeholder="user.placeholder"></element>
+	</field>
+	<field name="role" type="int" length="20">
+		<element name="role" type="text" label="role.label" placeholder="role.placeholder"></element>
+	</field>
+	<field name="creationTime" type="int" length="10">
+		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
+	</field>
+	<field name="submit">
+		<element name="action" type="submit" value="action.submit"></element>
+	</field>
+	<field name="reset">
+		<element name="action" type="reset" value="action.reset"></element>
+	</field>
+</form>

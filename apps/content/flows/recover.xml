@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow name="recover">
+	<select access="recover.select.permission"></select>
+	<insert access="recover.insert.permission"></insert>
+	<update access="recover.update.permission" form="recover"></update>
+	<delete access="recover.delete.permission"></delete>
+</flow>
