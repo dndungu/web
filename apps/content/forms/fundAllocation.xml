@@ -3,29 +3,31 @@
 	<field name="user" length="20">
 		<element name="user" type="hidden" label="user.label" placeholder="user.placeholder"></element>
 	</field>
-	<field name="credit" type="decimal" length="12" precision="2">
-		<element name="credit" type="text" label="credit.label" placeholder="credit.placeholder">
-			<class>decimal</class>
-		</element>
+	<field name="sourceIP" length="15">
+		<element name="sourceIP" type="text" label="sourceIP.label" placeholder="sourceIP.placeholder"></element>
 	</field>
+	<field name="creationTime" length="10">
+		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
+	</field>	
 	<field name="budget" type="int" length="5">
 		<element name="budget" type="select" lookup="budget" value="ID" display="title" label="budget.label" placeholder="budget.select.placeholder">
 			<class>required</class>
 		</element>
 	</field>
 	<field name="financier" type="int" length="5">
-		<element name="financier" type="select" lookup="financier" display="title" label="financier.label" placeholder="financier.select.placeholder">
+		<element name="financier" type="select" lookup="financier" value="ID" display="title" label="financier.label" placeholder="financier.select.placeholder">
 			<class>required</class>
 		</element>
-	</field>
-	<field name="sourceIP" length="15">
-		<element name="sourceIP" type="text" label="sourceIP.label" placeholder="sourceIP.placeholder"></element>
+	</field>	
+	<field name="credit" type="decimal" length="12" precision="2">
+		<element name="credit" type="text" label="credit.label" placeholder="credit.placeholder">
+			<class>decimal</class>
+		</element>
 	</field>
 	<field name="notes" type="tinytext">
-		<element name="notes" type="textarea" label="notes.label" placeholder="notes.placeholder"></element>
-	</field>
-	<field name="creationTime" type="int" length="10">
-		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
+		<element name="notes" type="textarea" label="notes.label" placeholder="notes.placeholder">
+			<class>required</class>
+		</element>
 	</field>
 	<button name="action" type="submit" value="action.continue"><class>gridPrimaryButton</class></button>
 	<button name="cancel" type="button" value="action.dismiss"><class>gridSecondaryButton</class></button>	

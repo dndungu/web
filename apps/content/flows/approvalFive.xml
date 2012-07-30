@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow name="order">
+	<select access="approvalFive.select.permission"></select>
+	<insert access="approvalFive.insert.permission"></insert>
+	<update access="approvalFive.update.permission" form="approvalFive"></update>
+	<delete access="approvalFive.delete.permission"></delete>
+</flow>

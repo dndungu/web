@@ -3,14 +3,14 @@
 	<records>
 		<leftjoin></leftjoin>
 		<ordercolumn>ID</ordercolumn>
-		<orderdirection>desc</orderdirection>
+		<orderdirection>asc</orderdirection>
 		<search parameters="1">`ID` = %d</search>
+		<filter field="inTrash" value="No"></filter>
 	</records>
 	<columns primarykey="ID">
-		<column name="ID" field="ID" title="ID.label" class="grid2of10 column"></column>
-		<column name="financier_code" field="financier_code" title="financier_code.label" class="grid2of10 column"></column>
-		<column name="financier_name" field="financier_name" title="financier_name.label" class="grid2of10 column"></column>
+		<column name="ID" field="ID" title="id.label" class="grid1of10 column"></column>
+		<column name="code" field="code" title="financier_code.label" class="grid1of10 column"></column>
+		<column name="title" field="title" title="financier.label" class="grid6of10 column"></column>
 		<column name="creationTime" field="creationTime" title="creationTime.label" class="grid2of10 column"></column>
-		<column name="inTrash" field="inTrash" title="inTrash.label" class="grid2of10 column"></column>
 	</columns>
 </grid>

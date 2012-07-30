@@ -57,77 +57,77 @@
 		<navigation parent="finance" group="hidden" uri="/cell/order" label="panel.orders" weight="21"/>
 		<portlet module="content" controller="CellStudio" access="order.insert.permission"/>
 	</portal>
-	<portal type="raw" access="approvalOne.update.permission">
+	<portal type="raw" access="approvalOne.select.permission">
 		<navigation parent="finance" group="hidden" uri="/form/approvalOne" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="FormStudio" access="approvalOne.update.permission"/>
+		<portlet module="content" controller="FormStudio" access="approvalOne.select.permission"/>
 	</portal>
-	<portal type="raw" access="approvalOne.update.permission">
-		<navigation parent="finance" group="panel" uri="/grid/approvalOne" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="GridStudio" access="approvalOne.update.permission"/>
+	<portal type="raw" access="approvalOne.select.permission">
+		<navigation parent="finance" group="panel" uri="/grid/approvalOne" label="approvalOne.label" weight="21"/>
+		<portlet module="content" controller="GridStudio" access="approvalOne.select.permission"/>
 	</portal>
-	<portal type="raw" access="approvalOne.update.permission">
+	<portal type="raw" access="approvalOne.select.permission">
 		<navigation parent="finance" group="hidden" uri="/cell/approvalOne" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="CellStudio" access="approvalOne.update.permission"/>
+		<portlet module="content" controller="CellStudio" access="approvalOne.select.permission"/>
 	</portal>
-	<portal type="raw" access="approvalTwo.update.permission">
+	<portal type="raw" access="approvalTwo.select.permission">
 		<navigation parent="finance" group="hidden" uri="/form/approvalTwo" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="FormStudio" access="approvalTwo.update.permission"/>
+		<portlet module="content" controller="FormStudio" access="approvalTwo.select.permission"/>
 	</portal>
-	<portal type="raw" access="approvalTwo.update.permission">
-		<navigation parent="finance" group="panel" uri="/grid/approvalTwo" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="GridStudio" access="approvalTwo.update.permission"/>
+	<portal type="raw" access="approvalTwo.select.permission">
+		<navigation parent="finance" group="panel" uri="/grid/approvalTwo" label="approvalTwo.label" weight="21"/>
+		<portlet module="content" controller="GridStudio" access="approvalTwo.select.permission"/>
 	</portal>
-	<portal type="raw" access="approvalTwo.update.permission">
+	<portal type="raw" access="approvalTwo.select.permission">
 		<navigation parent="finance" group="hidden" uri="/cell/approvalTwo" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="CellStudio" access="approvalTwo.update.permission"/>
+		<portlet module="content" controller="CellStudio" access="approvalTwo.select.permission"/>
 	</portal>	
-	<portal type="raw" access="approvalThree.update.permission">
+	<portal type="raw" access="approvalThree.select.permission">
 		<navigation parent="finance" group="hidden" uri="/form/approvalThree" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="FormStudio" access="approvalThree.update.permission"/>
+		<portlet module="content" controller="FormStudio" access="approvalThree.select.permission"/>
 	</portal>
-	<portal type="raw" access="approvalThree.update.permission">
-		<navigation parent="finance" group="panel" uri="/grid/approvalThree" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="GridStudio" access="approvalThree.update.permission"/>
+	<portal type="raw" access="approvalThree.select.permission">
+		<navigation parent="finance" group="panel" uri="/grid/approvalThree" label="approvalThree.label" weight="21"/>
+		<portlet module="content" controller="GridStudio" access="approvalThree.select.permission"/>
 	</portal>
-	<portal type="raw" access="approvalThree.update.permission">
+	<portal type="raw" access="approvalThree.select.permission">
 		<navigation parent="finance" group="hidden" uri="/cell/approvalThree" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="CellStudio" access="approvalThree.update.permission"/>
+		<portlet module="content" controller="CellStudio" access="approvalThree.select.permission"/>
 	</portal>	
-	<portal type="raw" access="approvalFour.update.permission">
+	<portal type="raw" access="approvalFour.select.permission">
 		<navigation parent="finance" group="hidden" uri="/form/approvalFour" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="FormStudio" access="approvalFour.update.permission"/>
+		<portlet module="content" controller="FormStudio" access="approvalFour.select.permission"/>
 	</portal>
-	<portal type="raw" access="approvalFour.update.permission">
-		<navigation parent="finance" group="panel" uri="/grid/approvalFour" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="GridStudio" access="approvalFour.update.permission"/>
+	<portal type="raw" access="approvalFour.select.permission">
+		<navigation parent="finance" group="panel" uri="/grid/approvalFour" label="approvalFour.label" weight="21"/>
+		<portlet module="content" controller="GridStudio" access="approvalFour.select.permission"/>
 	</portal>
-	<portal type="raw" access="approvalFour.update.permission">
-		<navigation parent="finance" group="hidden" uri="/cell/approvalFour" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="CellStudio" access="approvalFour.update.permission"/>
+	<portal type="raw" access="approvalFour.select.permission">
+		<navigation parent="finance" group="hidden" uri="/cell/approvalFour" label="approvalFour.label" weight="21"/>
+		<portlet module="content" controller="CellStudio" access="approvalFour.select.permission"/>
 	</portal>	
-	<portal type="raw" access="approvalFive.update.permission">
+	<portal type="raw" access="approvalFive.select.permission">
 		<navigation parent="finance" group="hidden" uri="/form/approvalFive" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="FormStudio" access="approvalFive.update.permission"/>
+		<portlet module="content" controller="FormStudio" access="approvalFive.select.permission"/>
 	</portal>
-	<portal type="raw" access="approvalFive.update.permission">
-		<navigation parent="finance" group="panel" uri="/grid/approvalFive" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="GridStudio" access="approvalFive.update.permission"/>
+	<portal type="raw" access="approvalFive.select.permission">
+		<navigation parent="finance" group="panel" uri="/grid/approvalFive" label="approvalFive.label" weight="21"/>
+		<portlet module="content" controller="GridStudio" access="approvalFive.select.permission"/>
 	</portal>
-	<portal type="raw" access="approvalFive.update.permission">
+	<portal type="raw" access="approvalFive.select.permission">
 		<navigation parent="finance" group="hidden" uri="/cell/approvalFive" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="CellStudio" access="approvalFive.update.permission"/>
+		<portlet module="content" controller="CellStudio" access="approvalFive.select.permission"/>
 	</portal>	
-	<portal type="raw" access="approvalSix.update.permission">
-		<navigation parent="finance" group="hidden" uri="/form/approvalSix" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="FormStudio" access="approvalSix.update.permission"/>
+	<portal type="raw" access="approvalSix.select.permission">
+		<navigation parent="finance" group="hidden" uri="/form/approvalSix" label="approvalSix.select.permission" weight="21"/>
+		<portlet module="content" controller="FormStudio" access="approvalSix.select.permission"/>
 	</portal>
-	<portal type="raw" access="approvalSix.update.permission">
-		<navigation parent="finance" group="panel" uri="/grid/approvalSix" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="GridStudio" access="approvalSix.update.permission"/>
+	<portal type="raw" access="approvalSix.select.permission">
+		<navigation parent="finance" group="_panel" uri="/grid/approvalSix" label="approvalSix.label" weight="21"/>
+		<portlet module="content" controller="GridStudio" access="approvalSix.select.permission"/>
 	</portal>
-	<portal type="raw" access="approvalSix.update.permission">
+	<portal type="raw" access="approvalSix.select.permission">
 		<navigation parent="finance" group="hidden" uri="/cell/approvalSix" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="CellStudio" access="approvalSix.update.permission"/>
+		<portlet module="content" controller="CellStudio" access="approvalSix.select.permission"/>
 	</portal>		
 	<portal type="raw" access="beneficiary.select.permission">
 		<navigation parent="finance" group="hidden" uri="/form/beneficiary" label="panel.beneficiaries" weight="22"/>
@@ -164,18 +164,6 @@
 	<portal type="raw" access="fundAllocation.select.permission">
 		<navigation parent="finance" group="hidden" uri="/cell/fundAllocation" label="panel.fundAllocations" weight="24"/>
 		<portlet module="content" controller="CellStudio" access="fundAllocation.select.permission"/>
-	</portal>
-	<portal type="raw" access="financier.select.permission">
-		<navigation parent="finance" group="hidden" uri="/form/financier" label="panel.financiers" weight="25"/>
-		<portlet module="content" controller="FormStudio" access="financier.select.permission"/>
-	</portal>
-	<portal type="raw" access="financier.select.permission">
-		<navigation parent="finance" group="panel" uri="/grid/financier" label="panel.financiers" weight="25"/>
-		<portlet module="content" controller="GridStudio" access="financier.select.permission"/>
-	</portal>
-	<portal type="raw" access="financier.select.permission">
-		<navigation parent="finance" group="hidden" uri="/cell/financier" label="panel.financiers" weight="25"/>
-		<portlet module="content" controller="CellStudio" access="financier.select.permission"/>
 	</portal>
 		
 	<portal type="raw" access="maintenance.permission">
@@ -253,6 +241,19 @@
 		<navigation parent="maintenance" group="hidden" uri="/cell/beneficiaryType" label="panel.beneficiary.categories" weight="36"/>
 		<portlet module="content" controller="CellStudio" access="beneficiaryType.select.permission"/>
 	</portal>
+	<portal type="raw" access="financier.select.permission">
+		<navigation parent="maintenance" group="hidden" uri="/form/financier" label="panel.financiers" weight="37"/>
+		<portlet module="content" controller="FormStudio" access="financier.select.permission"/>
+	</portal>
+	<portal type="raw" access="financier.select.permission">
+		<navigation parent="maintenance" group="panel" uri="/grid/financier" label="panel.financiers" weight="37"/>
+		<portlet module="content" controller="GridStudio" access="financier.select.permission"/>
+	</portal>
+	<portal type="raw" access="financier.select.permission">
+		<navigation parent="maintenance" group="hidden" uri="/cell/financier" label="panel.financiers" weight="37"/>
+		<portlet module="content" controller="CellStudio" access="financier.select.permission"/>
+	</portal>
+	
 	
 	<portal type="raw" access="reconciliation.permission">
 		<navigation id="reconciliation" parent="root" group="panel" uri="/null" label="panel.reconciliation" weight="40" class="nav-top-item"/>

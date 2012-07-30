@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="order" title="order.label" primarykey="ID" storage="local">
+	<field name="approvalThreeUser" length="20">
+		<element name="approvalThreeUser" type="hidden" label="approvalThreeUser.label" placeholder="approvalThreeUser.placeholder"></element>
+	</field>
+	<field name="approvalThreeTime" length="10">
+		<element name="approvalThreeTime" type="hidden" label="approvalThreeTime.label" placeholder="approvalThreeTime.placeholder"></element>
+	</field>
+	<field name="approvalThree" type="enum">
+		<element name="approvalThree" type="radio" value="Approved" label="action.approve">
+			<class>required</class>
+		</element>
+		<element name="approvalThree" type="radio" value="Rejected" label="action.approve">
+			<class>required</class>
+		</element>
+	</field>
+	<field name="approvalThreeNotes" type="tinytext">
+		<element name="approvalThreeNotes" type="text" label="approvalThreeNotes.label" placeholder="approvalThreeNotes.placeholder">
+			<class>required</class>
+		</element>
+	</field>
+	<field name="approvalThreeAmount" type="decimal" length="5" precision="2">
+		<element name="approvalThreeAmount" type="text" label="approvalThreeAmount.label" placeholder="approvalThreeAmount.placeholder">
+			<class>required</class>
+		</element>
+	</field>
+	<button name="action" type="submit" value="action.continue"><class>gridPrimaryButton</class></button>
+	<button name="cancel" type="button" value="action.dismiss"><class>gridSecondaryButton</class></button>
+</form>

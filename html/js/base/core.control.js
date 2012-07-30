@@ -8,7 +8,6 @@ core.control  = {
 		return output.join("\r");
 	},
 	compile : function(html, record){
-		var that = this;
 		var pattern = /{{([^}]*)}}/g;
 		html= html.replace(pattern, function(tag){
 			var key = tag.replace('{{', '').replace('}}', '');

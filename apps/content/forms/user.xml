@@ -4,7 +4,9 @@
 		<element name="login" type="text" label="login.label" placeholder="login.placeholder"></element>
 	</field>
 	<field name="email" type="varchar" length="255">
-		<element name="email" type="text" label="email.label" placeholder="email.placeholder"></element>
+		<element name="email" type="text" label="email.label" placeholder="email.placeholder">
+			<class>email</class>
+		</element>
 	</field>
 	<field name="firstname" type="varchar" length="128">
 		<element name="firstname" type="text" label="firstname.label" placeholder="firstname.placeholder"></element>
@@ -19,7 +21,9 @@
 		<element name="expiryTime" type="select" lookup="district" value="ID" display="title" label="district.label" placeholder="district.placeholder"></element>
 	</field>
 	<field name="expiryTime" type="int" length="10">
-		<element name="expiryTime" type="text" label="expiryTime.label" placeholder="expiryTime.placeholder"></element>
+		<element name="expiryTime" type="text" label="expiryTime.label" placeholder="expiryTime.placeholder">
+			<class>date</class>
+		</element>
 	</field>
 	<button name="action" type="submit" value="action.continue"><class>gridPrimaryButton</class></button>
 	<button name="cancel" type="button" value="action.dismiss"><class>gridSecondaryButton</class></button>

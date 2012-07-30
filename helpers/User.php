@@ -47,6 +47,8 @@ class User {
 		$insert['table'] = 'guest';
 		$user['roles'][] = 'guest';
 		$user['email'] = NULL;
+		$user['province'] = NULL;
+		$user['district'] = NULL;
 		$user['isGuest'] = 'Yes';
 		$this->getStorage()->insert($insert);
 		$user['ID'] = $this->getStorage()->getInsertID();
@@ -68,6 +70,8 @@ class User {
 	
 	protected function setUser($user){
 		$this->setID($user['ID']);
+		$this->setProvince($user['province']);
+		$this->setDistrict($user['district']);
 		$this->setEmail($user['email']);
 		$this->setPassword(array_key_exists("password", $user) ? $user['password'] : NULL);
 		$login = array_key_exists('login', $user) ? $user['login'] : $user['email'];
@@ -164,6 +168,8 @@ class User {
 	
 	public function getUser(){
 		return array('ID' => $this->getID(),
+					 'province' => $this->getProvince(),
+					 'district' => $this->getDistrict(),
 					 'login' => $this->getLogin(),
 					 'email' => $this->getEmail(),
 					 'password' => $this->getPassword(),

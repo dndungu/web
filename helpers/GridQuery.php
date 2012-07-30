@@ -118,10 +118,10 @@ class GridQuery {
 						$query[] = sprintf("`site` = %d", $this->sandbox->getHelper('site')->getID());
 						break;
 					case "{province}":
-						$query[] = sprintf("`site` = %d", $this->sandbox->getHelper('user')->getProvince());
+						$query[] = sprintf("`province` = %d", $this->sandbox->getHelper('user')->getProvince());
 						break;
 					case "{district}":
-						$query[] = sprintf("`site` = %d", $this->sandbox->getHelper('user')->getDistrict());
+						$query[] = sprintf("`district` = %d", $this->sandbox->getHelper('user')->getDistrict());
 						break;
 					case "{facility}":
 						$query[] = sprintf("`site` = %d", $this->sandbox->getHelper('user')->getFacility());

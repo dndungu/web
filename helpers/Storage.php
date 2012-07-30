@@ -73,7 +73,8 @@ class Storage {
 	public function select($arguments){
 		$arguments['table'] = $this->sanitize($arguments['table']);
 		$columns = $this->selectColumns($arguments);
-		$query = sprintf("SELECT %s FROM %s", $columns, $arguments['table']);
+		$table = substr_count('`', $arguments['table']) ||substr_count('.', $arguments['table']) ? $arguments['table'] : '`'.$arguments['table'].'`';
+		$query = sprintf("SELECT %s FROM %s", $columns, $table);
 		$query .= $this->selectWhereCondition($arguments);
 		$query .= $this->groupBy($arguments);
 		$query .= $this->orderBy($arguments);

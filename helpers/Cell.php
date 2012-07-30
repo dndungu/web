@@ -200,11 +200,12 @@ class Cell {
 		if(!$this->record) return;
 		$settings = $this->sandbox->getHelper('site')->getSettings();
 		foreach($this->record as $key => $record){
-			if(array_key_exists('creationTime', $record)){
-				$this->record[$key]['creationTime'] = date($settings['timeformat'], $record['creationTime']);
-			}
-			if(array_key_exists('expiryTime', $record)){
-				$this->record[$key]['expiryTime'] = date($settings['timeformat'], $record['expiryTime']);
+			$recordKeys = array_keys($record);
+			$timeKeys = array('creationTime', 'expiryTime', 'scheduleTime');
+			foreach($timeKeys as $timeKey){
+				if(in_array($timeKey, $recordKeys)){
+					$this->record[$key][$timeKey] = date($settings['timeformat'], $record[$timeKey]);
+				}
 			}
 		}
 	}	

@@ -62,6 +62,7 @@
     <label index="changepassword">Change Password</label>
     <label index="password.changed">You have successfully changed your password, sign in to continue</label>
 
+	<label index="comment.label">Comments</label>
 	<label index="credit.label">Amount to credit</label>    
 	<label index="credit.placeholder">Enter amount to credit</label>
     <label index="notes.label">Description</label>
@@ -80,11 +81,11 @@
 	<label index="delete.confirm.label">Are you sure you want to delete this record?</label>
 	<label index="date.label">Date</label>
 	<label index="date.placeholder">MM-DD-YYYY</label>
-    <label index="firstname.label">First name</label>
+    <label index="firstname.label">Firstname</label>
     <label index="firstname.placeholder">Enter first name</label>
-    <label index="middlename.label">Middle name</label>
+    <label index="middlename.label">Middlename</label>
     <label index="middlename.placeholder">Enter middle name</label>    
-    <label index="lastname.label">Last name</label>
+    <label index="lastname.label">Lastname</label>
     <label index="lastname.placeholder">Enter last name</label>
     <label index="expiryTime.label">Expiry Time</label>
     <label index="expiryTime.placeholder">MM/DD/YYYY</label>
@@ -192,8 +193,8 @@
 	<label index="beneficiary.delete.permission">Delete beneficiaries</label>
 	<label index="beneficiary.update.permission">Edit beneficiaries</label>
 	
-	<label index="beneficiaryTypes.label">Beneficiary types</label>
-	<label index="beneficiaryType.label">Beneficiary type</label>
+	<label index="beneficiaryTypes.label">Beneficiary categories</label>
+	<label index="beneficiaryType.label">Beneficiary category</label>
 	<label index="beneficiaryType.select.placeholder">Select beneficiary type</label>
 	<label index="beneficiaryType.placeholder">Enter beneficiary type</label>
 	<label index="beneficiaryType.select.permission">Browse beneficiary types</label>
@@ -203,7 +204,7 @@
 	
 	<label index="budgets.label">Budget Lines</label>
 	<label index="budget.label">Budget Line</label>	
-	<label index="budget..select.placeholder">Select budget lines</label>
+	<label index="budget.select.placeholder">Select budget lines</label>
 	<label index="budget.placeholder">Enter budget line</label>
 	<label index="budget.select.permission">Browse budgets</label>
 	<label index="budget.insert.permission">Create budgets</label>
@@ -236,8 +237,12 @@
 	<label index="facility.delete.permission">Delete facilities</label>
 	<label index="facility.update.permission">Edit facilities</label>
 	
+	<label index="financier_code.label">Acronym</label>
+	<label index="financier_code.placeholder">Enter financier code</label>
 	<label index="financiers.label">Financiers</label>
-	<label index="financier.label">Financier</label>		
+	<label index="financier.label">Financier</label>
+	<label index="financier.select.placeholder">Select financier</label>
+	<label index="financier.placeholder">Enter financier</label>		
 	<label index="financier.select.permission">Browse financiers</label>
 	<label index="financier.insert.permission">Create financiers</label>
 	<label index="financier.delete.permission">Delete financiers</label>
@@ -330,7 +335,29 @@
 	<label index="permission.select.permission">Browse permissions</label>
 	<label index="permission.insert.permission">Create permissions</label>
 	<label index="permission.delete.permission">Delete permissions</label>
-	<label index="permission.update.permission">Edit permissions</label>			
+	<label index="permission.update.permission">Edit permissions</label>
+	
+	<label index="approvalOne.label">Approve Payments</label>
+	<label index="approvalOne.select.permission">Browse DTLC's Payment List</label>
+	<label index="approvalOne.update.permission">Approve DTLC's Payment List</label>
+	
+	<label index="approvalTwo.label">Approve Payments</label>
+	<label index="approvalTwo.select.permission">Browse PTLC's Payment List</label>
+	<label index="approvalTwo.update.permission">Approve PTLC's Payment List</label>
+
+	<label index="approvalThree.label">Approve Payments</label>
+	<label index="approvalThree.select.permission">Browse Programme Officer's Payment List</label>
+	<label index="approvalThree.update.permission">Approve Programme Officer's Payment List</label>
+
+	<label index="approvalFour.label">Approve Payments</label>
+	<label index="approvalFour.select.permission">Browse HOD's Payment List</label>
+	<label index="approvalFour.update.permission">Approve HOD's Payment List</label>
+	
+	<label index="approvalFive.label">Approve Payments</label>
+	<label index="approvalFive.select.permission">Browse Accountant's Payment List</label>
+	<label index="approvalFive.update.permission">Approve Accountant's Payment List</label>
+
+	<label index="approvalSix.select.permission">Browse Finance Office's Payment List</label>
 
 	<label index="reports.payments.permission">Browse Payment Reports</label>
 	<label index="reports.payments.permission">Browse Payment Reports</label>

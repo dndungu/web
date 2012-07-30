@@ -80,7 +80,7 @@ class Grid {
 		$settings = $this->sandbox->getHelper('site')->getSettings();
 		foreach($this->records as $key => $record){
 			$recordKeys = array_keys($record);
-			$timeKeys = array('creationTime', 'expiryTime');
+			$timeKeys = array('creationTime', 'expiryTime', 'scheduleTime');
 			foreach($timeKeys as $timeKey){
 				if(in_array($timeKey, $recordKeys)){
 					$this->records[$key][$timeKey] = date($settings['timeformat'], $record[$timeKey]);

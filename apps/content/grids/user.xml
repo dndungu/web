@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grid name="user" title="user.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
 	<records>
-		<leftjoin></leftjoin>
-		<ordercolumn>ID</ordercolumn>
+		<leftjoin>`province` ON (`user`.`province` = `province`.`ID`)</leftjoin>
+		<leftjoin>`district` ON (`user`.`district` = `district`.`ID`)</leftjoin>
+		<ordercolumn>`user`.`ID`</ordercolumn>
 		<orderdirection>desc</orderdirection>
-		<search parameters="1">`ID` = %d</search>
+		<search parameters="1">`user`.`ID` = %d</search>
 	</records>
-	<columns primarykey="ID">
+	<columns primarykey="`user`.`ID`">
 		<column name="login" field="login" title="login.label" class="grid2of10 column"></column>
 		<column name="firstname" field="firstname" title="firstname.label" class="grid2of10 column"></column>
 		<column name="lastname" field="lastname" title="lastname.label" class="grid2of10 column"></column>
-		<column name="expiryTime" field="expiryTime" title="expiryTime.label" class="grid2of10 column"></column>
-		<column name="creationTime" field="creationTime" title="creationTime.label" class="grid2of10 column"></column>
+		<column name="province" field="`province`.`title`" title="province.label" class="grid2of10 column"></column>
+		<column name="district" field="`district`.`title`" title="district.label" class="grid2of10 column"></column>
 	</columns>
 </grid>
