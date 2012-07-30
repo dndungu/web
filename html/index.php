@@ -10,6 +10,7 @@ namespace html {
 	$storage = new \helpers\Storage($settings);
 	$sandbox = new \helpers\Sandbox($storage);
 	$sandbox->setGlobalStorage($storage);
+	//purge();exit;
 	$controller = new \base\Controller($sandbox);
 	$latency = (microtime(true) - $start)*1000;
 	$controller->log($latency);

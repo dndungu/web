@@ -61,7 +61,11 @@
     <label index="resetpassword.checkemail">Please check your email for instructions on how to complete your password reset process.</label>
     <label index="changepassword">Change Password</label>
     <label index="password.changed">You have successfully changed your password, sign in to continue</label>
-
+	
+	<label index="approver.label">Approver</label>
+	<label index="approvalTime.label">Approval Time</label>
+	<label index="sourceIP.label">Creator IP address</label>
+	<label index="creator.label">Creator</label>
 	<label index="comment.label">Comments</label>
 	<label index="credit.label">Amount to credit</label>    
 	<label index="credit.placeholder">Enter amount to credit</label>
@@ -115,7 +119,8 @@
     <label index="pagination.previous"> &lt;&lt; </label>
     <label index="pagination.next"> &gt;&gt; </label>
     <label index="pagination.last"> &gt;| </label> 
-    	
+    
+    <label index="action.process">Process</label>
     <label index="action.submit">Submit</label>
     <label index="action.reset">Cancel</label>
     <label index="action.signup">Sign Up</label>
@@ -338,22 +343,42 @@
 	<label index="permission.update.permission">Edit permissions</label>
 	
 	<label index="approvalOne.label">Approve Payments</label>
+	<label index="approvalOne.step">PTLC Approval</label>
+	<label index="approvalOneUser.label">PTLC</label>
+	<label index="approvalOneNotes.label">PTLC Comments</label>
+	approvalOneAmount
 	<label index="approvalOne.select.permission">Browse DTLC's Payment List</label>
 	<label index="approvalOne.update.permission">Approve DTLC's Payment List</label>
 	
 	<label index="approvalTwo.label">Approve Payments</label>
+	<label index="approvalTwo.step">Program Officer Approval</label>
+	<label index="approvalTwoUser.label">Program Officer</label>
+	<label index="approvalTwoAmount.label">Program Officer Approved Amount</label>
+	<label index="approvalTwoNotes.label">Program Officer Comments</label>
 	<label index="approvalTwo.select.permission">Browse PTLC's Payment List</label>
 	<label index="approvalTwo.update.permission">Approve PTLC's Payment List</label>
 
 	<label index="approvalThree.label">Approve Payments</label>
+	<label index="approvalThree.step">HOD Approval</label>
+	<label index="approvalThreeUser.label">HOD</label>
+	<label index="approvalThreeAmount.label">HOD Approved Amount</label>
+	<label index="approvalThreeNotes.label">HOD Comments</label>
 	<label index="approvalThree.select.permission">Browse Programme Officer's Payment List</label>
 	<label index="approvalThree.update.permission">Approve Programme Officer's Payment List</label>
 
 	<label index="approvalFour.label">Approve Payments</label>
+	<label index="approvalFour.step">Accountant Approval</label>
+	<label index="approvalFourUser.label">Accountant</label>
+	<label index="approvalFourAmount.label">Accountant Approved Amount</label>
+	<label index="approvalFourNotes.label">Accountant Comments</label>
 	<label index="approvalFour.select.permission">Browse HOD's Payment List</label>
 	<label index="approvalFour.update.permission">Approve HOD's Payment List</label>
 	
 	<label index="approvalFive.label">Approve Payments</label>
+	<label index="approvalFive.step">Finance Officer Approval</label>
+	<label index="approvalFiveUser.label">Finance Officer</label>
+	<label index="approvalFiveAmount.label">Finance Officer Approved Amount</label>
+	<label index="approvalFiveNotes.label">Finance Officer Comments</label>
 	<label index="approvalFive.select.permission">Browse Accountant's Payment List</label>
 	<label index="approvalFive.update.permission">Approve Accountant's Payment List</label>
 

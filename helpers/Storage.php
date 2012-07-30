@@ -134,7 +134,7 @@ class Storage {
 	}
 	
 	protected function updateStatement($arguments){
-		$query = sprintf("UPDATE %s SET", $arguments['table']);
+		$query = sprintf("UPDATE `%s` SET", $arguments['table']);
 		if(!array_key_exists('content', $arguments)){
 			throw new HelperException("Please provide table fields to update ".$arguments['table']);
 		}

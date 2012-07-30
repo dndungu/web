@@ -2,11 +2,12 @@
 <grid name="beneficiary" title="beneficiary.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true" storage="local">
 	<records>
 		<leftjoin>`facility` ON (`beneficiary`.`facility` = `facility`.`ID`)</leftjoin>
+		<leftjoin>`province` ON (`beneficiary`.`province` = `province`.`ID`)</leftjoin>
 		<leftjoin>`district` ON (`beneficiary`.`district` = `district`.`ID`)</leftjoin>
 		<leftjoin>`beneficiaryType` ON (`beneficiary`.`beneficiaryType` = `beneficiaryType`.`ID`)</leftjoin>
 		<ordercolumn>`beneficiary`.`ID`</ordercolumn>
 		<orderdirection>desc</orderdirection>
-		<search parameters="1">`beneficiary`.`ID` = %d OR `facility`.`title` LIKE '%s' OR `district`.`title` LIKE '%s' OR `province`.`title` LIKE '%s'</search>
+		<search parameters="7">`beneficiary`.`ID` = %d OR `firstname` LIKE '%s' OR `middlename` LIKE '%s' OR `lastname` LIKE '%s' OR `facility`.`title` LIKE '%s' OR `district`.`title` LIKE '%s' OR `province`.`title` LIKE '%s'</search>
 	</records>
 	<columns primarykey="`beneficiary`.`ID`">
 		<column name="firstname" field="firstname" title="firstname.label" class="grid2of10 column"></column>

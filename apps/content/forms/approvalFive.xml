@@ -6,14 +6,6 @@
 	<field name="approvalFiveTime" length="10">
 		<element name="approvalFiveTime" type="hidden" label="approvalFiveTime.label" placeholder="approvalFiveTime.placeholder"></element>
 	</field>
-	<field name="approvalFive" type="enum">
-		<element name="approvalFive" type="radio" value="Approved" label="action.approve">
-			<class>required</class>
-		</element>
-		<element name="approvalFive" type="radio" value="Rejected" label="action.approve">
-			<class>required</class>
-		</element>
-	</field>
 	<field name="approvalFiveNotes" type="tinytext">
 		<element name="approvalFiveNotes" type="text" label="approvalFiveNotes.label" placeholder="approvalFiveNotes.placeholder">
 			<class>required</class>
@@ -21,8 +13,12 @@
 	</field>
 	<field name="approvalFiveAmount" type="decimal" length="5" precision="2">
 		<element name="approvalFiveAmount" type="text" label="approvalFiveAmount.label" placeholder="approvalFiveAmount.placeholder">
-			<class>required</class>
+			<class>decimal</class>
 		</element>
+	</field>
+	<field name="approvalFive" type="enum">
+		<element type="radio" name="approvalFive" value="Approved" label="action.approve"></element>
+		<element type="radio" name="approvalFive" value="Rejected" label="action.reject"></element>
 	</field>
 	<button name="action" type="submit" value="action.continue"><class>gridPrimaryButton</class></button>
 	<button name="cancel" type="button" value="action.dismiss"><class>gridSecondaryButton</class></button>

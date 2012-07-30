@@ -146,12 +146,12 @@ core.control.extend('grid', function(){
 				rows.unbind('mousedown').mousedown(function(event){
 					event.stopPropagation();
 					var subject = $(this);
-					if(that.source.indexOf('approvalOne') == -1 && that.source.indexOf('approvalTwo') == -1 && that.source.indexOf('approvalThree') == -1 && that.source.indexOf('approvalFour') == -1 && that.source.indexOf('approvalFive') == -1){
+//					if(that.source.indexOf('approvalOne') == -1 && that.source.indexOf('approvalTwo') == -1 && that.source.indexOf('approvalThree') == -1 && that.source.indexOf('approvalFour') == -1 && that.source.indexOf('approvalFive') == -1){
 						that.renderGridCell(subject);
 						$('>.gridCell,>form', rows.not(subject)).slideUp();						
-					}else{
-						that.renderUpdater(subject);
-					}
+//					}else{
+//						that.renderUpdater(subject);
+//					}
 				});
 			},
 			renderGridCell: function(){
@@ -231,7 +231,7 @@ core.control.extend('grid', function(){
 					form.css({display: 'none'});
 					gridCell.after(form);
 					form.slideDown();
-					//gridCell.slideUp();
+					gridCell.slideUp();
 				});				
 			},
 			initUpdater: function(){

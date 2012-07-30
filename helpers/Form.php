@@ -390,7 +390,7 @@ class Form {
 			$insert = $this->getCreateQuery();
 			$ID = $this->getStorage()->insert($insert);
 			$this->createRelations($ID);
-			return json_encode(array("success" => $insertID), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+			return json_encode(array("success" => $ID), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 		}catch(HelperException $e){
 			throw new \apps\ApplicationException($e->getMessage());
 		}
@@ -457,12 +457,22 @@ class Form {
 	public function getContent($key){
 		if(in_array($key, array('creationTime', 'site', 'user', 'sourceIP'))){
 			switch($key){
+				case "approvalOneTime":
+				case "approvalTwoTime":
+				case "approvalThreeTime":
+				case "approvalFourTime":
+				case "approvalFiveTime":					
 				case "creationTime":
 					return time();
 					break;
 				case "site":
 					return $this->sandbox->getHelper('site')->getID();
 					break;
+				case "approvalOneUser":
+				case "approvalTwoUser":
+				case "approvalThreeUser":
+				case "approvalFourUser":
+				case "approvalFiveUser":
 				case "user":
 					return $this->sandbox->getHelper('user')->getID();
 					break;
@@ -516,6 +526,11 @@ class Form {
 			}
 			if(array_key_exists('expiryTime', $record)){
 				$this->records[$key]['expiryTime'] = date($settings['timeformat'], $record['expiryTime']);
+			}
+			foreach($record as $i => $j){
+				if(is_null($j)){
+					$this->records[$key][$i] = '';
+				}
 			}
 		}
 	}	

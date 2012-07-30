@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grid name="order" title="order.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+<grid name="order" title="order.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true" storage="local">
 	<records>
 		<leftjoin>`beneficiary` ON (`order`.`beneficiary` = `beneficiary`.`ID`)</leftjoin>
 		<leftjoin>`beneficiaryType` ON (`beneficiary`.`beneficiaryType` = `beneficiaryType`.`ID`)</leftjoin>
+		<leftjoin>`orderType` ON (`order`.`orderType` = `orderType`.`ID`)</leftjoin>
+		<leftjoin>`province` ON (`beneficiary`.`province` = `province`.`ID`)</leftjoin>
+		<leftjoin>`district` ON (`beneficiary`.`district` = `district`.`ID`)</leftjoin>
 		<ordercolumn>`order`.`ID`</ordercolumn>
 		<orderdirection>desc</orderdirection>
-		<search parameters="1">`ID` = %d OR `firstname` LIKE '%s' OR `middlename` = '%s' OR `lastname` LIKE '%s'</search>
+		<search parameters="8">`ID` = %d OR `firstname` LIKE '%s' OR `middlename` = '%s' OR `lastname` LIKE '%s' OR `province`.`title` LIKE '%s' OR `district`.`title` LIKE '%s' OR `beneficiaryType`.`title` LIKE '%s' OR `orderType`.`title` LIKE '%s'</search>
 		<filter field="approvalOne" value="Approved"></filter>
-		<filter field="approvalTwo" value="Pending"></filter>
-		<filter field="approvalThree" value="Pending"></filter>
-		<filter field="approvalFour" value="Pending"></filter>
-		<filter field="approvalFive" value="Pending"></filter>
+		<filter field="approvalTwo" value="Pending"></filter>		
 	</records>
 	<columns primarykey="`order`.`ID`">
-		<column name="firstname" field="firstname" title="firstname.label" class="grid2of10 column"></column>
-		<column name="middlename" field="middlename" title="middlename.label" class="grid2of10 column"></column>
-		<column name="lastname" field="lastname" title="lastname.label" class="grid2of10 column"></column>
-		<column name="beneficiaryType" field="`beneficiaryType`.`title`" title="beneficiaryType.label" class="grid2of10 column"></column>
-		<column name="MSISDN" field="MSISDN" title="msisdn.label" class="grid1of10 column"></column>
-		<column name="amount" field="amount" title="amount.label" class="grid1of10 column"></column>
+		<column name="firstname" field="firstname" title="firstname.label" class="grid3of20 column"/>
+		<column name="lastname" field="lastname" title="lastname.label" class="grid3of20 column"/>
+		<column name="province" field="`province`.`title`" title="province.label" class="grid3of20 column"/>
+		<column name="district" field="`district`.`title`" title="district.label" class="grid3of20 column"/>
+		<column name="orderType" field="`orderType`.`title`" title="orderType.label" class="grid3of20 column"></column>
+		<column name="amount" field="amount" title="amount.label" class="grid3of20 column"/>
+		<column name="approvalTwo" field="approvalTwo" title="status.label" class="grid1of10 column"/>
 	</columns>
 </grid>

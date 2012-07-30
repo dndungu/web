@@ -22,7 +22,12 @@ class Cell {
 		if(!is_readable($filename)) {
 			throw new HelperException("'$filename' is not readable");
 		}
-		$this->definition = simplexml_load_file($filename);
+		$base = $this->sandbox->getMeta('base');
+		$request = explode('/', $this->sandbox->getMeta('URI'));
+		$key = count($request) - 1;
+		$name = $request[$key];		
+		$formfilename = substr_count($name, 'approval') || $name == 'order' ? "$base/apps/content/forms/paymentOrder.xml" : $filename;
+		$this->definition = simplexml_load_file($formfilename);
 		if(!$this->definition) {
 			throw new HelperException("'$filename' is not a valid XML form definition");
 		}
@@ -62,8 +67,12 @@ class Cell {
 	private function createActions(){
 		$translator = $this->sandbox->getHelper('translation');
 		$html[] = "\t".'<div class="actionsCell">';
+		$request = explode('/', $this->sandbox->getMeta('URI'));
+		$key = count($request) - 1;
+		$name = $request[$key];
 		if($this->flow->isUpdateable()){
-			$html[] = "\t\t".'<input type="button" name="updater" value="'.$translator->translate('action.edit').'" class="gridPrimaryButton"/>';
+			$action = substr_count($name, 'approval') ? 'action.process' : 'action.edit';
+			$html[] = "\t\t".'<input type="button" name="updater" value="'.$translator->translate($action).'" class="gridPrimaryButton"/>';
 		}
 		if($this->flow->isDeleteable()){
 			$html[] = "\t\t".'<input type="button" name="deleter" value="'.$translator->translate('action.delete').'" class="gridDeleteButton"/>';
