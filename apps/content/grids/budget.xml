@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grid name="budget" title="budget.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+<grid name="budget" title="budget.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true" storage="local">
 	<records>
 		<leftjoin></leftjoin>
 		<ordercolumn>ID</ordercolumn>
@@ -7,12 +7,8 @@
 		<search parameters="1">`ID` = %d</search>
 	</records>
 	<columns primarykey="ID">
-		<column name="ID" field="ID" title="ID.label" class="grid2of10 column"></column>
-		<column name="user" field="user" title="user.label" class="grid2of10 column"></column>
-		<column name="title" field="title" title="title.label" class="grid2of10 column"></column>
-		<column name="notes" field="notes" title="notes.label" class="grid2of10 column"></column>
-		<column name="balanceTime" field="balanceTime" title="balanceTime.label" class="grid2of10 column"></column>
+		<column name="title" field="title" title="budget.label" class="grid2of10 column"></column>
+		<column name="notes" field="notes" title="description.label" class="grid6of10 column"></column>
 		<column name="creationTime" field="creationTime" title="creationTime.label" class="grid2of10 column"></column>
-		<column name="inTrash" field="inTrash" title="inTrash.label" class="grid2of10 column"></column>
 	</columns>
 </grid>

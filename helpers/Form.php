@@ -79,11 +79,19 @@ class Form {
 				$legend = $translator->translate($fieldset->attributes()->legend);
 				$html[] = "\t\t<legend>$legend</legend>";
 				$html[] = $this->createFields($fieldset->field);
+				$relations = $this->createRelationCheckboxes();
+				if($relations){
+					$html[] = $relations;
+				}
 				$html[] = $this->createButtons($fieldset);
 				$html[] = "\t</fieldset>";
 			}
 		} else if(property_exists($this->definition, "field")) {
 			$html[] = $this->createFields($this->definition->field);
+			$relations = $this->createRelationCheckboxes();
+			if($relations){
+				$html[] = $relations;
+			}
 			$html[] = $this->createButtons($this->definition);
 		} else {
 			throw new HelperException("No fields defined for form '$this->name'");
@@ -132,8 +140,6 @@ class Form {
 			break;
 			case "checkbox":
 				return "\t\t\t".$this->createInputCheckbox($field, $element);
-			case "options":
-				return "\t\t\t".$this->createCheckboxOptions($field, $element);
 			break;
 			case "hidden":
 				return "\t\t\t".$this->createInputHidden($field, $element);
@@ -194,7 +200,7 @@ class Form {
 		$class = $this->getClasses($element);
 		$html[] = "<select name=\"$name\"$class>";
 		if(strlen($placeholder)){
-			$html[] = "\t\t\t\t<option value=\"0\">$placeholder</option>";
+			$html[] = "\t\t\t\t<option value=\"\">$placeholder</option>";
 		}
 		$table = (string) $element->attributes()->lookup;
 		$default = (integer) $element->attributes()->select;
@@ -212,6 +218,32 @@ class Form {
 		}
 		$html[] = "\t\t\t</select>";
 		return join("\n", $html);
+	}
+	
+	protected function createRelationCheckboxes(){
+		if(!property_exists($this->definition, 'relation')) return false;
+		$translator = $this->sandbox->getHelper('translation');
+		$table = (string) $this->definition->attributes()->name;
+		foreach($this->definition->relation as $relation){
+			$lookup = (string) $relation->attributes()->lookup;
+			$join = (string) $relation->attributes()->join;
+			$name = (string) $relation->attributes()->name;
+			$reference = (string) $relation->attributes()->reference;
+			$display = (string) $relation->attributes()->display;
+			foreach($relation->fieldset as $fieldset){
+				$records = $this->getStorage()->select(array('table' => $lookup, 'constraints' => json_decode((string) $fieldset->attributes()->filter)));
+				if(!$records) continue;
+				$html[] = '<div class="rowCell"><span class="titleCell">'.$translator->translate($fieldset->attributes()->label).'</span><span class="contentCell">';
+				foreach($records as $record){
+					$title = $translator->translate(trim((string) $record[$display]));
+					$title = strlen($title) ? $title : $record[$display];
+					$value = $record[$reference];
+					$html[] = '<label class="grid5of10 column"><input type="checkbox" name="' . $name . '[]" value="' . $value . '" class="joinoptions"/> '.$title.'</label>';
+				}				
+				$html[] = '</span></div>';
+			}
+		}
+		return isset($html) ? join("\n", $html) : false;		
 	}
 	
 	protected function createCheckboxOptions(&$field, &$element){
@@ -353,25 +385,49 @@ class Form {
 	}
 	
 	public function createRecord(){
-		if(!$this->flow->isInsertable()) throw new HelperException('data access violation');;
-		$input = $this->sandbox->getHelper('input');
-		$name = (string) $this->definition->attributes()->name;
-		$record['table'] = $name;
-		$fields = $this->getFields();
-		foreach($fields as $field){
-			$type = (string) $field->attributes()->type;
-			$key = (string) $field->attributes()->name;
-			if(!in_array($type, array("options"))) {
-				$record['content'][$key] = $this->getContent($key);
-			}
-		}
+		if(!$this->flow->isInsertable()) throw new HelperException('data access violation');
 		try {
-			$insertID = $this->getStorage()->insert($record);
-			$this->createOptions($insertID);
+			$insert = $this->getCreateQuery();
+			$ID = $this->getStorage()->insert($insert);
+			$this->createRelations($ID);
 			return json_encode(array("success" => $insertID), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 		}catch(HelperException $e){
 			throw new \apps\ApplicationException($e->getMessage());
 		}
+	}
+	
+	private function createRelations($ID){
+		if(!$ID) return false;
+		if(!property_exists($this->definition, 'relation')) return false;
+		$table = (string) $this->definition->attributes()->name;
+		foreach($this->definition->relation as $relation){
+			$lookup = (string) $relation->attributes()->lookup;
+			$join = (string) $relation->attributes()->join;
+			$name = (string) $relation->attributes()->name;
+			if(!in_array($name, $_POST)) continue;
+			$options = $_POST[$name];
+			if(!is_array($options)) continue;
+			foreach($options as $option){
+				if(!is_numeric($option)) continue;
+				$insert = array('table' => $join, 'content' => array('creationTime' => time(), $name => ((integer) $option), $table => $ID));
+				if((string) $this->definition->attributes()->storage != 'local'){
+					$insert['content']['site'] = $this->sandbox->getHelper('site')->getID();
+				}
+				$results[] = $this->getStorage()->insert($insert);
+			}
+		}
+		return $results;
+	}
+	
+	private function getCreateQuery(){
+		$insert['table'] = (string) $this->definition->attributes()->name;
+		$fields = $this->getFields();
+		foreach($fields as $field){
+			$type = (string) $field->attributes()->type;
+			$key = (string) $field->attributes()->name;
+			$insert['content'][$key] = $this->getContent($key);
+		}
+		return $insert;
 	}
 		
 	private function createOptions($insertID){
@@ -414,7 +470,7 @@ class Form {
 					return array_key_exists('REMOTE_ADDR', $_SERVER) ? $_SERVER['REMOTE_ADDR'] : "127.0.0.1";
 					break;
 			}
-		}else{
+		} else {
 			return $this->sandbox->getHelper('input')->postString($key);
 		}
 	}
@@ -427,9 +483,28 @@ class Form {
 		$table = (string) $this->definition->attributes()->name;
 		$columns = $this->getColumns();
 		$sql = sprintf("SELECT %s, %s FROM `%s` WHERE `%s` = %d", $key, implode(", ", $columns), $table, $key, $primarykey);
-		$this->records = $this->getOptionValues($this->getStorage()->query($sql));
+		$this->records = $this->getStorage()->query($sql);
+		$this->getRelatedRecords();
 		$this->formatRecords();
 		return json_encode($this->records, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);		
+	}
+	
+	private function getRelatedRecords(){
+		if(!property_exists($this->definition, 'relation')) return false;
+		$table = (string) $this->definition->attributes()->name;
+		$primarykey = $this->sandbox->getHelper('input')->postInteger('primarykey');
+		foreach($this->definition->relation as $relation){
+			$lookup = (string) $relation->attributes()->lookup;
+			$join = (string) $relation->attributes()->join;
+			$name = (string) $relation->attributes()->name;
+			$rows = $this->getStorage()->query(sprintf("SELECT `%s` FROM `%s` WHERE `%s` = %d", $lookup, $join, $table, $primarykey));
+			$rows = $rows ?  $rows : array();
+			foreach($rows as $row){
+				$records[] = $row[$lookup];
+			}
+			$records = isset($records) ? $records : array();
+			$this->records[0][$name] = implode(', ', $records);
+		}
 	}
 	
 	private function formatRecords(){
@@ -477,10 +552,48 @@ class Form {
 	public function updateRecord(){
 		if(!$this->flow->isUpdateable()) throw new HelperException('data access violation');;
 		if(!array_key_exists('primarykey', $_POST)) return;
+		$result['success'] = $this->getStorage()->update($this->getUpdateQuery());
+		$this->updateRelations();
+		return json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);		
+	}
+	
+	private function updateRelations(){
+		if(!property_exists($this->definition, 'relation')) return false;
+		$table = (string) $this->definition->attributes()->name;
+		foreach($this->definition->relation as $relation){
+			$lookup = (string) $relation->attributes()->lookup;
+			$join = (string) $relation->attributes()->join;
+			$name = (string) $relation->attributes()->name;
+			if(!array_key_exists($name, $_POST)) continue;
+			$options = $_POST[$name];
+			if(!is_array($options)) continue;
+			foreach($options as $option){
+				$values[] = (integer) $option;
+			}
+			$primarykey = $this->sandbox->getHelper('input')->postInteger('primarykey');
+			$this->getStorage()->query(sprintf("DELETE FROM `%s` WHERE `%s` = %d AND `%s` NOT IN (%s)", $join, $table, $primarykey, $lookup, implode(', ', $values)));
+			$rows = $this->getStorage()->query(sprintf("SELECT `%s` FROM `%s` WHERE `%s` = %d", $lookup, $join, $table, $primarykey));
+			$rows = $rows ?  $rows : array();
+			foreach($rows as $row){
+				$records[] = $row[$lookup];
+			}
+			$records = isset($records) ? $records : array();
+			foreach($values as $value){
+				if(in_array($value, $records)) continue;
+				$insert = array('table' => $join, 'content' => array($table => $primarykey, $lookup => $value, 'creationTime' => time()));
+				if((string) $this->definition->attributes()->storage != 'local'){
+					$insert['content']['site'] = $this->sandbox->getHelper('site')->getID();
+				}
+				$this->getStorage()->insert($insert);
+			}
+		}
+	}
+	
+	private function getUpdateQuery(){
 		$columns = $this->getColumns();
 		$key = (string) $this->definition->attributes()->primarykey;
 		$update['table'] = (string) $this->definition->attributes()->name;
-		$ID = $this->getStorage()->sanitize($_POST['primarykey']);
+		$ID = $this->sandbox->getHelper('input')->postInteger('primarykey');
 		$update['constraints'][$key] = $ID;
 		if((string) $this->definition->attributes()->storage != 'local'){
 			$update['constraints']['site'] = $this->sandbox->getHelper('site')->getID();
@@ -488,9 +601,7 @@ class Form {
 		foreach ($columns as $column) {
 			$update['content'][$column] = $this->sandbox->getHelper('input')->postString($column);
 		}
-		$result['success'] = $this->getStorage()->update($update);
-		$this->updateOptions($this->getOptionValues(array(array($key => $ID))));
-		return json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);		
+		return $update;
 	}
 	
 	private function updateOptions($optionValues){
@@ -528,7 +639,7 @@ class Form {
 		if(!$this->flow->isDeleteable()) throw new HelperException('data access violation');
 		$primarykey = (string) $this->definition->attributes()->primarykey;
 		$primaryvalue = $this->sandbox->getHelper('input')->postInteger('primarykey');
-		if(!$primaryvalue) throw new HelperException('No valid primaryvalue found '.json_encode($_POST));
+		if(!$primaryvalue) throw new HelperException('No valid primary value found '.json_encode($_POST));
 		$update['table'] = $this->name;
 		$update['content']['inTrash'] = 'Yes';
 		$update['constraints'][$primarykey] = $primaryvalue;
@@ -540,7 +651,7 @@ class Form {
 		$fields = $this->getFields();
 		foreach($fields as $field){
 			$type = (string) $field->attributes()->type;
-			if(strlen($type) && !in_array($type, array("options"))) {
+			if(strlen($type)) {
 				$columns[] = (string) $field->attributes()->name;				
 			}
 		}

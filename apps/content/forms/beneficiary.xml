@@ -1,51 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form name="beneficiary" title="beneficiary.label" primarykey="ID">
-	<field name="user" type="int" length="20">
-		<element name="user" type="text" label="user.label" placeholder="user.placeholder"></element>
-	</field>
-	<field name="facility" type="int" length="5">
-		<element name="facility" type="text" label="facility.label" placeholder="facility.placeholder"></element>
-	</field>
-	<field name="district" type="int" length="5">
-		<element name="district" type="text" label="district.label" placeholder="district.placeholder"></element>
-	</field>
-	<field name="county" type="int" length="5">
-		<element name="county" type="text" label="county.label" placeholder="county.placeholder"></element>
-	</field>
-	<field name="province" type="int" length="5">
-		<element name="province" type="text" label="province.label" placeholder="province.placeholder"></element>
-	</field>
-	<field name="gender" type="enum" length="'M'" precision="'F'">
-		<element name="gender" type="text" label="gender.label" placeholder="gender.placeholder"></element>
-	</field>
-	<field name="firstname" type="varchar" length="255">
-		<element name="firstname" type="text" label="firstname.label" placeholder="firstname.placeholder"></element>
-	</field>
-	<field name="middlename" type="varchar" length="255">
-		<element name="middlename" type="text" label="middlename.label" placeholder="middlename.placeholder"></element>
-	</field>
-	<field name="lastname" type="varchar" length="255">
-		<element name="lastname" type="text" label="lastname.label" placeholder="lastname.placeholder"></element>
-	</field>
-	<field name="MSISDN" type="varchar" length="16">
-		<element name="MSISDN" type="text" label="MSISDN.label" placeholder="MSISDN.placeholder"></element>
-	</field>
-	<field name="sourceIP" type="varchar" length="15">
-		<element name="sourceIP" type="text" label="sourceIP.label" placeholder="sourceIP.placeholder"></element>
+<form name="beneficiary" title="beneficiary.label" primarykey="ID" storage="local">
+	<field name="user" length="20">
+		<element name="user" type="text" label="user.label" placeholder="user.placeholder">
+		</element>
 	</field>
 	<field name="beneficiaryType" type="int" length="5">
-		<element name="beneficiaryType" type="text" label="beneficiaryType.label" placeholder="beneficiaryType.placeholder"></element>
+		<element name="beneficiaryType" type="select" lookup="beneficiaryType" value="ID" display="title" label="beneficiaryType.label" placeholder="beneficiaryType.select.placeholder" order="title">
+			<class>required</class>
+		</element>
+	</field>	
+	<field name="facility" type="int" length="5">
+		<element name="facility" type="select" lookup="facility" value="ID" display="title" label="facility.label" placeholder="facility.select.placeholder" order="title">
+		</element>
 	</field>
-	<field name="creationTime" type="int" length="10">
-		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
+	<field name="district" type="int" length="5">
+		<element name="district" type="select" lookup="district" value="ID" display="title" label="district.label" placeholder="district.select.placeholder" order="title">
+		</element>
 	</field>
-	<field name="inTrash" type="enum" length="'Yes'" precision="'No'">
-		<element name="inTrash" type="text" label="inTrash.label" placeholder="inTrash.placeholder"></element>
+	<field name="province" type="int" length="5">
+		<element name="province" type="select" lookup="province" value="ID" display="title" label="province.label" placeholder="province.select.placeholder" order="title">			
+		</element>
 	</field>
-	<field name="submit">
-		<element name="action" type="submit" value="action.submit"></element>
+	<field name="gender" type="enum" length="1">
+		<element name="gender" type="radio" value="M" label="male.label" placeholder="gender.placeholder">
+			<class>required</class>
+		</element>
+		<element name="gender" type="radio" value="F" label="female.label" placeholder="gender.placeholder">
+			<class>required</class>
+		</element>
 	</field>
-	<field name="reset">
-		<element name="action" type="reset" value="action.reset"></element>
+	<field name="firstname" type="varchar" length="255">
+		<element name="firstname" type="text" label="firstname.label" placeholder="firstname.placeholder">
+			<class>required</class>
+		</element>
 	</field>
+	<field name="middlename" type="varchar" length="255">
+		<element name="middlename" type="text" label="middlename.label" placeholder="middlename.placeholder">
+			<class>required</class>
+		</element>
+	</field>
+	<field name="lastname" type="varchar" length="255">
+		<element name="lastname" type="text" label="lastname.label" placeholder="lastname.placeholder">
+			<class>required</class>
+		</element>
+	</field>
+	<field name="MSISDN" type="varchar" length="16">
+		<element name="MSISDN" type="text" label="msisdn.label" placeholder="msisdn.placeholder">
+			<class>phone</class>
+		</element>
+	</field>
+	<field name="sourceIP" length="15">
+		<element name="sourceIP" type="hidden" label="sourceIP.label" placeholder="sourceIP.placeholder">
+			<class>required</class>
+		</element>
+	</field>
+	<field name="creationTime">
+		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder">
+			<class>required</class>
+		</element>
+	</field>
+	<button name="action" type="submit" value="action.continue"><class>gridPrimaryButton</class></button>
+	<button name="cancel" type="button" value="action.dismiss"><class>gridSecondaryButton</class></button>
 </form>

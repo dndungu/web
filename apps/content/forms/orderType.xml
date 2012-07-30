@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form name="orderType" title="orderType.label" primarykey="ID">
+<form name="orderType" title="orderType.label" primarykey="ID" storage="local">
 	<field name="title" type="varchar" length="64">
-		<element name="title" type="text" label="title.label" placeholder="title.placeholder"></element>
+		<element name="title" type="text" label="orderType.label" placeholder="orderType.placeholder">
+			<class>required</class>
+		</element>
 	</field>
-	<field name="creationTime" type="int" length="10">
-		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
+	<field name="creationTime">
+		<element name="creationTime" type="hidden" label="creationTime.label" placeholder="creationTime.placeholder"></element>
 	</field>
-	<field name="inTrash" type="enum" length="'Yes'" precision="'No'">
-		<element name="inTrash" type="text" label="inTrash.label" placeholder="inTrash.placeholder"></element>
-	</field>
-	<field name="submit">
-		<element name="action" type="submit" value="action.submit"></element>
-	</field>
-	<field name="reset">
-		<element name="action" type="reset" value="action.reset"></element>
-	</field>
+	<button name="action" type="submit" value="action.continue"><class>gridPrimaryButton</class></button>
+	<button name="cancel" type="button" value="action.dismiss"><class>gridSecondaryButton</class></button>
 </form>

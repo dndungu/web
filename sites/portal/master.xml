@@ -154,27 +154,27 @@
 		<portlet module="content" controller="CellStudio" access="budget.select.permission"/>
 	</portal>
 	<portal type="raw" access="fundAllocation.select.permission">
-		<navigation parent="users" group="hidden" uri="/form/fundAllocation" label="panel.fundAllocations" weight="24"/>
+		<navigation parent="finance" group="hidden" uri="/form/fundAllocation" label="panel.fundAllocations" weight="24"/>
 		<portlet module="content" controller="FormStudio" access="fundAllocation.select.permission"/>
 	</portal>
 	<portal type="raw" access="fundAllocation.select.permission">
-		<navigation parent="users" group="panel" uri="/grid/fundAllocation" label="panel.fundAllocations" weight="24"/>
+		<navigation parent="finance" group="panel" uri="/grid/fundAllocation" label="panel.fundAllocations" weight="24"/>
 		<portlet module="content" controller="GridStudio" access="fundAllocation.select.permission"/>
 	</portal>
 	<portal type="raw" access="fundAllocation.select.permission">
-		<navigation parent="users" group="hidden" uri="/cell/fundAllocation" label="panel.fundAllocations" weight="24"/>
+		<navigation parent="finance" group="hidden" uri="/cell/fundAllocation" label="panel.fundAllocations" weight="24"/>
 		<portlet module="content" controller="CellStudio" access="fundAllocation.select.permission"/>
 	</portal>
 	<portal type="raw" access="financier.select.permission">
-		<navigation parent="users" group="hidden" uri="/form/financier" label="panel.financiers" weight="25"/>
+		<navigation parent="finance" group="hidden" uri="/form/financier" label="panel.financiers" weight="25"/>
 		<portlet module="content" controller="FormStudio" access="financier.select.permission"/>
 	</portal>
 	<portal type="raw" access="financier.select.permission">
-		<navigation parent="users" group="panel" uri="/grid/financier" label="panel.financiers" weight="25"/>
+		<navigation parent="finance" group="panel" uri="/grid/financier" label="panel.financiers" weight="25"/>
 		<portlet module="content" controller="GridStudio" access="financier.select.permission"/>
 	</portal>
 	<portal type="raw" access="financier.select.permission">
-		<navigation parent="users" group="hidden" uri="/cell/financier" label="panel.financiers" weight="25"/>
+		<navigation parent="finance" group="hidden" uri="/cell/financier" label="panel.financiers" weight="25"/>
 		<portlet module="content" controller="CellStudio" access="financier.select.permission"/>
 	</portal>
 		
@@ -370,7 +370,7 @@
 		<portlet module="content" controller="FormStudio" access="activity.select.permission"/>
 	</portal>
 	<portal type="raw" access="activity.select.permission">
-		<navigation parent="permissions" group="panel" uri="/grid/activity" label="panel.activity" weight="63"/>
+		<navigation parent="permissions" group="_panel" uri="/grid/activity" label="panel.activity" weight="63"/>
 		<portlet module="content" controller="GridStudio" access="activity.select.permission"/>
 	</portal>
 	<portal type="raw" access="activity.select.permission">

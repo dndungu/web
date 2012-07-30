@@ -10,7 +10,7 @@ class GridQuery {
 		
 	private $offset = 0;
 	
-	private $limit = 15;
+	private $limit = 20;
 	
 	private $order = array('column' => NULL, 'direction' => NULL);
 	
@@ -54,6 +54,8 @@ class GridQuery {
 	}
 	
 	public function getOffset(){
+		$offset = $this->sandbox->getHelper('input')->postInteger('offset');
+		$this->offset = $offset ? $offset : $this->offset;
 		return $this->offset;
 	}
 	
@@ -86,7 +88,22 @@ class GridQuery {
 	}
 	
 	protected function buildFilter(){
-		$query[] = "WHERE 1 = 1";
+		$keywords = $this->sandbox->getHelper('input')->postString('keywords');
+		if(strlen($keywords)){
+			$parametersCount = intval($this->definition->records->search->attributes()->parameters);
+			$parametersQuery = (string) $this->definition->records->search;
+			$args[] = "WHERE $parametersQuery";
+			while($parametersCount--){
+				if(is_numeric($keywords)){
+					$args[] = $keywords;
+				}else{
+					$args[] = "%$keywords%";
+				}
+			}
+			$query[] = call_user_func_array('sprintf', $args);
+		}else{
+			$query[] = "WHERE 1 = 1";
+		}
 		if(!property_exists($this->definition->records, 'filter')) return $query[0];
 		foreach($this->definition->records->filter as $filter){
 			$field= (string) $filter->attributes()->field;

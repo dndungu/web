@@ -279,7 +279,7 @@ class Grid {
 		$searchText = $translator->translate('action.search');
 		$addText = $translator->translate('action.add');
 		$URI = $this->sandbox->getMeta('URI');
-		$html[] = "<form action=\"$URI\" method=\"POST\">";
+		$html[] = "<form action=\"$URI\" method=\"POST\" class=\"gridSearch\">";
 		if($this->flow && $this->flow->isInsertable()){
 			$html[] = "<input type=\"button\" name=\"addButton\" value=\"$addText\" class=\"addButton gridPrimaryButton\"/>";
 		}

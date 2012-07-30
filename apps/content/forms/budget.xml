@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form name="budget" title="budget.label" primarykey="ID">
-	<field name="user" type="int" length="20">
-		<element name="user" type="text" label="user.label" placeholder="user.placeholder"></element>
+<form name="budget" title="budget.label" primarykey="ID" storage="local">
+	<field name="user" length="20">
+		<element name="user" type="hidden" label="user.label" placeholder="user.placeholder"></element>
 	</field>
 	<field name="title" type="varchar" length="255">
-		<element name="title" type="text" label="title.label" placeholder="title.placeholder"></element>
+		<element name="title" type="text" label="budget.label" placeholder="budget.placeholder"></element>
 	</field>
 	<field name="notes" type="text">
-		<element name="notes" type="text" label="notes.label" placeholder="notes.placeholder"></element>
+		<element name="notes" type="textarea" label="description.label" placeholder="description.placeholder"></element>
 	</field>
-	<field name="balanceTime" type="datetime">
-		<element name="balanceTime" type="text" label="balanceTime.label" placeholder="balanceTime.placeholder"></element>
+	<field name="creationTime" length="10">
+		<element name="creationTime" type="hidden" label="creationTime.label" placeholder="creationTime.placeholder"></element>
 	</field>
-	<field name="creationTime" type="int" length="10">
-		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
-	</field>
-	<field name="inTrash" type="enum" length="'Yes'" precision="'No'">
-		<element name="inTrash" type="text" label="inTrash.label" placeholder="inTrash.placeholder"></element>
-	</field>
-	<field name="submit">
-		<element name="action" type="submit" value="action.submit"></element>
-	</field>
-	<field name="reset">
-		<element name="action" type="reset" value="action.reset"></element>
-	</field>
+	<button name="action" type="submit" value="action.continue"><class>gridPrimaryButton</class></button>
+	<button name="cancel" type="button" value="action.dismiss"><class>gridSecondaryButton</class></button>
 </form>

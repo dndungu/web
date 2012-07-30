@@ -25,16 +25,11 @@ core.control.extend('grid', function(){
 				this.initGridCell();
 				this.renderLegend();
 				this.renderPaginator();
-				if(this.paginatable){
-					this.initPaginator();
-				}
-				if(this.sortable){
-					this.initSorter();
-				}
+				this.setUp();
 				if(this.readyCallback){
 					this.readyCallback();
 				}
-			},			
+			},	
 			reset: function(){
 				this.offset = 0;
 				this.page = 1;
@@ -49,13 +44,12 @@ core.control.extend('grid', function(){
 			},
 			renderLegend: function(){
 				var template = new String($('.gridFooter>span' ,$(this.template)).html());
-				var footer = $('.gridFooter>span', this.html);
 				var records = this.records.footer;
 				var rowCount = this.records.footer['rowCount'];
 				var rowLimit = (parseInt(records['rowOffset'])+parseInt(records['rowLimit']));
 				records['rowLimit'] = rowLimit > rowCount ? rowCount : rowLimit; 
 				var legend = control.render(template, [records]);
-				footer.html(legend);
+				$('.gridFooter>span', this.html).html(legend);
 			},
 			renderPaginator: function(){
 				var template = $('.gridFooter a.previous', $(this.template));
@@ -69,8 +63,9 @@ core.control.extend('grid', function(){
 					j = j > pageCount ? pageCount : j;
 					i = ((j-i) < 4) ? (((j-4) > 0) ? (j-4) : i) : i;
 					var buttons = new Array();
-					while(i <= j){ 
-						buttons.push(' <li><a class="pagenavigator" name="'+i+'">' + i++ +'</a></li> ');
+					while(i <= j){
+						var liClass = i === this.page ? ' class="pagecurrent"' : '';
+						buttons.push(' <li'+liClass+'><a class="pagenavigator" name="'+i+'">' + i++ +'</a></li> ');
 					}
 					template.parent('li').after(buttons.join(''));
 					pagination.parent('li').parent('ul').html(template.parent('li').parent('ul').html());
@@ -122,12 +117,12 @@ core.control.extend('grid', function(){
 				});
 			},
 			initSearcher: function(){
-				var that = this;
-				var form = $('.gridHeaderSearch>form', this.html);
+				var form = $('.gridSearch', this.html);
 				form.unbind('submit').submit(function(event){
 					event.preventDefault();
 					_private.search = $('input[name="keywords"]', form).val();
-					that.getRecords('search');
+					_private.html = $(_private.template);
+					_private.getRecords('search');
 				});
 			},
 			initInserter: function(){
@@ -285,23 +280,30 @@ core.control.extend('grid', function(){
 					if(arguments[0].readyState != 4 || arguments[0].status != 200) return;
 					that.template = arguments[0].responseText;
 					that.html = $(that.template);
-					that.setUp();
+					that.updateable = that.html.hasClass('updateable');
+					that.insertable = that.html.hasClass('insertable');
+					that.searchable = that.html.hasClass('searchable');
+					that.sortable = that.html.hasClass('sortable');
+					that.paginatable = that.html.hasClass('paginatable');
+					if(that.insertable || that.updateable){
+						control.setForm(that.source.replace('/grid/', '/form/'));
+						that.form.setGrid(control);
+					}					
 					that.renderGrid();
 				});
 			},
 			setUp: function(){
-				_private.updateable = _private.html.hasClass('updateable');
-				_private.insertable = _private.html.hasClass('insertable');
-				_private.searchable = _private.html.hasClass('searchable');
-				_private.sortable = _private.html.hasClass('sortable');
-				_private.paginatable = _private.html.hasClass('paginatable');
-				if(_private.insertable || _private.updateable){
-					control.setForm(_private.source.replace('/grid/', '/form/'));
-					_private.form.setGrid(control);
-					_private.initInserter();
+				if(this.searchable){
+					this.initSearcher();
 				}
-				if(_private.seachable){
-					_private.initSearcher();
+				if(this.paginatable){
+					this.initPaginator();
+				}
+				if(this.sortable){
+					this.initSorter();
+				}
+				if(this.insertable || this.updateable){
+					this.initInserter();
 				}
 			}			
 	};
@@ -337,7 +339,6 @@ core.control.extend('grid', function(){
 			},
 			refresh: function(){
 				_private.html = $(_private.template);
-				_private.setUp();
 				_private.getRecords('browse');
 			}
 		};

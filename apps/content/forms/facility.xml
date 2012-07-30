@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form name="facility" title="facility.label" primarykey="ID" storage="local">
 	<field name="province" type="int" length="5">
-		<element name="province" type="select" lookup="province" value="ID" display="title" order="title" label="province.label" placeholder="province.placeholder">
+		<element name="province" type="select" lookup="province" value="ID" display="title" order="title" label="province.label" placeholder="province.select.placeholder">
 			<class>required</class>
 		</element>
 	</field>
 	<field name="district" type="int" length="5">
-		<element name="district" type="select" lookup="district" value="ID" display="title" order="title" label="district.label" placeholder="district.placeholder">
+		<element name="district" type="select" lookup="district" value="ID" display="title" order="title" label="district.label" placeholder="district.select.placeholder">
 			<class>required</class>
 		</element>
 	</field>

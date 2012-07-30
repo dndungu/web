@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grid name="beneficiaryType" title="beneficiaryType.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+<grid name="beneficiaryType" title="beneficiaryType.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true" storage="local">
 	<records>
 		<leftjoin></leftjoin>
 		<ordercolumn>ID</ordercolumn>
 		<orderdirection>desc</orderdirection>
-		<search parameters="1">`ID` = %d</search>
+		<search parameters="1">`ID` = %d OR `title` LIKE '%s'</search>
 	</records>
 	<columns primarykey="ID">
-		<column name="ID" field="ID" title="ID.label" class="grid2of10 column"></column>
-		<column name="title" field="title" title="title.label" class="grid2of10 column"></column>
+		<column name="ID" field="ID" title="id.label" class="grid1of10 column"></column>
+		<column name="title" field="title" title="beneficiaryType.label" class="grid7of10 column"></column>
 		<column name="creationTime" field="creationTime" title="creationTime.label" class="grid2of10 column"></column>
-		<column name="inTrash" field="inTrash" title="inTrash.label" class="grid2of10 column"></column>
 	</columns>
 </grid>

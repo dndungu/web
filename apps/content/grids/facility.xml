@@ -5,7 +5,7 @@
 		<leftjoin>`district` ON (`facility`.`district` = `district`.`ID`)</leftjoin>
 		<ordercolumn>`facility`.`ID`</ordercolumn>
 		<orderdirection>desc</orderdirection>
-		<search parameters="1">`ID` = %d</search>
+		<search parameters="4">`facility`.`ID` = %d OR `facility`.`title` LIKE '%s' OR `province`.`title` LIKE '%s' OR `district`.`title` LIKE '%s'</search>
 	</records>
 	<columns primarykey="`facility`.`ID`">
 		<column name="ID" field="`facility`.`ID`" title="id.label" class="grid1of10 column"></column>

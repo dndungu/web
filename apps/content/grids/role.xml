@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grid name="role" title="role.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true">
+<grid name="role" title="role.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true" storage="local">
 	<records>
 		<leftjoin></leftjoin>
 		<ordercolumn>ID</ordercolumn>
-		<orderdirection>desc</orderdirection>
-		<search parameters="1">`ID` = %d</search>
+		<orderdirection>asc</orderdirection>
+		<search parameters="2">`ID` = %d OR `title` LIKE '%s'</search>
+		<filter field="isSystem" value="No"></filter>
 	</records>
 	<columns primarykey="ID">
-		<column name="ID" field="ID" title="ID.label" class="grid2of10 column"></column>
-		<column name="site" field="site" title="site.label" class="grid2of10 column"></column>
-		<column name="title" field="title" title="title.label" class="grid2of10 column"></column>
-		<column name="isSystem" field="isSystem" title="isSystem.label" class="grid2of10 column"></column>
+		<column name="ID" field="ID" title="id.label" class="grid1of10 column"></column>
+		<column name="title" field="title" title="role.label" class="grid7of10 column"></column>
 		<column name="creationTime" field="creationTime" title="creationTime.label" class="grid2of10 column"></column>
-		<column name="inTrash" field="inTrash" title="inTrash.label" class="grid2of10 column"></column>
 	</columns>
 </grid>

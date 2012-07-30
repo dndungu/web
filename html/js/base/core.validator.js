@@ -18,23 +18,18 @@ core.validator = {
 		});		
 	},
 	checkForm: function(){
-		var form = arguments[0];
-		var subject = $(this);
+		var subject = arguments[0];
 		var extension = core.validator;
-		var name = String(subject.attr('name'));
 		var elements = extension.findElements(subject);
-		var pass = true;
 		for(i in elements){
 			if(!extension.checkRule(elements[i])) {
-				pass = false;
+				return false;
 			}
 		}
-		if(pass){
-			var dateField = subject.find('input.date');
-			var dateFormat = dateField.val();
-			dateField.val(Date.parse(dateFormat)/1000);
-		}
-		return pass;		
+		var dateField = subject.find('input.date');
+		var dateFormat = dateField.val();
+		dateField.val(Date.parse(dateFormat)/1000);
+		return true;		
 	},
 	setStepCheck: function(){
 		var steps = $('.step', arguments[0]);
@@ -59,13 +54,11 @@ core.validator = {
 		var container = $(arguments[0]);
 		var elements = [];
 		$('input, textarea, select', container).each(function(){
-			var index = $(arguments[0]);
 			var element = $(arguments[1]);
 			if(element.is(':hidden')) return;
 			var attr = element.attr('class');
 			if(typeof attr != 'string' || attr.length == 0) return;
 			var tests = attr.split(' ');
-			var testable = false;
 			for(i in tests){
 				if(extension.getRules().indexOf(tests[i]) != -1) {
 					elements.push(element);
@@ -80,24 +73,22 @@ core.validator = {
 		var extension = core.validator;
 		var rules = (String(subject.attr('class'))).split(' ');
 		var value = subject.val();
-		var pass = false;
+		var placeholder = '';
 		for(i in rules){
 			var rule = rules[i];
-			if(extension.getRules().indexOf(rule) == -1) continue;
-			if(!extension.testRule(rule, value)) {
-				pass = false;
-				break;
+			if(extension.getRules().indexOf(rule) == -1) {
+				continue;
 			}
-			pass = true;
+			if(extension.testRule(rule, value) === false) {
+				placeholder = core.l18n['validator_'+rule];
+				extension.redStatus(subject);
+				subject.val('');
+				subject.attr('placeholder', placeholder);
+				return false;
+			}
 		}
-		if(pass) {
-			extension.greenStatus(subject);
-		} else {
-			extension.redStatus(subject);
-			subject.attr('placeholder', core.l18n['validator_'+rule]);
-			subject.val('');
-		}
-		return pass;
+		extension.greenStatus(subject);
+		return true;
 	},
 	getRules: function(){
 		var rules = [];
@@ -195,7 +186,7 @@ core.validator = {
 		}		
 	},
 	testRequired: function(){
-		return String(arguments[0]).length ? true : false;
+		return $.trim(arguments[0]).length ? true : false;
 	},
 	testString: function(){
 		var pattern = /^[a-z0-9]{1,255}$/i;

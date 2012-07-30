@@ -1258,6 +1258,12 @@ ul.content-box-tabs li a:hover,.shortcut-button span:hover {
 	margin:10px 0 0 0;
 }
 
+.contentCell label {
+	margin:0;
+	padding:0;
+	font-weight:400;
+}
+
 .gridCell {
 	background:#FCFCFC;
 	display:inline-block;
@@ -1432,4 +1438,9 @@ ul.content-box-tabs li a:hover,.shortcut-button span:hover {
 .gridFormButtons {
 	display:block;
 	padding-left:26%;
+}
+
+.gridFooter .pagecurrent a {
+	font-size:1.5em;
+	color:#888;
 }

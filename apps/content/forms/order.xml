@@ -1,126 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form name="order" title="order.label" primarykey="ID">
-	<field name="creator" type="int" length="20">
-		<element name="creator" type="text" label="creator.label" placeholder="creator.placeholder"></element>
+	<field name="user" length="20">
+		<element name="creator" type="hidden" label="creator.label" placeholder="creator.placeholder"></element>
 	</field>
 	<field name="beneficiary" type="int" length="20">
-		<element name="beneficiary" type="text" label="beneficiary.label" placeholder="beneficiary.placeholder"></element>
+			<element name="beneficiary" type="select" lookup="beneficiaries" value="ID" display="name" label="beneficiary.label" placeholder="beneficiary.select.placeholder" order="name">
+				<class>required</class>
+			</element>
 	</field>
 	<field name="amount" type="decimal" length="5" precision="2">
-		<element name="amount" type="text" label="amount.label" placeholder="amount.placeholder"></element>
+		<element name="amount" type="text" label="amount.label" placeholder="amount.placeholder">
+			<class>decimal</class>
+		</element>
 	</field>
-	<field name="type" type="int" length="5">
-		<element name="type" type="text" label="type.label" placeholder="type.placeholder"></element>
+	<field name="orderType" type="int" length="5">
+		<element name="orderType" type="select" lookup="orderType" value="ID" display="title" label="orderType.label" placeholder="orderType.placeholder">
+			<class>required</class>
+		</element>
 	</field>
 	<field name="notes" type="varchar" length="255">
-		<element name="notes" type="text" label="notes.label" placeholder="notes.placeholder"></element>
+		<element name="notes" type="textarea" label="description.label" placeholder="description.placeholder">
+			<class>required</class>
+		</element>
 	</field>
-	<field name="MSISDN" type="varchar" length="16">
-		<element name="MSISDN" type="text" label="MSISDN.label" placeholder="MSISDN.placeholder"></element>
-	</field>
-	<field name="sourceIP" type="varchar" length="15">
+	<field name="sourceIP" length="15">
 		<element name="sourceIP" type="text" label="sourceIP.label" placeholder="sourceIP.placeholder"></element>
 	</field>
-	<field name="approvalOne" type="enum" length="'Approved'" precision="'Rejected'">
-		<element name="approvalOne" type="text" label="approvalOne.label" placeholder="approvalOne.placeholder"></element>
-	</field>
-	<field name="approvalOneUser" type="int" length="20">
-		<element name="approvalOneUser" type="text" label="approvalOneUser.label" placeholder="approvalOneUser.placeholder"></element>
-	</field>
-	<field name="approvalOneTime" type="int" length="10">
-		<element name="approvalOneTime" type="text" label="approvalOneTime.label" placeholder="approvalOneTime.placeholder"></element>
-	</field>
-	<field name="approvalOneNotes" type="tinytext">
-		<element name="approvalOneNotes" type="text" label="approvalOneNotes.label" placeholder="approvalOneNotes.placeholder"></element>
-	</field>
-	<field name="approvalOneAmount" type="decimal" length="5" precision="2">
-		<element name="approvalOneAmount" type="text" label="approvalOneAmount.label" placeholder="approvalOneAmount.placeholder"></element>
-	</field>
-	<field name="approvalTwo" type="enum" length="'Approved'" precision="'Rejected'">
-		<element name="approvalTwo" type="text" label="approvalTwo.label" placeholder="approvalTwo.placeholder"></element>
-	</field>
-	<field name="approvalTwoUser" type="int" length="20">
-		<element name="approvalTwoUser" type="text" label="approvalTwoUser.label" placeholder="approvalTwoUser.placeholder"></element>
-	</field>
-	<field name="approvalTwoTime" type="int" length="10">
-		<element name="approvalTwoTime" type="text" label="approvalTwoTime.label" placeholder="approvalTwoTime.placeholder"></element>
-	</field>
-	<field name="approvalTwoNotes" type="tinytext">
-		<element name="approvalTwoNotes" type="text" label="approvalTwoNotes.label" placeholder="approvalTwoNotes.placeholder"></element>
-	</field>
-	<field name="approvalTwoAmount" type="decimal" length="5" precision="2">
-		<element name="approvalTwoAmount" type="text" label="approvalTwoAmount.label" placeholder="approvalTwoAmount.placeholder"></element>
-	</field>
-	<field name="approvalThree" type="enum" length="'Approved'" precision="'Rejected'">
-		<element name="approvalThree" type="text" label="approvalThree.label" placeholder="approvalThree.placeholder"></element>
-	</field>
-	<field name="approvalThreeUser" type="int" length="20">
-		<element name="approvalThreeUser" type="text" label="approvalThreeUser.label" placeholder="approvalThreeUser.placeholder"></element>
-	</field>
-	<field name="approvalThreeTime" type="int" length="10">
-		<element name="approvalThreeTime" type="text" label="approvalThreeTime.label" placeholder="approvalThreeTime.placeholder"></element>
-	</field>
-	<field name="approvalThreeNotes" type="tinytext">
-		<element name="approvalThreeNotes" type="text" label="approvalThreeNotes.label" placeholder="approvalThreeNotes.placeholder"></element>
-	</field>
-	<field name="approvalThreeAmount" type="decimal" length="5" precision="2">
-		<element name="approvalThreeAmount" type="text" label="approvalThreeAmount.label" placeholder="approvalThreeAmount.placeholder"></element>
-	</field>
-	<field name="approvalFour" type="enum" length="'Approved'" precision="'Rejected'">
-		<element name="approvalFour" type="text" label="approvalFour.label" placeholder="approvalFour.placeholder"></element>
-	</field>
-	<field name="approvalFourUser" type="int" length="20">
-		<element name="approvalFourUser" type="text" label="approvalFourUser.label" placeholder="approvalFourUser.placeholder"></element>
-	</field>
-	<field name="approvalFourTime" type="int" length="10">
-		<element name="approvalFourTime" type="text" label="approvalFourTime.label" placeholder="approvalFourTime.placeholder"></element>
-	</field>
-	<field name="approvalFourNotes" type="tinytext">
-		<element name="approvalFourNotes" type="text" label="approvalFourNotes.label" placeholder="approvalFourNotes.placeholder"></element>
-	</field>
-	<field name="approvalFourAmount" type="decimal" length="5" precision="2">
-		<element name="approvalFourAmount" type="text" label="approvalFourAmount.label" placeholder="approvalFourAmount.placeholder"></element>
-	</field>
-	<field name="approvalFive" type="enum" length="'Approved'" precision="'Rejected'">
-		<element name="approvalFive" type="text" label="approvalFive.label" placeholder="approvalFive.placeholder"></element>
-	</field>
-	<field name="approvalFiveUser" type="int" length="20">
-		<element name="approvalFiveUser" type="text" label="approvalFiveUser.label" placeholder="approvalFiveUser.placeholder"></element>
-	</field>
-	<field name="approvalFiveTime" type="int" length="10">
-		<element name="approvalFiveTime" type="text" label="approvalFiveTime.label" placeholder="approvalFiveTime.placeholder"></element>
-	</field>
-	<field name="approvalFiveNotes" type="tinytext">
-		<element name="approvalFiveNotes" type="text" label="approvalFiveNotes.label" placeholder="approvalFiveNotes.placeholder"></element>
-	</field>
-	<field name="approvalFiveAmount" type="decimal" length="5" precision="2">
-		<element name="approvalFiveAmount" type="text" label="approvalFiveAmount.label" placeholder="approvalFiveAmount.placeholder"></element>
-	</field>
-	<field name="approvalSix" type="enum" length="'Approved'" precision="'Rejected'">
-		<element name="approvalSix" type="text" label="approvalSix.label" placeholder="approvalSix.placeholder"></element>
-	</field>
-	<field name="approvalSixUser" type="int" length="20">
-		<element name="approvalSixUser" type="text" label="approvalSixUser.label" placeholder="approvalSixUser.placeholder"></element>
-	</field>
-	<field name="approvalSixTime" type="int" length="10">
-		<element name="approvalSixTime" type="text" label="approvalSixTime.label" placeholder="approvalSixTime.placeholder"></element>
-	</field>
-	<field name="approvalSixNotes" type="tinytext">
-		<element name="approvalSixNotes" type="text" label="approvalSixNotes.label" placeholder="approvalSixNotes.placeholder"></element>
-	</field>
-	<field name="approvalSixAmount" type="decimal" length="5" precision="2">
-		<element name="approvalSixAmount" type="text" label="approvalSixAmount.label" placeholder="approvalSixAmount.placeholder"></element>
-	</field>
 	<field name="scheduleTime" type="int" length="10">
-		<element name="scheduleTime" type="text" label="scheduleTime.label" placeholder="scheduleTime.placeholder"></element>
+		<element name="scheduleTime" type="text" label="scheduleTime.label" placeholder="scheduleTime.placeholder">
+			<class>date</class>
+		</element>
 	</field>
-	<field name="creationTime" type="int" length="10">
+	<field name="creationTime" length="10">
 		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
 	</field>
-	<field name="submit">
-		<element name="action" type="submit" value="action.submit"></element>
-	</field>
-	<field name="reset">
-		<element name="action" type="reset" value="action.reset"></element>
-	</field>
+	<button name="action" type="submit" value="action.continue"><class>gridPrimaryButton</class></button>
+	<button name="cancel" type="button" value="action.dismiss"><class>gridSecondaryButton</class></button>	
 </form>

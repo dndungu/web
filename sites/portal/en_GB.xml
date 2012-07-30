@@ -5,9 +5,9 @@
 	<label index="panel.overview">Overview</label>
 	
 	<label index="panel.finance">Finance</label>
-	<label index="panel.orders">Request Payment</label>
+	<label index="panel.orders">Payment Requests</label>
 	<label index="panel.order.approval">Approve Payments</label>
-	<label index="panel.beneficiaries">Beneficiaries Register</label>
+	<label index="panel.beneficiaries">Beneficiaries</label>
 	<label index="panel.budgets">Budget Lines</label>
 	<label index="panel.fundAllocations">Fund Allocations</label>
 	<label index="panel.financiers">Financiers</label>
@@ -41,15 +41,6 @@
 	<label index="panel.configuration">Configuration</label>
 	<label index="panel.site">System Settings</label>	
 	
-	<label index="role.administrator">Super User</label>
-	<label index="role.finance.officer">Finance Officer</label>
-	<label index="role.accountant">Accountant</label>
-	<label index="role.hod">Head of Department</label>
-	<label index="role.program.officer">Program Officer</label>
-	<label index="role.ptlc">PTLC</label>
-	<label index="role.dtlc">DTLC</label>
-	<label index="role.guest">Guest</label>
-
     <label index="age.seconds">seconds ago</label>
     <label index="age.minutes">minutes ago</label>
     <label index="age.hours">hours ago</label>
@@ -70,11 +61,19 @@
     <label index="resetpassword.checkemail">Please check your email for instructions on how to complete your password reset process.</label>
     <label index="changepassword">Change Password</label>
     <label index="password.changed">You have successfully changed your password, sign in to continue</label>
-    
+
+	<label index="credit.label">Amount to credit</label>    
+	<label index="credit.placeholder">Enter amount to credit</label>
+    <label index="notes.label">Description</label>
+    <label index="notes.placeholder">Enter description</label>
+    <label index="scheduleTime.label">Scheduled Time</label>
+    <label index="scheduleTime.placeholder">MM/DD/2012</label>
+    <label index="amount.label">Amount</label>
+    <label index="amount.placeholder">20.00</label>    
 	<label index="creationTime.label">Time Created</label>
 	<label index="status.label">Status</label>
-	<label index="msisdn.label">Phone number</label>
-	<label index="msisdn.placeholder">254 722 731 795</label>
+	<label index="msisdn.label">Phone No.</label>
+	<label index="msisdn.placeholder">254722731795</label>
 	<label index="description.label">Description</label>
 	<label index="description.placeholder">Enter description</label>
 	<label index="id.label">ID</label>
@@ -83,8 +82,8 @@
 	<label index="date.placeholder">MM-DD-YYYY</label>
     <label index="firstname.label">First name</label>
     <label index="firstname.placeholder">Enter first name</label>
-    <label index="middle.label">Middle name</label>
-    <label index="middle.placeholder">Enter middle name</label>    
+    <label index="middlename.label">Middle name</label>
+    <label index="middlename.placeholder">Enter middle name</label>    
     <label index="lastname.label">Last name</label>
     <label index="lastname.placeholder">Enter last name</label>
     <label index="expiryTime.label">Expiry Time</label>
@@ -140,7 +139,7 @@
     <label index="validator_firstname">Please provide a first name</label>
     <label index="validator_lastname">Please provide a last name</label>
     <label index="validator_country">Please provide a country</label>
-    <label index="validator_required">Required</label>
+    <label index="validator_required">Please complete</label>
     <label index="validator_string">Please provide a value</label>
     <label index="validator_integer">Please provide an integer</label>
     <label index="validator_positiveinteger">Please provide a positive integer</label>
@@ -172,155 +171,176 @@
 	
 	<label index="activities.label">Activities</label>
 	<label index="activity.label">Activity</label>		
-	<label index="activity.select.permision">Browse activities</label>
-	<label index="activity.insert.permision">Create activities</label>
-	<label index="activity.delete.permision">Delete activities</label>
-	<label index="activity.update.permision">Edit activities</label>
+	<label index="activity.select.permission">Browse activities</label>
+	<label index="activity.insert.permission">Create activities</label>
+	<label index="activity.delete.permission">Delete activities</label>
+	<label index="activity.update.permission">Edit activities</label>
 	
 	<label index="actual_payments.label">M-Pesa Payments</label>
 	<label index="actual_payments.label">M-Pesa Payment</label>	
-	<label index="actual_payments.select.permision">Browse M-Pesa Payments</label>
-	<label index="actual_payments.insert.permision">Create M-Pesa Payments</label>
-	<label index="actual_payments.delete.permision">Delete M-Pesa Payments</label>
-	<label index="actual_payments.update.permision">Edit M-Pesa Payments</label>
+	<label index="actual_payments.select.permission">Browse M-Pesa Payments</label>
+	<label index="actual_payments.insert.permission">Create M-Pesa Payments</label>
+	<label index="actual_payments.delete.permission">Delete M-Pesa Payments</label>
+	<label index="actual_payments.update.permission">Edit M-Pesa Payments</label>
 	
 	<label index="beneficiaries.label">Beneficiaries</label>
 	<label index="beneficiary.label">Beneficiary</label>
-	<label index="beneficiary.select.permision">Browse beneficiaries</label>
-	<label index="beneficiary.insert.permision">Create beneficiaries</label>
-	<label index="beneficiary.delete.permision">Delete beneficiaries</label>
-	<label index="beneficiary.update.permision">Edit beneficiaries</label>
+				  
+	<label index="beneficiary.select.placeholder">Select beneficiary</label>
+	<label index="beneficiary.select.permission">Browse beneficiaries</label>
+	<label index="beneficiary.insert.permission">Create beneficiaries</label>
+	<label index="beneficiary.delete.permission">Delete beneficiaries</label>
+	<label index="beneficiary.update.permission">Edit beneficiaries</label>
 	
 	<label index="beneficiaryTypes.label">Beneficiary types</label>
 	<label index="beneficiaryType.label">Beneficiary type</label>
-	<label index="beneficiaryType.select.permision">Browse beneficiary types</label>
-	<label index="beneficiaryType.insert.permision">Create beneficiary types</label>
-	<label index="beneficiaryType.delete.permision">Delete beneficiary types</label>
-	<label index="beneficiaryType.update.permision">Edit beneficiary types</label>
+	<label index="beneficiaryType.select.placeholder">Select beneficiary type</label>
+	<label index="beneficiaryType.placeholder">Enter beneficiary type</label>
+	<label index="beneficiaryType.select.permission">Browse beneficiary types</label>
+	<label index="beneficiaryType.insert.permission">Create beneficiary types</label>
+	<label index="beneficiaryType.delete.permission">Delete beneficiary types</label>
+	<label index="beneficiaryType.update.permission">Edit beneficiary types</label>
 	
-	<label index="budgets.label">Budgets</label>
-	<label index="budget.label">Budget</label>	
-	<label index="budget.select.permision">Browse budgets</label>
-	<label index="budget.insert.permision">Create budgets</label>
-	<label index="budget.delete.permision">Delete budgets</label>
-	<label index="budget.update.permision">Edit budgets</label>
+	<label index="budgets.label">Budget Lines</label>
+	<label index="budget.label">Budget Line</label>	
+	<label index="budget..select.placeholder">Select budget lines</label>
+	<label index="budget.placeholder">Enter budget line</label>
+	<label index="budget.select.permission">Browse budgets</label>
+	<label index="budget.insert.permission">Create budgets</label>
+	<label index="budget.delete.permission">Delete budgets</label>
+	<label index="budget.update.permission">Edit budgets</label>
 	
 	<label index="counties.label">Counties</label>
 	<label index="county.label">County</label>
 	<label index="county.placeholder">Enter county name</label>
-	<label index="county.select.permision">Browse counties</label>
-	<label index="county.insert.permision">Create counties</label>
-	<label index="county.delete.permision">Delete counties</label>
-	<label index="county.update.permision">Edit counties</label>
+	<label index="county.select.permission">Browse counties</label>
+	<label index="county.insert.permission">Create counties</label>
+	<label index="county.delete.permission">Delete counties</label>
+	<label index="county.update.permission">Edit counties</label>
 	
 	<label index="districts.label">Districts</label>
 	<label index="district.label">District</label>
 	<label index="district.placeholder">Enter district name</label>
-	<label index="district.select.permision">Browse districts</label>
-	<label index="district.insert.permision">Create districts</label>
-	<label index="district.delete.permision">Delete districts</label>
-	<label index="district.update.permision">Edit districts</label>
+	<label index="district.select.placeholder">Select district name</label>
+	<label index="district.select.permission">Browse districts</label>
+	<label index="district.insert.permission">Create districts</label>
+	<label index="district.delete.permission">Delete districts</label>
+	<label index="district.update.permission">Edit districts</label>
 	
 	<label index="facilities.label">Facilities</label>
-	<label index="facility.label">Facility</label>		
-	<label index="facility.select.permision">Browse facilities</label>
-	<label index="facility.insert.permision">Create facilities</label>
-	<label index="facility.delete.permision">Delete facilities</label>
-	<label index="facility.update.permision">Edit facilities</label>
+	<label index="facility.label">Facility</label>
+	<label index="facility.placeholder">Enter facility name</label>
+	<label index="facility.select.placeholder">Select facility</label>	
+	<label index="facility.select.permission">Browse facilities</label>
+	<label index="facility.insert.permission">Create facilities</label>
+	<label index="facility.delete.permission">Delete facilities</label>
+	<label index="facility.update.permission">Edit facilities</label>
 	
 	<label index="financiers.label">Financiers</label>
 	<label index="financier.label">Financier</label>		
-	<label index="financier.select.permision">Browse financiers</label>
-	<label index="financier.insert.permision">Create financiers</label>
-	<label index="financier.delete.permision">Delete financiers</label>
-	<label index="financier.update.permision">Edit financiers</label>
+	<label index="financier.select.permission">Browse financiers</label>
+	<label index="financier.insert.permission">Create financiers</label>
+	<label index="financier.delete.permission">Delete financiers</label>
+	<label index="financier.update.permission">Edit financiers</label>
 	
 	<label index="fundAllocations.label">Fund allocations</label>
 	<label index="fundAllocation.label">Fund allocation</label>	
-	<label index="fundAllocation.select.permision">Browse fund allocations</label>
-	<label index="fundAllocation.insert.permision">Create fund allocations</label>
-	<label index="fundAllocation.delete.permision">Delete fund allocations</label>
-	<label index="fundAllocation.update.permision">Edit fund allocations</label>
+	<label index="fundAllocation.select.permission">Browse fund allocations</label>
+	<label index="fundAllocation.insert.permission">Create fund allocations</label>
+	<label index="fundAllocation.delete.permission">Delete fund allocations</label>
+	<label index="fundAllocation.update.permission">Edit fund allocations</label>
 	
 	<label index="navigations.label">Menus</label>
 	<label index="navigation.label">Menu</label>	
-	<label index="navigation.select.permision">Browse menu items</label>
-	<label index="navigation.insert.permision">Create menu items</label>
-	<label index="navigation.delete.permision">Delete menu items</label>
-	<label index="navigation.update.permision">Edit menu items</label>
+	<label index="navigation.select.permission">Browse menu items</label>
+	<label index="navigation.insert.permission">Create menu items</label>
+	<label index="navigation.delete.permission">Delete menu items</label>
+	<label index="navigation.update.permission">Edit menu items</label>
 	
 	<label index="orders.label">Payment requests</label>
 	<label index="order.label">Payment request</label>
-	<label index="order.select.permision">Browse payment requests</label>
-	<label index="order.insert.permision">Request payments</label>
-	<label index="order.delete.permision">Delete payment requests</label>
-	<label index="order.update.permision">Edit payment requests</label>
+	<label index="order.select.permission">Browse payment requests</label>
+	<label index="order.insert.permission">Request payments</label>
+	<label index="order.delete.permission">Delete payment requests</label>
+	<label index="order.update.permission">Edit payment requests</label>
 	
-	<label index="orders.label">Payment requests</label>
-	<label index="order.label">Payment request</label>	
-	<label index="orderType.select.permision">Browse payment types</label>
-	<label index="orderType.insert.permision">Request Payment</label>
-	<label index="orderType.delete.permision">Delete payment types</label>
-	<label index="orderType.update.permision">Edit payment types</label>
+	<label index="orderTypes.label">Payment types</label>
+	<label index="orderType.label">Payment type</label>
+	<label index="orderType.select.placeholder">Select payment type</label>
+	<label index="orderType.placeholder">Enter payment type</label>
+	<label index="orderType.select.permission">Browse payment types</label>
+	<label index="orderType.insert.permission">Create payment type</label>
+	<label index="orderType.delete.permission">Delete payment types</label>
+	<label index="orderType.update.permission">Edit payment types</label>
 	
 	<label index="payments.label">Payments</label>
 	<label index="payment.label">Payment</label>
-	<label index="payment.select.permision">Browse payments</label>
-	<label index="payment.insert.permision">Create payments</label>
-	<label index="payment.delete.permision">Delete payments</label>
-	<label index="payment.update.permision">Edit payments</label>
+	<label index="payment.select.permission">Browse payments</label>
+	<label index="payment.insert.permission">Create payments</label>
+	<label index="payment.delete.permission">Delete payments</label>
+	<label index="payment.update.permission">Edit payments</label>
 	
 	<label index="provinces.label">Provinces</label>
 	<label index="province.label">Province</label>
 	<label index="province.placeholder">Enter province name</label>
 	<label index="province.select.placeholder">Select province</label>
-	<label index="province.select.permision">Browse provinces</label>
-	<label index="province.insert.permision">Create provinces</label>
-	<label index="province.delete.permision">Delete provinces</label>
-	<label index="province.update.permision">Edit provinces</label>
+	<label index="province.select.permission">Browse provinces</label>
+	<label index="province.insert.permission">Create provinces</label>
+	<label index="province.delete.permission">Delete provinces</label>
+	<label index="province.update.permission">Edit provinces</label>
 	
 	<label index="settings.label">Settings</label>
 	<label index="setting.label">Setting</label>	
-	<label index="settings.select.permision">Browse settings</label>
-	<label index="settings.insert.permision">Create settings</label>
-	<label index="settings.delete.permision">Delete settings</label>
-	<label index="settings.update.permision">Edit settings</label>
+	<label index="settings.select.permission">Browse settings</label>
+	<label index="settings.insert.permission">Create settings</label>
+	<label index="settings.delete.permission">Delete settings</label>
+	<label index="settings.update.permission">Edit settings</label>
 	
 	<label index="system_alerts.label">System alerts</label>
 	<label index="system_alert.label">System alert</label>		
-	<label index="system_alerts.select.permision">Browse system alerts</label>
-	<label index="system_alerts.insert.permision">Create system alerts</label>
-	<label index="system_alerts.delete.permision">Delete system alerts</label>
-	<label index="system_alerts.update.permision">Edit system alerts</label>
+	<label index="system_alerts.select.permission">Browse system alerts</label>
+	<label index="system_alerts.insert.permission">Create system alerts</label>
+	<label index="system_alerts.delete.permission">Delete system alerts</label>
+	<label index="system_alerts.update.permission">Edit system alerts</label>
 	
 	<label index="system_logs.label">System logs</label>
 	<label index="system_log.label">System log</label>		
-	<label index="system_logs.select.permision">Browse system logs</label>
-	<label index="system_logs.insert.permision">Create system logs</label>
-	<label index="system_logs.delete.permision">Delete system logs</label>
-	<label index="system_logs.update.permision">Edit system logs</label>
+	<label index="system_logs.select.permission">Browse system logs</label>
+	<label index="system_logs.insert.permission">Create system logs</label>
+	<label index="system_logs.delete.permission">Delete system logs</label>
+	<label index="system_logs.update.permission">Edit system logs</label>
 	
 	<label index="roles.label">Roles</label>
 	<label index="role.label">Role</label>
-	<label index="role.select.permision">Browse roles</label>
-	<label index="role.insert.permision">Create roles</label>
-	<label index="role.delete.permision">Delete roles</label>
-	<label index="role.update.permision">Edit roles</label>
+	<label index="role.placeholder">Enter role</label>
+	<label index="role.select.permission">Browse roles</label>
+	<label index="role.insert.permission">Create roles</label>
+	<label index="role.delete.permission">Delete roles</label>
+	<label index="role.update.permission">Edit roles</label>
 	
 	<label index="users.label">Users</label>
 	<label index="user.label">User</label>
-	<label index="user.select.permision">Browse users</label>
-	<label index="user.insert.permision">Create users</label>
-	<label index="user.delete.permision">Delete users</label>
-	<label index="user.update.permision">Edit users</label>
+	<label index="user.select.permission">Browse users</label>
+	<label index="user.insert.permission">Create users</label>
+	<label index="user.delete.permission">Delete users</label>
+	<label index="user.update.permission">Edit users</label>
 	
 	<label index="permissions.label">Permissions</label>
 	<label index="permission.label">Permission</label>
-	<label index="permission.select.permision">Browse permissions</label>
-	<label index="permission.insert.permision">Create permissions</label>
-	<label index="permission.delete.permision">Delete permissions</label>
-	<label index="permission.update.permision">Edit permissions</label>			
+	<label index="permission.select.permission">Browse permissions</label>
+	<label index="permission.insert.permission">Create permissions</label>
+	<label index="permission.delete.permission">Delete permissions</label>
+	<label index="permission.update.permission">Edit permissions</label>			
 
+	<label index="reports.payments.permission">Browse Payment Reports</label>
+	<label index="reports.payments.permission">Browse Payment Reports</label>
+	<label index="dashboard.permission">Browse Reports</label>
+	<label index="reports.permission">Reports Section</label>
+	<label index="maintenance.permission">Maintenance Section</label>
+	<label index="reconciliation.permission">Reconciliation Section</label>
+	<label index="configuration.permission">Configuration Section</label>
+	<label index="finance.permission">Finance Section</label>
+	 
     <label index="resetpassword.mail">
 		Dear {{FirstName}},
 		

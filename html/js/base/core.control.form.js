@@ -37,20 +37,20 @@ core.control.extend('form', function(){
 		initPoster: function(){
 			var command = this.command;
 			var that = this;
-			that.html.unbind('mousedown').mousedown(function(event){
+			this.html.unbind('mousedown').mousedown(function(event){
 				event.stopPropagation();
 			});
-			that.html.unbind('submit').submit(function(event){
-				if(!core.validator.checkForm($(this))) return;
+			this.html.unbind('submit').submit(function(event){
+				if(!(core.validator.checkForm($(this)))) return false;
 				event.stopPropagation();
+				event.preventDefault();
 				var data = that.postParameters();
 				var url = that.source;
 				core.ajax.post(url, data, function(){
 					if(arguments[0].readyState != 4 || arguments[0].status != 200) return;
-					that.grid.refresh();
 					that.html.slideUp();
+					that.grid.refresh();
 				});
-				event.preventDefault();
 			});
 			that.html.find('input[name="cancel"]').unbind('mousedown').mousedown(function(event){
 				event.stopPropagation();
