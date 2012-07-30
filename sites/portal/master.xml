@@ -257,7 +257,7 @@
 	
 	
 	<portal type="raw" access="reconciliation.permission">
-		<navigation id="reconciliation" parent="root" group="panel" uri="/null" label="panel.reconciliation" weight="40" class="nav-top-item"/>
+		<navigation id="reconciliation" parent="root" group="_panel" uri="/null" label="panel.reconciliation" weight="40" class="nav-top-item"/>
 	</portal>
 	<portal type="raw" access="reconciliation.permission">
 		<navigation parent="reconciliation" group="panel" uri="/grid/gateway" label="panel.reconciliation.gateway" weight="41"/>
@@ -293,7 +293,7 @@
 	</portal>
 	
 	<portal type="raw" access="reports.permission">
-		<navigation id="reports" parent="root" group="panel" uri="/null" label="panel.reports" weight="50" class="nav-top-item"/>
+		<navigation id="reports" parent="root" group="_panel" uri="/null" label="panel.reports" weight="50" class="nav-top-item"/>
 	</portal>
 	<portal type="raw" access="reports.payments.permission">
 		<navigation parent="reports" group="panel" uri="/grid/pending" label="panel.pending" weight="51"/>
@@ -381,7 +381,7 @@
 	</portal>
 
 	<portal type="raw" access="configuration.permission">
-		<navigation id="configuration" parent="root" group="panel" uri="/null" label="panel.configuration" weight="70" class="nav-top-item"/>
+		<navigation id="configuration" parent="root" group="_panel" uri="/null" label="panel.configuration" weight="70" class="nav-top-item"/>
 	</portal>
 				
 </package>
