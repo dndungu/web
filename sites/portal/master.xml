@@ -109,10 +109,6 @@
 		<navigation parent="finance" group="hidden" uri="/form/approvalFive" label="panel.order.approval" weight="21"/>
 		<portlet module="content" controller="FormStudio" access="approvalFive.select.permission"/>
 	</portal>
-	<portal type="json" access="signin.permission">
-		<navigation parent="finance" group="hidden" uri="/SendPayment" label="panel.order.approval" weight="21"/>
-		<portlet module="content" controller="PaymentCron" access="signin.permission"/>
-	</portal>
 	<portal type="raw" access="approvalFive.select.permission">
 		<navigation parent="finance" group="panel" uri="/grid/approvalFive" label="approvalFive.label" weight="21"/>
 		<portlet module="content" controller="GridStudio" access="approvalFive.select.permission"/>
