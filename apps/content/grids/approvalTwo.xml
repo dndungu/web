@@ -18,7 +18,7 @@
 		<column name="province" field="`province`.`title`" title="province.label" class="grid3of20 column"/>
 		<column name="district" field="`district`.`title`" title="district.label" class="grid3of20 column"/>
 		<column name="orderType" field="`orderType`.`title`" title="orderType.label" class="grid3of20 column"></column>
-		<column name="amount" field="amount" title="amount.label" class="grid3of20 column"/>
+		<column name="amount" field="approvalOneAmount" title="amount.label" class="grid3of20 column"/>
 		<column name="approvalTwo" field="approvalTwo" title="status.label" class="grid1of10 column"/>
 	</columns>
 </grid>

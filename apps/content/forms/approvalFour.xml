@@ -11,11 +11,6 @@
 			<class>required</class>
 		</element>
 	</field>
-	<field name="approvalFourAmount" type="decimal" length="5" precision="2">
-		<element name="approvalFourAmount" type="text" label="approvalFourAmount.label" placeholder="approvalFourAmount.placeholder">
-			<class>decimal</class>
-		</element>
-	</field>
 	<field name="approvalFour" type="enum">
 		<element type="radio" name="approvalFour" value="Approved" label="action.approve"></element>
 		<element type="radio" name="approvalFour" value="Rejected" label="action.reject"></element>

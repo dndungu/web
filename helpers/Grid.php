@@ -277,11 +277,11 @@ class Grid {
 	private function searchForm(){
 		$translator = $this->sandbox->getHelper('translation');
 		$searchText = $translator->translate('action.search');
-		$addText = $translator->translate('action.add');
+		$addText = $translator->translate('action.add').' '.$translator->translate($this->name.'.label');
 		$URI = $this->sandbox->getMeta('URI');
 		$html[] = "<form action=\"$URI\" method=\"POST\" class=\"gridSearch\">";
 		if($this->flow && $this->flow->isInsertable()){
-			$html[] = "<input type=\"button\" name=\"addButton\" value=\"$addText\" class=\"addButton gridPrimaryButton\"/>";
+			$html[] = "<input type=\"button\" name=\"addButton\" value=\"".ucwords($addText)."\" class=\"addButton gridPrimaryButton\"/>";
 		}
 		$html[] = "<input type=\"text\" name=\"keywords\" placeholder=\"$searchText\"/>";
 		$html[] = "<input type=\"submit\" value=\"&nbsp;\" class=\"searchButton gridSecondaryButton\"/>&nbsp;";
