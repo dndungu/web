@@ -221,7 +221,7 @@ core.validator = {
 		return pattern.test(arguments[0]);
 	},
 	testPhone: function(){
-		var pattern = /^\+?[0-9\s]{8,16}/;
+		var pattern = /^\+?[0-9\s]{12,12}/;
 		return pattern.test(arguments[0]);
 	},
 	testYear: function(){
