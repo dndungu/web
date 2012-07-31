@@ -99,9 +99,11 @@
 	<field name="approvalFiveAmount" type="decimal" length="5" precision="2">
 		<element name="approvalFiveAmount" type="text" label="approvalFiveAmount.label"></element>
 	</field>
+	<!-- 
 	<field name="scheduleTime" type="int" length="10">
 		<element name="scheduleTime" type="text" label="scheduleTime.label"></element>
 	</field>
+	 -->
 	<field name="creationTime" type="int" length="10">
 		<element name="creationTime" type="text" label="creationTime.label"></element>
 	</field>
