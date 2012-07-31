@@ -41,7 +41,7 @@ class Sandbox {
 		return NULL;
 	}
 	public function fire($type = NULL, &$data = NULL){
-		error_log($type);
+//		error_log($type.' '.json_encode($data));
 		if(is_null($type) || !array_key_exists($type, $this->events)) return;
 		$listeners = $this->events[$type];
 		$parameter = is_array($data) ? ($data) : array(&$data);

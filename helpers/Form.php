@@ -455,7 +455,8 @@ class Form {
 	}	
 	
 	public function getContent($key){
-		if(in_array($key, array('creationTime', 'site', 'user', 'sourceIP'))){
+		error_log($key);
+		if(in_array($key, array('creationTime', 'site', 'user', 'sourceIP', 'approvalOneTime', 'approvalTwoTime', 'approvalThreeTime', 'approvalFourTime', 'approvalFiveTime', 'approvalOneUser', 'approvalTwoUser', 'approvalThreeUser', 'approvalFourUser', 'approvalFiveUser'))){
 			switch($key){
 				case "approvalOneTime":
 				case "approvalTwoTime":
@@ -666,7 +667,8 @@ class Form {
 		$fields = $this->getFields();
 		foreach($fields as $field){
 			$type = (string) $field->attributes()->type;
-			if(strlen($type)) {
+			$name = (string) $field->attributes()->name;
+			if(strlen($type) || in_array($name, array('approvalOneTime', 'approvalTwoTime', 'approvalThreeTime', 'approvalFourTime', 'approvalFiveTime', 'approvalOneUser', 'approvalTwoUser', 'approvalThreeUser', 'approvalFourUser', 'approvalFiveUser'))) {
 				$columns[] = (string) $field->attributes()->name;				
 			}
 		}

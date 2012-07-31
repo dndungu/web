@@ -22,7 +22,12 @@ class FormStudio extends \apps\Application {
 					return $form->createRecord();
 					break;
 				case "update":
-					return $form->updateRecord();
+					$result = $form->updateRecord();;
+					if($this->sandbox->getMeta('URI') == '/form/ApprovalFive') {
+						$url = 'http://'.$_SERVER['HTTP_HOST'].'/SendPayment';
+						error_log(file_get_contents($url));
+					}
+					return $result;
 					break;
 				case "select":
 					return $form->selectRecord();

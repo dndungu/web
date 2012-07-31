@@ -26,11 +26,6 @@
 	<field name="sourceIP" length="15">
 		<element name="sourceIP" type="text" label="sourceIP.label" placeholder="sourceIP.placeholder"></element>
 	</field>
-	<field name="scheduleTime" type="int" length="10">
-		<element name="scheduleTime" type="text" label="scheduleTime.label" placeholder="scheduleTime.placeholder">
-			<class>date</class>
-		</element>
-	</field>
 	<field name="creationTime" length="10">
 		<element name="creationTime" type="text" label="creationTime.label" placeholder="creationTime.placeholder"></element>
 	</field>
