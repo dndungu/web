@@ -245,7 +245,7 @@ class User {
 			if($input['password'] === $users[0]['password']) {
 				$user = $users[0];
 				$this->ownGuest($user['ID']);
-				$permissionQuery = sprintf("SELECT `title` FROM `permissionmap` LEFT JOIN `permission` ON (`permissionmap`.`permission` = `permission`.`ID`) WHERE `site` = %d AND `role` IN (SELECT `role` FROM `rolemap` WHERE `site` = %d AND `user` = %d)", $site, $site, $user['ID']);	
+				$permissionQuery = sprintf("SELECT `title` FROM `permissionmap` LEFT JOIN `permission` ON (`permissionmap`.`permission` = `permission`.`ID`) WHERE `role` IN (SELECT `role` FROM `rolemap` WHERE `user` = %d)", $user['ID']);	
 				$permissions = $this->getStorage()->query($permissionQuery);
 				$this->permissions = array();
 				if($permissions){
@@ -253,7 +253,7 @@ class User {
 						$this->permissions[] = $row['title'];
 					}
 				}
-				$roles = $this->getStorage()->query(sprintf("SELECT `title` FROM `rolemap` LEFT JOIN `role` ON (`rolemap`.`role` = `role`.`ID`) WHERE `user` = %d AND `rolemap`.`site` = %d", $user['ID'], $site));
+				$roles = $this->getStorage()->query(sprintf("SELECT `title` FROM `rolemap` LEFT JOIN `role` ON (`rolemap`.`role` = `role`.`ID`) WHERE `user` = %d", $user['ID']));
 				$this->roles = array();
 				if($roles){
 					foreach($roles as $row){
@@ -346,7 +346,7 @@ class User {
 		if(!$login) throw new \apps\ApplicationException($translator->translate('invalid.login'));
 		
 		$site = $this->sandbox->getHelper('site')->getID();
-		$loginQuery = sprintf("SELECT `ID`, `firstname` FROM `user` LEFT JOIN `contact` ON (`user`.`ID` = `contact`.`user`) WHERE `site` = %d AND `login` = '%s'", $site, $this->getStorage()->sanitize($login));
+		$loginQuery = sprintf("SELECT `ID`, `firstname` FROM `user` LEFT JOIN `contact` ON (`user`.`ID` = `contact`.`user`) WHERE `login` = '%s'", $this->getStorage()->sanitize($login));
 		$users = $this->getStorage()->query($loginQuery);
 		if(is_null($users)) throw new \apps\ApplicationException($translator->translate('incorrect.login'));
 		$user = $users[0];

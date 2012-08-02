@@ -3,6 +3,9 @@
 	<field name="login" type="varchar" length="255">
 		<element name="login" type="text" label="login.label" placeholder="login.placeholder"></element>
 	</field>
+	<field name="site" length="20">
+		<element name="site" type="hidden" label="site.label" placeholder="site.placeholder"></element>
+	</field>	
 	<field name="email" type="varchar" length="255">
 		<element name="email" type="text" label="email.label" placeholder="email.placeholder">
 			<class>email</class>

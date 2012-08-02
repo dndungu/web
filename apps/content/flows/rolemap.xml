@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<flow name="rolemap">
-	<select access="rolemap.select.permission"></select>
-	<insert access="rolemap.insert.permission"></insert>
-	<update access="rolemap.update.permission" form="rolemap"></update>
-	<delete access="rolemap.delete.permission"></delete>
-</flow>

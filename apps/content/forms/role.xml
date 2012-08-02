@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form name="role" title="role.label" primarykey="ID" storage="">
+<form name="role" title="role.label" primarykey="ID" storage="local">
+	<field name="site" length="20">
+		<element name="site" type="hidden" label="site.label" placeholder="site.placeholder"></element>
+	</field>
 	<field name="title" type="varchar" length="32">
 		<element name="title" type="text" label="role.label" placeholder="role.placeholder"></element>
 	</field>
