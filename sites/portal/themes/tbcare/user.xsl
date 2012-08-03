@@ -6,7 +6,6 @@
 				<title><xsl:value-of select="/response/core/SiteSetting/*/title" disable-output-escaping="yes"/> - <xsl:value-of select="/response/user/*/*/title"/></title>
 				<link rel="stylesheet" href="/skins/tbcare/css/reset.css" type="text/css" media="screen" />
 				<link rel="stylesheet" href="/skins/tbcare/css/style.css" type="text/css" media="screen" />
-				<link rel="stylesheet" href="/skins/tbcare/css/blue.css" type="text/css" media="screen" />
 				<link rel="stylesheet" href="/skins/tbcare/css/invalid.css" type="text/css" media="screen" />
 				<!--[if lte IE 7]>
 				<link rel="stylesheet" href="/skins/tbcare/css/ie.css" type="text/css" media="screen" />

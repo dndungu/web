@@ -254,9 +254,8 @@
 		<portlet module="content" controller="CellStudio" access="financier.select.permission"/>
 	</portal>
 	
-	
 	<portal type="raw" access="reconciliation.permission">
-		<navigation id="reconciliation" parent="root" group="_panel" uri="/null" label="panel.reconciliation" weight="40" class="nav-top-item"/>
+		<navigation id="reconciliation" parent="root" group="panel" uri="/null" label="panel.reconciliation" weight="40" class="nav-top-item"/>
 	</portal>
 	<portal type="raw" access="reconciliation.permission">
 		<navigation parent="reconciliation" group="panel" uri="/grid/gateway" label="panel.reconciliation.gateway" weight="41"/>
@@ -380,7 +379,7 @@
 	</portal>
 
 	<portal type="raw" access="configuration.permission">
-		<navigation id="configuration" parent="root" group="_panel" uri="/null" label="panel.configuration" weight="70" class="nav-top-item"/>
+		<navigation id="configuration" parent="root" group="panel" uri="/null" label="panel.configuration" weight="70" class="nav-top-item"/>
 	</portal>
 				
 </package>

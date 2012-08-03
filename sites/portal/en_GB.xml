@@ -95,7 +95,7 @@
     <label index="expiryTime.placeholder">MM/DD/YYYY</label>
     <label index="phone.label">Contact number</label>
     <label index="mobile.label">Mobile number</label>
-    <label index="confirmationcode.label">Transaction code</label>
+    <label index="mpesa_id.label">M-Pesa ID</label>
     <label index="gender.label">Gender</label>
     <label index="male.label">Male</label>
     <label index="female.label">Female</label>
