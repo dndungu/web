@@ -294,7 +294,7 @@
 		<navigation id="reports" parent="root" group="panel" uri="/null" label="panel.reports" weight="50" class="nav-top-item"/>
 	</portal>
 	<portal type="raw" access="reports.payments.permission">
-		<navigation parent="reports" group="_panel" uri="/grid/pending" label="panel.pending" weight="51"/>
+		<navigation parent="reports" group="panel" uri="/grid/pending" label="panel.pending" weight="51"/>
 		<portlet module="content" controller="GridStudio" access="reports.payments.permission"/>
 	</portal>	
 	<portal type="raw" access="reports.payments.permission">
@@ -310,7 +310,7 @@
 		<portlet module="content" controller="CellStudio" access="reports.payments.permission"/>
 	</portal>
 	<portal type="raw" access="reports.payments.permission">
-		<navigation parent="reports" group="_panel" uri="/grid/reversed" label="panel.reversed" weight="53"/>
+		<navigation parent="reports" group="panel" uri="/grid/reversed" label="panel.reversed" weight="53"/>
 		<portlet module="content" controller="GridStudio" access="reports.payments.permission"/>
 	</portal>	
 	<portal type="raw" access="reports.payments.permission">

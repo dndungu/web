@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grid name="payment" title="payment.completed" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true" storage="local">
+<grid name="payment" title="panel.pending" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true" storage="local">
 	<records>
-		<query>SELECT `recipient_name`, `MSISDN`, `trx_id`, `request_date`, `orderType`.`title`, `debit_amount` FROM `payment` LEFT JOIN `orderType` ON (`payment`.`order_type` = `orderType`.`ID`) ORDER BY `payment`.`id` DESC</query>
-		<leftjoin>`orderType` ON (`payment`.`order_type` = `orderType`.`ID`)</leftjoin>
+		<browseQuery>SELECT `payment`.`id` AS `primarykey`, `recipient_name`, `MSISDN`, `trx_id`, `request_date`, `orderType`.`title`, `debit_amount` FROM `payment` LEFT JOIN `orderType` ON (`payment`.`order_type` = `orderType`.`ID`) WHERE `trx_status` NOT IN ('Completed', 'Failed') ORDER BY `payment`.`id` DESC</browseQuery>
+		<browseQuery>SELECT COUNT(*) AS `rowCount` FROM `payment` WHERE `trx_status` NOT IN ('Completed', 'Failed') LEFT JOIN `orderType` ON (`payment`.`order_type` = `orderType`.`ID`) ORDER BY `payment`.`id` DESC</browseQuery>
 		<ordercolumn>`payment`.`id`</ordercolumn>
 		<orderdirection>desc</orderdirection>
 		<filter field="trx_status" value="Completed"/>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="actual_payments" title="panel.reconciliation.mpesa" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true" storage="local">
+	<records>
+		<ordercolumn>`actual_payments`.`id`</ordercolumn>
+		<orderdirection>desc</orderdirection>
+	</records>
+	<columns primarykey="`actual_payments`.`id`">
+		<column name="identity_name" field="identity_name" title="beneficiary.label" class="grid3of10 column"></column>
+		<column name="msisdn" field="msisdn" title="phone.label" class="grid2of10 column"></column>
+		<column name="trx_id" field="trx_id" title="id.label" class="grid2of10 column"></column>
+		<column name="trx_date" field="trx_date" title="date.label" class="grid2of10 column"></column>
+		<column name="paid_in" field="paid_in" title="amount.label" class="grid1of10 column"></column>
+	</columns>
+</grid>

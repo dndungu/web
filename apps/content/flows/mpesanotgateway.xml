@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<flow name="payment">
+<flow name="order">
 	<select access="reports.payments.permission"></select>
 	<insert access="pending.insert.permission"></insert>
 	<update access="pending.update.permission" form="order"></update>

@@ -33,24 +33,33 @@ class GridQuery {
 	}
 	
 	public function browseQuery(){
-		$staticQuery = (string) $this->definition->records->query;
-		if(strlen($staticQuery)) return $staticQuery;
-		$query[] = $this->buildFields();
-		$query[] = $this->buildFrom();
-		$query[] = $this->buildLeftJoins();
-		$query[] = $this->buildFilter();
-		$query[] = $this->buildOrderBy();
-		$query[] = $this->buildLimit();
-		return implode(' ', $query);
+		$browseQuery = (string) $this->definition->records->browseQuery;
+		if(strlen($browseQuery)) {
+			$this->buildOrderBy();
+			return $browseQuery;
+		}else{
+			$query[] = $this->buildFields();
+			$query[] = $this->buildFrom();
+			$query[] = $this->buildLeftJoins();
+			$query[] = $this->buildFilter();
+			$query[] = $this->buildOrderBy();
+			$query[] = $this->buildLimit();
+			return implode(' ', $query);
+		}
 	}
 	
 	public function countQuery(){
-		$key = (string) $this->definition->columns->attributes()->primarykey;
-		$query[] = 'SELECT COUNT(*) `rowCount`';
-		$query[] = $this->buildFrom();
-		$query[] = $this->buildLeftJoins();
-		$query[] = $this->buildFilter();
-		return implode(' ', $query);
+		$countQuery = (string) $this->definition->records->countQuery;
+		if(strlen($countQuery)){
+			return $countQuery;
+		}else{
+			$key = (string) $this->definition->columns->attributes()->primarykey;
+			$query[] = 'SELECT COUNT(*) AS `rowCount`';
+			$query[] = $this->buildFrom();
+			$query[] = $this->buildLeftJoins();
+			$query[] = $this->buildFilter();
+			return implode(' ', $query);
+		}
 	}
 	
 	public function getOffset(){

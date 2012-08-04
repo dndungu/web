@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="payment" title="order.label" primarykey="ID">
+	<field name="recipient_name" type="text" length="255">
+		<element name="recipient_name" type="text" label="beneficiary.label"></element>
+	</field>
+	<field name="MSISDN" type="varchar" length="16">
+		<element name="MSISDN" type="text" label="mobile.label"></element>
+	</field>	
+	<field name="debit_amount" type="decimal" length="7" precision="2">
+		<element name="debit_amount" type="text" label="amount.label" placeholder="amount.placeholder"></element>
+	</field>
+	<field name="trx_desc" type="varchar" length="255">
+		<element name="trx_desc" type="text" label="notes.label" placeholder="notes.placeholder"></element>
+	</field>
+	<field name="trx_date" type="varchar" length="15">
+		<element name="trx_date" type="text" label="date.label" placeholder="date.placeholder"></element>
+	</field>
+</form>

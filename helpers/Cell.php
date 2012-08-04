@@ -46,7 +46,7 @@ class Cell {
 			
 	public function asHTML(){
 		$this->selectRecord();
-		if(!$this->record) throw new HelperException('no record with identifier '.$identifier);
+		if(!$this->record) throw new HelperException('no record with identifier ' . $this->sandbox->getHelper('input')->postInteger('primarykey'));
 		$primarykey = (string) $this->definition->attributes()->primarykey;
 		$html[] = '<div class="'.$this->name.' gridCell" title="'.$this->record[0][$primarykey].'">';
 		if(property_exists($this->definition, "fieldset")){
