@@ -16,6 +16,7 @@ class Flow {
 	
 	public function __construct(&$sandbox){
 		$this->sandbox = &$sandbox;
+		error_log(getcwd());
 		$this->user = $this->sandbox->getHelper('user');
 	}
 	

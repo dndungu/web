@@ -96,6 +96,7 @@ class Cell {
 		foreach($field->element as $element){
 			$html[] = "\t".'<div class="rowCell">';
 			$type = (string) $element->attributes()->type;
+			if(in_array($type, array('password'))) continue;
 			$name = (string) $element->attributes()->name;
 			$style = $this->getStyle($element);
 			$html[] = "\t\t".'<div class="titleCell">'.$this->getLabel($element).'</div>';

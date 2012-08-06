@@ -455,8 +455,7 @@ class Form {
 	}	
 	
 	public function getContent($key){
-		error_log($key);
-		if(in_array($key, array('creationTime', 'site', 'user', 'sourceIP', 'approvalOneTime', 'approvalTwoTime', 'approvalThreeTime', 'approvalFourTime', 'approvalFiveTime', 'approvalOneUser', 'approvalTwoUser', 'approvalThreeUser', 'approvalFourUser', 'approvalFiveUser'))){
+		if(in_array($key, array('password', 'creationTime', 'site', 'user', 'sourceIP', 'approvalOneTime', 'approvalTwoTime', 'approvalThreeTime', 'approvalFourTime', 'approvalFiveTime', 'approvalOneUser', 'approvalTwoUser', 'approvalThreeUser', 'approvalFourUser', 'approvalFiveUser'))){
 			switch($key){
 				case "approvalOneTime":
 				case "approvalTwoTime":
@@ -479,6 +478,9 @@ class Form {
 					break;
 				case "sourceIP":
 					return array_key_exists('REMOTE_ADDR', $_SERVER) ? $_SERVER['REMOTE_ADDR'] : "127.0.0.1";
+					break;
+				case "password":
+					return md5($this->sandbox->getHelper('input')->postString($key));
 					break;
 			}
 		} else {
@@ -615,7 +617,7 @@ class Form {
 			$update['constraints']['site'] = $this->sandbox->getHelper('site')->getID();
 		}
 		foreach ($columns as $column) {
-			$update['content'][$column] = $this->sandbox->getHelper('input')->postString($column);
+			$update['content'][$column] = $this->getContent($column);
 		}
 		return $update;
 	}
