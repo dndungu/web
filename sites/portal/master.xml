@@ -134,7 +134,7 @@
 		<portlet module="content" controller="FormStudio" access="beneficiary.select.permission"/>
 	</portal>
 	<portal type="raw" access="beneficiary.select.permission">
-		<navigation parent="finance" group="panel" uri="/grid/beneficiary" label="panel.beneficiaries" weight="22"/>
+		<navigation parent="finance" group="_panel" uri="/grid/beneficiary" label="panel.beneficiaries" weight="22"/>
 		<portlet module="content" controller="GridStudio" access="beneficiary.select.permission"/>
 	</portal>
 	<portal type="raw" access="beneficiary.select.permission">
@@ -174,7 +174,7 @@
 		<portlet module="content" controller="FormStudio" access="province.select.permission"/>
 	</portal>
 	<portal type="raw" access="province.select.permission">
-		<navigation parent="maintenance" group="panel" uri="/grid/province" label="panel.provinces" weight="31"/>
+		<navigation parent="maintenance" group="_panel" uri="/grid/province" label="panel.provinces" weight="31"/>
 		<portlet module="content" controller="GridStudio" access="province.select.permission"/>
 	</portal>
 	<portal type="raw" access="province.select.permission">
@@ -198,7 +198,7 @@
 		<portlet module="content" controller="FormStudio" access="district.select.permission"/>
 	</portal>
 	<portal type="raw" access="district.select.permission">
-		<navigation parent="maintenance" group="panel" uri="/grid/district" label="panel.districts" weight="33"/>
+		<navigation parent="maintenance" group="_panel" uri="/grid/district" label="panel.districts" weight="33"/>
 		<portlet module="content" controller="GridStudio" access="district.select.permission"/>
 	</portal>
 	<portal type="raw" access="district.select.permission">
@@ -210,7 +210,7 @@
 		<portlet module="content" controller="FormStudio" access="facility.select.permission"/>
 	</portal>
 	<portal type="raw" access="facility.select.permission">
-		<navigation parent="maintenance" group="panel" uri="/grid/facility" label="panel.facilities" weight="34"/>
+		<navigation parent="maintenance" group="_panel" uri="/grid/facility" label="panel.facilities" weight="34"/>
 		<portlet module="content" controller="GridStudio" access="facility.select.permission"/>
 	</portal>
 	<portal type="raw" access="facility.select.permission">
@@ -379,7 +379,7 @@
 	</portal>
 
 	<portal type="raw" access="configuration.permission">
-		<navigation id="configuration" parent="root" group="panel" uri="/null" label="panel.configuration" weight="70" class="nav-top-item"/>
+		<navigation id="configuration" parent="root" group="_panel" uri="/null" label="panel.configuration" weight="70" class="nav-top-item"/>
 	</portal>
 				
 </package>
