@@ -377,7 +377,13 @@
 		<navigation parent="permissions" group="hidden" uri="/cell/activity" label="panel.activity" weight="63"/>
 		<portlet module="content" controller="CellStudio" access="activity.select.permission"/>
 	</portal>
-
+	<portal type="raw" access="signin.permission">
+		<navigation parent="api" group="api" uri="/api/v1/budgets" label="api.label" weight="90"></navigation>
+		<navigation parent="api" group="api" uri="/api/v1/payment_categories" label="api.label" weight="90"></navigation>
+		<navigation parent="api" group="api" uri="/api/v1/recipient_categories" label="api.label" weight="90"></navigation>
+		<navigation parent="api" group="api" uri="/api/v1/payment" label="api.label" weight="90"></navigation>
+		<portlet module="api" controller="JsonStudio" access="signin.permission"></portlet>
+	</portal>
 	<portal type="raw" access="configuration.permission">
 		<navigation id="configuration" parent="root" group="_panel" uri="/null" label="panel.configuration" weight="70" class="nav-top-item"/>
 	</portal>
