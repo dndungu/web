@@ -4,31 +4,6 @@
 		<element name="user" type="text" label="user.label" placeholder="user.placeholder">
 		</element>
 	</field>
-	<field name="beneficiaryType" type="int" length="5">
-		<element name="beneficiaryType" type="select" lookup="beneficiaryType" value="ID" display="title" label="beneficiaryType.label" placeholder="beneficiaryType.select.placeholder" order="title">
-			<class>required</class>
-		</element>
-	</field>	
-	<field name="facility" type="int" length="5">
-		<element name="facility" type="select" lookup="facility" value="ID" display="title" label="facility.label" placeholder="facility.select.placeholder" order="title">
-		</element>
-	</field>
-	<field name="district" type="int" length="5">
-		<element name="district" type="select" lookup="district" value="ID" display="title" label="district.label" placeholder="district.select.placeholder" order="title">
-		</element>
-	</field>
-	<field name="province" type="int" length="5">
-		<element name="province" type="select" lookup="province" value="ID" display="title" label="province.label" placeholder="province.select.placeholder" order="title">			
-		</element>
-	</field>
-	<field name="gender" type="enum" length="1">
-		<element name="gender" type="radio" value="M" label="male.label" placeholder="gender.placeholder">
-			<class>required</class>
-		</element>
-		<element name="gender" type="radio" value="F" label="female.label" placeholder="gender.placeholder">
-			<class>required</class>
-		</element>
-	</field>
 	<field name="firstname" type="varchar" length="255">
 		<element name="firstname" type="text" label="firstname.label" placeholder="firstname.placeholder">
 			<class>required</class>
@@ -47,6 +22,39 @@
 	<field name="MSISDN" type="varchar" length="16">
 		<element name="MSISDN" type="text" label="msisdn.label" placeholder="msisdn.placeholder">
 			<class>phone</class>
+		</element>
+	</field>	
+	<field name="beneficiaryType" type="int" length="5">
+		<element name="beneficiaryType" type="select" lookup="beneficiaryType" value="ID" display="title" label="beneficiaryType.label" placeholder="beneficiaryType.select.placeholder" order="title">
+			<class>required</class>
+		</element>
+	</field>
+	<field name="county" type="int" length="5">
+		<element name="county" type="select" lookup="county" value="ID" display="title" label="county.label" placeholder="county.select.placeholder" order="title">
+			<class>required</class>			
+		</element>
+	</field>		
+	<field name="province" type="int" length="5">
+		<element name="province" type="select" lookup="province" value="ID" display="title" label="province.label" placeholder="province.select.placeholder" order="title">
+			<class>required</class>			
+		</element>
+	</field>
+	<field name="district" type="int" length="5">
+		<element name="district" type="select" lookup="district" value="ID" display="title" label="district.label" placeholder="district.select.placeholder" order="title">
+			<class>required</class>
+		</element>
+	</field>
+	<field name="facility" type="int" length="5">
+		<element name="facility" type="select" lookup="facility" value="ID" display="title" label="facility.label" placeholder="facility.select.placeholder" order="title">
+			<class>required</class>
+		</element>
+	</field>	
+	<field name="gender" type="enum" length="1">
+		<element name="gender" type="radio" value="M" label="male.label" placeholder="gender.placeholder">
+			<class>required</class>
+		</element>
+		<element name="gender" type="radio" value="F" label="female.label" placeholder="gender.placeholder">
+			<class>required</class>
 		</element>
 	</field>
 	<field name="sourceIP" length="15">

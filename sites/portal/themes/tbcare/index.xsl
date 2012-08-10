@@ -50,29 +50,12 @@
 						</div>
 					</div>					
 					<div id="main-content">
+						<div class="">
+						</div>
 						<div class="pageContentContent">
-							<div class="dashboard">
-								<div class="atom atom-grey">
-									<div class="content">0</div>
-									<div class="title">orders today</div>
-								</div>
-								<div class="atom atom-green">
-									<div class="content">0</div>
-									<div class="title">completed today</div>
-								</div>
-								<div class="atom atom-orange">
-									<div class="content">0</div>
-									<div class="title">pending today</div>
-								</div>
-								<div class="atom atom-red">
-									<div class="content">0</div>
-									<div class="title">failed today</div>
-								</div>
-							</div>
+							<xsl:value-of select="/response/content/atomstudio/*" disable-output-escaping="yes"/>
 						</div>
-						<div id="footer">
-							
-						</div>
+						<div id="footer"></div>
 					</div>
 				</div>
 				<script type="text/javascript">

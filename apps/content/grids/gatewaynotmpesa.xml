@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grid name="payment" title="payment.completed" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true" storage="local">
+<grid name="payment" title="panel.pending" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true" storage="local">
 	<records>
-		<leftjoin>`orderType` ON (`payment`.`order_type` = `orderType`.`ID`)</leftjoin>
+		<browseQuery>SELECT `payment`.`id` AS `primarykey`, `recipient_name`, `MSISDN`, `trx_id`, `request_date`, `debit_amount` FROM `payment` LEFT JOIN `orderType` ON (`payment`.`order_type` = `orderType`.`ID`) WHERE `trx_id` NOT IN (SELECT `trx_id` FROM `actual_payments` GROUP BY `trx_id`) ORDER BY `payment`.`id` DESC</browseQuery>
+		<countQuery>SELECT COUNT(*) AS `rowCount` FROM `payment` LEFT JOIN `orderType` ON (`payment`.`order_type` = `orderType`.`ID`) WHERE `trx_id` NOT IN (SELECT `trx_id` FROM `actual_payments` GROUP BY `trx_id`)</countQuery>
 		<ordercolumn>`payment`.`id`</ordercolumn>
 		<orderdirection>desc</orderdirection>
 		<filter field="trx_status" value="Completed"/>
@@ -10,7 +11,7 @@
 		<column name="recipient_name" field="recipient_name" title="beneficiary.label" class="grid2of10 column"></column>
 		<column name="MSISDN" field="MSISDN" title="phone.label" class="grid2of10 column"></column>
 		<column name="trx_id" field="trx_id" title="id.label" class="grid1of10 column"></column>
-		<column name="trx_date" field="trx_date" title="date.label" class="grid2of10 column"></column>
+		<column name="request_date" field="request_date" title="date.label" class="grid2of10 column"></column>
 		<column name="title" field="`orderType`.`title`" title="orderType.label" class="grid2of10 column"></column>
 		<column name="debit_amount" field="debit_amount" title="amount.label" class="grid1of10 column"></column>
 	</columns>

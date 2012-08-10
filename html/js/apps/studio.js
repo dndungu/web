@@ -17,6 +17,12 @@ core.register('studio', function(sandbox){
 		},
 		initControl: function(href){
 			var control = false;
+			if(href == '/dashboard'){
+				core.ajax.get('/dashboard', function(){
+					if(arguments[0].readyState != 4 || arguments[0].status != 200) return;
+					$('.pageContentContent').html(arguments[0].responseText);
+				});
+			}
 			if(sandbox.module.isGrid(href)){
 				control = sandbox.getControl('grid', href);
 			}

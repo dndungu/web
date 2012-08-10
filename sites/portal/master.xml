@@ -5,6 +5,10 @@
         <portlet module="core" controller="SiteSetting" access="basic.access.permission"/>
 	    <portlet module="core" controller="Navigation" access="basic.access.permission"/>        
 	</portal>
+	<portal type="raw" access="basic.access.permission">
+		<navigation parent="root" group="hidden" uri="/dashboard" label="home"/>
+		<portlet module="content" controller="AtomStudio" access="basic.access.permission"/>
+	</portal>
 	<portal type="html" template="user.xsl" access="signin.permission">
 	    <navigation parent="root" group="authentication" uri="/signin" label="signin"/>
 	    <portlet module="core" controller="SignIn" access="signin.permission"/>
@@ -38,7 +42,7 @@
 	    <navigation id="dashboard" parent="root" group="panel" uri="/null" label="panel.dashboard" weight="10" class="nav-top-item"/>
 	</portal>
 	<portal type="raw" access="dashboard.permission">
-		<navigation parent="dashboard" group="panel" uri="/form/order" label="panel.overview" weight="11"/>
+		<navigation parent="dashboard" group="panel" uri="/dashboard" label="panel.overview" weight="11"/>
 		<portlet module="content" controller="FormStudio" access="dashboard.permission"/>
 	</portal>
 	
@@ -122,7 +126,7 @@
 		<portlet module="content" controller="FormStudio" access="approvalSix.select.permission"/>
 	</portal>
 	<portal type="raw" access="approvalSix.select.permission">
-		<navigation parent="finance" group="_panel" uri="/grid/approvalSix" label="approvalSix.label" weight="21"/>
+		<navigation parent="finance" group="panel" uri="/grid/approvalSix" label="approvalSix.label" weight="21"/>
 		<portlet module="content" controller="GridStudio" access="approvalSix.select.permission"/>
 	</portal>
 	<portal type="raw" access="approvalSix.select.permission">
@@ -134,7 +138,7 @@
 		<portlet module="content" controller="FormStudio" access="beneficiary.select.permission"/>
 	</portal>
 	<portal type="raw" access="beneficiary.select.permission">
-		<navigation parent="finance" group="_panel" uri="/grid/beneficiary" label="panel.beneficiaries" weight="22"/>
+		<navigation parent="finance" group="panel" uri="/grid/beneficiary" label="panel.beneficiaries" weight="22"/>
 		<portlet module="content" controller="GridStudio" access="beneficiary.select.permission"/>
 	</portal>
 	<portal type="raw" access="beneficiary.select.permission">
@@ -174,7 +178,7 @@
 		<portlet module="content" controller="FormStudio" access="province.select.permission"/>
 	</portal>
 	<portal type="raw" access="province.select.permission">
-		<navigation parent="maintenance" group="_panel" uri="/grid/province" label="panel.provinces" weight="31"/>
+		<navigation parent="maintenance" group="panel" uri="/grid/province" label="panel.provinces" weight="31"/>
 		<portlet module="content" controller="GridStudio" access="province.select.permission"/>
 	</portal>
 	<portal type="raw" access="province.select.permission">
@@ -186,7 +190,7 @@
 		<portlet module="content" controller="FormStudio" access="county.select.permission"/>
 	</portal>
 	<portal type="raw" access="county.select.permission">
-		<navigation parent="maintenance" group="_panel" uri="/grid/county" label="panel.counties" weight="32"/>
+		<navigation parent="maintenance" group="panel" uri="/grid/county" label="panel.counties" weight="32"/>
 		<portlet module="content" controller="GridStudio" access="county.select.permission"/>
 	</portal>
 	<portal type="raw" access="county.select.permission">
@@ -198,7 +202,7 @@
 		<portlet module="content" controller="FormStudio" access="district.select.permission"/>
 	</portal>
 	<portal type="raw" access="district.select.permission">
-		<navigation parent="maintenance" group="_panel" uri="/grid/district" label="panel.districts" weight="33"/>
+		<navigation parent="maintenance" group="panel" uri="/grid/district" label="panel.districts" weight="33"/>
 		<portlet module="content" controller="GridStudio" access="district.select.permission"/>
 	</portal>
 	<portal type="raw" access="district.select.permission">
@@ -210,7 +214,7 @@
 		<portlet module="content" controller="FormStudio" access="facility.select.permission"/>
 	</portal>
 	<portal type="raw" access="facility.select.permission">
-		<navigation parent="maintenance" group="_panel" uri="/grid/facility" label="panel.facilities" weight="34"/>
+		<navigation parent="maintenance" group="panel" uri="/grid/facility" label="panel.facilities" weight="34"/>
 		<portlet module="content" controller="GridStudio" access="facility.select.permission"/>
 	</portal>
 	<portal type="raw" access="facility.select.permission">
@@ -365,18 +369,6 @@
 		<navigation parent="permissions" group="hidden" uri="/cell/role" label="panel.roles" weight="62"/>
 		<portlet module="content" controller="CellStudio" access="role.select.permission"/>
 	</portal>
-	<portal type="raw" access="activity.select.permission">
-		<navigation parent="permissions" group="hidden" uri="/form/activity" label="panel.activity" weight="63"/>
-		<portlet module="content" controller="FormStudio" access="activity.select.permission"/>
-	</portal>
-	<portal type="raw" access="activity.select.permission">
-		<navigation parent="permissions" group="_panel" uri="/grid/activity" label="panel.activity" weight="63"/>
-		<portlet module="content" controller="GridStudio" access="activity.select.permission"/>
-	</portal>
-	<portal type="raw" access="activity.select.permission">
-		<navigation parent="permissions" group="hidden" uri="/cell/activity" label="panel.activity" weight="63"/>
-		<portlet module="content" controller="CellStudio" access="activity.select.permission"/>
-	</portal>
 	<portal type="raw" access="signin.permission">
 		<navigation parent="api" group="api" uri="/api/v1/budgets" label="api.label" weight="90"></navigation>
 		<navigation parent="api" group="api" uri="/api/v1/payment_categories" label="api.label" weight="90"></navigation>
@@ -384,8 +376,8 @@
 		<navigation parent="api" group="api" uri="/api/v1/payment" label="api.label" weight="90"></navigation>
 		<portlet module="api" controller="JsonStudio" access="signin.permission"></portlet>
 	</portal>
+	
 	<portal type="raw" access="configuration.permission">
 		<navigation id="configuration" parent="root" group="_panel" uri="/null" label="panel.configuration" weight="70" class="nav-top-item"/>
-	</portal>
-				
+	</portal>			
 </package>
