@@ -9,7 +9,7 @@ use apps\ApplicationException;
 class JsonStudio extends \apps\Application {
 		
 	public function doGet(){
-		$this->doShield();
+		//$this->doShield();
 		switch($this->sandbox->getMeta('URI')){
 			case "/api/v1/budgets":
 				echo json_encode($this->sandbox->getLocalStorage()->select(array('table' => 'budget', 'fields' => array('ID', 'title', 'notes'))), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
@@ -24,7 +24,7 @@ class JsonStudio extends \apps\Application {
 	}
 	
 	public function doPost(){
-		$this->doShield();
+		//$this->doShield();
 		switch($this->sandbox->getMeta('URI')){
 			case "/api/v1/payment":
 				$record['firstname'] = $this->sandbox->getHelper('input')->postString('firstname');
