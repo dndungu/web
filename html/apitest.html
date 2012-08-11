@@ -32,7 +32,7 @@
 				};
 				$('body').append('<br/> POSTING : ' + JSON.stringify(postdata));
 				$.post('/api/v1/payment', postdata, function(){
-					$('body').append('<br/> RECEIVING : ' + arguments[0] + '<br/><br/>');
+					$('body').append('<br/> RESPONSE : ' + arguments[0] + '<br/><br/>');
 					beneficiaries[i].sent = true;
 				});
 				break;
