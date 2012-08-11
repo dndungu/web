@@ -46,10 +46,10 @@ class JsonStudio extends \apps\Application {
 				$record['district'] = $this->sandbox->getHelper('input')->postString('district');
 				$record['facility'] = $this->sandbox->getHelper('input')->postString('facility');
 				$record['sourceIP'] = $_SERVER['REMOTE_ADDR'];
-				$record['creationTime'] = mktime();
+				$record['creationTime'] = time();
 				$payment = $this->sandbox->getLocalStorage()->insert(array('table' => 'apiOrder', 'content' => $record));
 				error_log(json_encode($_POST), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-				return json_encode(array('status' => 'success', 'payment' => $payment), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+				return json_encode(array('status' => 'success', 'tracking' => $payment), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 				break;
 		}
 	}

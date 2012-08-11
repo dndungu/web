@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow name="country">
+    <select access="financier.select.permission"/>
+    <update access="financier.select.permission"/>
+    <insert access="financier.select.permission"/>
+    <delete access="financier.select.permission"/>
+</flow>

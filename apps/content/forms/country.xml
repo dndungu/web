@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="country" title="country.label" primarykey="ID">
+    <field name="user">
+        <element name="user" type="hidden"></element>
+    </field>
+    <field name="name" type="varchar" length="128">
+        <element name="name" type="text" label="country.label" placeholder="country.placeholder">
+            <class>required</class>
+        </element>
+    </field>
+	<button name="action" type="submit" value="action.continue"><class>gridPrimaryButton</class></button>
+	<button name="cancel" type="button" value="action.dismiss"><class>gridSecondaryButton</class></button>
+</form>

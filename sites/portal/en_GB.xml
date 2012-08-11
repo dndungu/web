@@ -19,6 +19,7 @@
 	<label index="panel.facilities">Facilities</label>
 	<label index="panel.order.categories">Payment Categories</label>
 	<label index="panel.beneficiary.categories">Beneficiary Categories</label>
+	<label index="panel.countries">Countries</label>
 	
 	<label index="panel.reconciliation">Reconciliation</label>
 	<label index="panel.reconciliation.gateway">Gateway Records</label>
@@ -114,6 +115,8 @@
     <label index="password.confirm.placeholder"></label>
     <label index="password.current.label">Current Password</label>	
     <label index="password.current.placeholder"></label>
+    <label index="country.label">Country</label>
+    <label index="country.placeholder">Enter name of country</label>
 		
 	
     <label index="pagination.legend">Showing {{rowOffset}} to {{rowLimit}} of {{rowCount}} entries</label>

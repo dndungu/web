@@ -257,6 +257,18 @@
 		<navigation parent="maintenance" group="hidden" uri="/cell/financier" label="panel.financiers" weight="37"/>
 		<portlet module="content" controller="CellStudio" access="financier.select.permission"/>
 	</portal>
+	<portal type="raw" access="financier.select.permission">
+	    <navigation parent="maintenance" group="hidden" uri="/form/country" label="panel.countries" weight="38"/>
+	    <portlet module="content" controller="FormStudio" access="financier.select.permission"/>
+	</portal>
+	<portal type="raw" access="financier.select.permission">
+	    <navigation parent="maintenance" group="panel" uri="/grid/country" label="panel.countries" weight="38"/>
+	    <portlet module="content" controller="GridStudio" access="financier.select.permission"/>
+	</portal>
+	<portal type="raw" access="financier.select.permission">
+	    <navigation parent="maintenance" group="hidden" uri="/cell/country" label="panel.countries" weight="38"/>
+	    <portlet module="content" controller="CellStudio" access="financier.select.permission"/>
+	</portal>
 	
 	<portal type="raw" access="reconciliation.permission">
 		<navigation id="reconciliation" parent="root" group="panel" uri="/null" label="panel.reconciliation" weight="40" class="nav-top-item"/>

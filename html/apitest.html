@@ -13,7 +13,7 @@
 			for(i in beneficiaries){
 				var beneficiary = beneficiaries[i];
 				if(beneficiary.sent === true) continue;
-				$.post('/api/v1/payment', {
+				var postdata = {
 					recipient_firstname: beneficiary.firstname,
 					recipient_middlename: beneficiary.middlename,
 					recipient_lastname: beneficiary.lastname,
@@ -28,10 +28,12 @@
 					province: beneficiary.province,
 					county: beneficiary.county,
 					district: beneficiary.district,
-					facility: beneficiary.facility
-				}, function(){
+					facility: beneficiary.facility					
+				};
+				$('body').append('<br/> POSTING : ' + JSON.stringify(postdata));
+				$.post('/api/v1/payment', postdata, function(){
+					$('body').append('<br/> RECEIVING : ' + arguments[0] + '<br/><br/>');
 					beneficiaries[i].sent = true;
-					console.info(beneficiary);
 				});
 				break;
 			}

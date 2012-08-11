@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="country" title="country.label" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true" storage="local">
+    <records>
+        <leftjoin>`user` ON (`country`.`user` = `user`.`ID`)</leftjoin>
+        <ordercolumn>name</ordercolumn>
+        <orderdirection>asc</orderdirection>
+        <search parameters="5">`ID` = %d OR `name` = %d OR `firstname` LIKE '%s' OR `middlename` LIKE '%s' OR `lastname` LIKE '%s'</search>
+        <filter field="`country`.`inTrash`" value="No"/>
+    </records>
+    <columns primarykey="`country`.`ID`">
+        <column name="id" field="`country`.`ID`" title="id.label" class="column grid2of10"></column>
+        <column name="firstname" field="firstname" title="firstname.label" class="column grid2of10"></column>
+        <column name="lastname" field="lastname" title="lastname.label" class="column grid2of10"></column>
+        <column name="name" field="name" title="country.label" class="column grid2of10"></column>
+        <column name="creationTime" field="`user`.`creationTime`" title="creationTime.label" class="column grid2of10"></column>
+    </columns>
+</grid>
