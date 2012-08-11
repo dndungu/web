@@ -12,12 +12,10 @@ core.control  = {
 		html= html.replace(pattern, function(tag){
 			var key = tag.replace('{{', '').replace('}}', '');
 			var value = record[key];
-			if(typeof value == 'string') {
-				if(value.length === 0) {
-					return ' ';
-				}
+			if(value && value.length && value.length === 0) {
+				return ' ';
 			}
-			return value;
+			return value ? value : ' ';
 		});
 		return html;			
 	},

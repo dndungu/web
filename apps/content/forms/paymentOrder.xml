@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form name="order" title="order.label" primarykey="ID">
-	<field name="user" type="int" length="20">
-		<element name="user" type="select" lookup="user" value="ID" display="firstname" label="creator.label"></element>
+<form name="apiOrder" title="order.label" primarykey="ID">
+	<field name="firstname" type="varchar" length="255">
+		<element name="firstname" type="text" label="firstname.label" placeholder="firstname.placeholder"></element>
 	</field>
-	<field name="beneficiary" type="int" length="20">
-		<element name="beneficiary" type="select" lookup="beneficiaries" value="ID" display="name" label="beneficiary.label"></element>
+	<field name="middlename" type="varchar" length="20">
+		<element name="middlename" type="text" label="middlename.label" placeholder="middlename.placeholder"></element>
 	</field>
-	<field name="amount" type="decimal" length="5" precision="2">
-		<element name="amount" type="text" label="amount.label" placeholder="amount.placeholder"></element>
+	<field name="lastname" type="varchar" length="20">
+		<element name="lastname" type="text" label="lastname.label" placeholder="lastname.placeholder"></element>
+	</field>
+	<field name="credit" type="decimal" length="5" precision="2">
+		<element name="credit" type="text" label="credit.label" placeholder="credit.placeholder"></element>
 	</field>
 	<field name="orderType" type="int" length="5">
 		<element name="orderType" type="select" lookup="orderType" value="ID" display="title" label="orderType.label"></element>
@@ -18,92 +21,36 @@
 	<field name="sourceIP" type="varchar" length="15">
 		<element name="sourceIP" type="text" label="sourceIP.label" placeholder="sourceIP.placeholder"></element>
 	</field>
-	<field name="approvalOne" type="enum" length="'Pending'" precision="'Approved'">
+	<field name="approvalOne" type="enum" length="16">
 		<element name="approvalOne" type="text" label="approvalOne.step"></element>
-	</field><!-- 
+	</field>
 	<field name="approvalOneUser" type="int" length="20">
 		<element name="approvalOneUser" type="select" lookup="user" value="ID" display="firstname" label="approvalOneUser.label"></element>
 	</field>
 	<field name="approvalOneTime" type="int" length="10">
-		<element name="approvalOneTime" type="text" label="approvalTime.label"></element>
+		<element name="approvalOneTime" type="text" label="approvalOneTime.label"></element>
 	</field>
-	 -->
 	<field name="approvalOneNotes" type="tinytext">
 		<element name="approvalOneNotes" type="text" label="approvalOneNotes.label"></element>
 	</field>
 	<field name="approvalOneAmount" type="decimal" length="5" precision="2">
 		<element name="approvalOneAmount" type="text" label="approvalOneAmount.label"></element>
 	</field>
-	<field name="approvalTwo" type="enum" length="'Pending'" precision="'Approved'">
+	<field name="approvalTwo" type="enum" length="16">
 		<element name="approvalTwo" type="text" label="approvalTwo.step"></element>
-	</field><!-- 
+	</field> 
 	<field name="approvalTwoUser" type="int" length="20">
 		<element name="approvalTwoUser" type="text" label="approvalTwoUser.label"></element>
 	</field>
 	<field name="approvalTwoTime" type="int" length="10">
 		<element name="approvalTwoTime" type="text" label="approvalTime.label"></element>
 	</field>
-	 -->
 	<field name="approvalTwoNotes" type="tinytext">
 		<element name="approvalTwoNotes" type="text" label="approvalTwoNotes.label"></element>
 	</field>
 	<field name="approvalTwoAmount" type="decimal" length="5" precision="2">
 		<element name="approvalTwoAmount" type="text" label="approvalTwoAmount.label"></element>
 	</field>
-	<field name="approvalThree" type="enum" length="'Pending'" precision="'Approved'">
-		<element name="approvalThree" type="text" label="approvalThree.step"></element>
-	</field>
-	<!-- 
-	<field name="approvalThreeUser" type="int" length="20">
-		<element name="approvalThreeUser" type="text" label="approvalThreeUser.label"></element>
-	</field>
-	<field name="approvalThreeTime" type="int" length="10">
-		<element name="approvalThreeTime" type="text" label="approvalTime.label"></element>
-	</field>
-	 -->
-	<field name="approvalThreeNotes" type="tinytext">
-		<element name="approvalThreeNotes" type="text" label="approvalThreeNotes.label"></element>
-	</field>
-	<field name="approvalThreeAmount" type="decimal" length="5" precision="2">
-		<element name="approvalThreeAmount" type="text" label="approvalThreeAmount.label"></element>
-	</field>
-	<field name="approvalFour" type="enum" length="'Pending'" precision="'Approved'">
-		<element name="approvalFour" type="text" label="approvalFour.step"></element>
-	</field><!-- 
-	<field name="approvalFourUser" type="int" length="20">
-		<element name="approvalFourUser" type="text" label="approvalFourUser.label"></element>
-	</field>
-	<field name="approvalFourTime" type="int" length="10">
-		<element name="approvalFourTime" type="text" label="approvalTime.label"></element>
-	</field>
-	 -->
-	<field name="approvalFourNotes" type="tinytext">
-		<element name="approvalFourNotes" type="text" label="approvalFourNotes.label"></element>
-	</field>
-	<field name="approvalFourAmount" type="decimal" length="5" precision="2">
-		<element name="approvalFourAmount" type="text" label="approvalFourAmount.label"></element>
-	</field> 
-	<field name="approvalFive" type="enum" length="'Pending'" precision="'Approved'">
-		<element name="approvalFive" type="text" label="approvalFive.step"></element>
-	</field><!--
-	<field name="approvalFiveUser" type="int" length="20">
-		<element name="approvalFiveUser" type="text" label="approvalFiveUser.label"></element>
-	</field>
-	<field name="approvalFiveTime" type="int" length="10">
-		<element name="approvalFiveTime" type="text" label="approvalTime.label"></element>
-	</field>
-	-->
-	<field name="approvalFiveNotes" type="tinytext">
-		<element name="approvalFiveNotes" type="text" label="approvalFiveNotes.label"></element>
-	</field>
-	<field name="approvalFiveAmount" type="decimal" length="5" precision="2">
-		<element name="approvalFiveAmount" type="text" label="approvalFiveAmount.label"></element>
-	</field>
-	<!-- 
-	<field name="scheduleTime" type="int" length="10">
-		<element name="scheduleTime" type="text" label="scheduleTime.label"></element>
-	</field>
-	 -->
 	<field name="creationTime" type="int" length="10">
 		<element name="creationTime" type="text" label="creationTime.label"></element>
 	</field>

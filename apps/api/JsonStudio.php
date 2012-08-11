@@ -20,6 +20,9 @@ class JsonStudio extends \apps\Application {
 			case "/api/v1/recipient_categories":
 				echo json_encode($this->sandbox->getLocalStorage()->select(array('table' => 'beneficiaryType', 'fields' => array('ID', 'title'))), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 				break;
+			case "/api/v1/beneficiaries":
+				echo json_encode($this->sandbox->getLocalStorage()->query("SELECT `firstname`, `middlename`, `lastname`, `beneficiaryType`, `MSISDN`, `district`.`title` AS `district`, `county`.`title` AS `county`, `province`.`title` AS `province`, `facility`.`title` AS `facility`, false AS `sent` FROM `beneficiary` LEFT JOIN `district` ON (`beneficiary`.`district` = `district`.`ID`) LEFT JOIN `county` ON (`beneficiary`.`county` = `county`.`ID`) LEFT JOIN `province` ON (`beneficiary`.`province` = `province`.`ID`) LEFT JOIN `facility` ON (`beneficiary`.`facility` = `facility`.`ID`)"), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+				break;
 		}
 	}
 	
@@ -27,11 +30,12 @@ class JsonStudio extends \apps\Application {
 		//$this->doShield();
 		switch($this->sandbox->getMeta('URI')){
 			case "/api/v1/payment":
-				$record['firstname'] = $this->sandbox->getHelper('input')->postString('firstname');
-				$record['middlename'] = $this->sandbox->getHelper('input')->postString('middlename');
-				$record['lastname'] = $this->sandbox->getHelper('input')->postString('lastname');
-				$record['beneficiaryType'] = $this->sandbox->getHelper('input')->postInteger('beneficiaryType');
-				$record['orderType'] = $this->sandbox->getHelper('input')->postInteger('orderType');
+				$record['firstname'] = $this->sandbox->getHelper('input')->postString('recipient_firstname');
+				$record['middlename'] = $this->sandbox->getHelper('input')->postString('recipient_middlename');
+				$record['lastname'] = $this->sandbox->getHelper('input')->postString('recipient_lastname');
+				$record['beneficiaryType'] = $this->sandbox->getHelper('input')->postInteger('recipient_category');
+				$record['orderType'] = $this->sandbox->getHelper('input')->postInteger('payment_category');
+				$record['credit'] = $this->sandbox->getHelper('input')->postString('amount');
 				$record['budget'] = $this->sandbox->getHelper('input')->postInteger('budget');
 				$record['msisdn'] = $this->sandbox->getHelper('input')->postString('msisdn');
 				$record['notes'] = $this->sandbox->getHelper('input')->postString('notes');
@@ -41,7 +45,10 @@ class JsonStudio extends \apps\Application {
 				$record['county'] = $this->sandbox->getHelper('input')->postString('county');
 				$record['district'] = $this->sandbox->getHelper('input')->postString('district');
 				$record['facility'] = $this->sandbox->getHelper('input')->postString('facility');
+				$record['sourceIP'] = $_SERVER['REMOTE_ADDR'];
+				$record['creationTime'] = mktime();
 				$payment = $this->sandbox->getLocalStorage()->insert(array('table' => 'apiOrder', 'content' => $record));
+				error_log(json_encode($_POST), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 				return json_encode(array('status' => 'success', 'payment' => $payment), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 				break;
 		}

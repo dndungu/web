@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form name="order" title="order.label" primarykey="ID" storage="local">
+<form name="apiOrder" title="order.label" primarykey="ID" storage="local">
 	<field name="approvalOneUser" length="20">
 		<element name="approvalOneUser" type="hidden" label="approvalOneUser.label" placeholder="approvalOneUser.placeholder"></element>
 	</field>

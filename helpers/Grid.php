@@ -246,7 +246,16 @@ class Grid {
 		foreach($this->definition->columns->column as $column){
 			$class = (string) $column->attributes()->class;
 			$name = (string) $column->attributes()->name;
-			$html[] = "\t\t\t<div class=\"$class\" name=\"$name\">{{".$name."}}</div>";
+			if(property_exists($column, 'element')){
+				switch((string) $column->element->attributes()->type){
+					case "checkbox":
+						$element = '<input type="checkbox" name="' . (string) $column->element->attributes()->name . '" value="{{' . $name . '}}"/>';
+						break;
+				}
+				$html[] = "\t\t\t<label class=\"$class gridMultipleSelect\" name=\"$name\">".$element."</label>";
+			}else{
+				$html[] = "\t\t\t<div class=\"$class\" name=\"$name\">{{".$name."}}</div>";
+			}
 		}
 		$html[] = "\t\t</div>";
 		$html[] = "\t</div>";

@@ -1024,6 +1024,12 @@ ul.content-box-tabs li a:hover,.shortcut-button span:hover {
 	margin:0 1%;	
 }
 
+.gridContentRecord .gridMultipleSelect {
+	height:25px;
+	margin-top:-5px;
+	padding-top:10px;
+}
+
 .gridHeader {
 	font-size:1.5em;
 	-webkit-border-radius: 4px 4px 0 0;

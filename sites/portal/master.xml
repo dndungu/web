@@ -374,6 +374,7 @@
 		<navigation parent="api" group="api" uri="/api/v1/payment_categories" label="api.label" weight="90"></navigation>
 		<navigation parent="api" group="api" uri="/api/v1/recipient_categories" label="api.label" weight="90"></navigation>
 		<navigation parent="api" group="api" uri="/api/v1/payment" label="api.label" weight="90"></navigation>
+		<navigation parent="api" group="api" uri="/api/v1/beneficiaries" label="api.label" weight="90"></navigation>
 		<portlet module="api" controller="JsonStudio" access="signin.permission"></portlet>
 	</portal>
 	

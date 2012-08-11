@@ -143,15 +143,14 @@ core.control.extend('grid', function(){
 			initGridCell: function(){
 				var that = this;
 				var rows = $('.gridContent .gridContentRecord', that.html);
+				$('.gridContent .gridContentRecord .gridMultipleSelect', that.html).unbind('mousedown').mousedown(function(){
+					event.stopPropagation();
+				});				
 				rows.unbind('mousedown').mousedown(function(event){
 					event.stopPropagation();
 					var subject = $(this);
-//					if(that.source.indexOf('approvalOne') == -1 && that.source.indexOf('approvalTwo') == -1 && that.source.indexOf('approvalThree') == -1 && that.source.indexOf('approvalFour') == -1 && that.source.indexOf('approvalFive') == -1){
-						that.renderGridCell(subject);
-						$('>.gridCell,>form', rows.not(subject)).slideUp();						
-//					}else{
-//						that.renderUpdater(subject);
-//					}
+					that.renderGridCell(subject);
+					$('>.gridCell,>form', rows.not(subject)).slideUp();						
 				});
 			},
 			renderGridCell: function(){

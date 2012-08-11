@@ -10,7 +10,7 @@ class GridQuery {
 		
 	private $offset = 0;
 	
-	private $limit = 20;
+	private $limit = 100;
 	
 	private $order = array('column' => NULL, 'direction' => NULL);
 	

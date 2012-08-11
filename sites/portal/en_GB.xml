@@ -69,6 +69,8 @@
 	<label index="comment.label">Comments</label>
 	<label index="credit.label">Amount to credit</label>    
 	<label index="credit.placeholder">Enter amount to credit</label>
+	<label index="debit.label">Amount to debit</label>    
+	<label index="debit.placeholder">Enter amount to debit</label>
     <label index="notes.label">Description</label>
     <label index="notes.placeholder">Enter description</label>
     <label index="scheduleTime.label">Scheduled Time</label>
@@ -343,20 +345,22 @@
 	<label index="permission.update.permission">Edit permissions</label>
 	
 	<label index="approvalOne.label">Approve Payments</label>
-	<label index="approvalOne.step">PTLC Approval</label>
-	<label index="approvalOneUser.label">PTLC</label>
-	<label index="approvalOneNotes.label">PTLC Comments</label>
-	approvalOneAmount
-	<label index="approvalOne.select.permission">Browse DTLC's Payment List</label>
-	<label index="approvalOne.update.permission">Approve DTLC's Payment List</label>
+	<label index="approvalOne.step">First Level Approval Status</label>
+	<label index="approvalOneUser.label">First Level Approver</label>
+	<label index="approvalOneTime.label">First Level Approval Time</label>
+	<label index="approvalOneAmount.label">First Level Approved Amount</label>
+	<label index="approvalOneNotes.label">First Level Approver's Comments</label>
+	<label index="approvalOne.select.permission">Browse First Level Approval List</label>
+	<label index="approvalOne.update.permission">First Level Approval</label>
 	
 	<label index="approvalTwo.label">Approve Payments</label>
-	<label index="approvalTwo.step">Program Officer Approval</label>
-	<label index="approvalTwoUser.label">Program Officer</label>
-	<label index="approvalTwoAmount.label">Program Officer Approved Amount</label>
-	<label index="approvalTwoNotes.label">Program Officer Comments</label>
-	<label index="approvalTwo.select.permission">Browse PTLC's Payment List</label>
-	<label index="approvalTwo.update.permission">Approve PTLC's Payment List</label>
+	<label index="approvalTwo.step">Second Level Approval Status</label>
+	<label index="approvalTwoUser.label">Second Level Approver</label>
+	<label index="approvalTwoTime.label">Second Level Approval Time</label>
+	<label index="approvalTwoAmount.label">Second Level Approved Amount</label>
+	<label index="approvalTwoNotes.label">Second Level Approval Comments</label>
+	<label index="approvalTwo.select.permission">Browse Second Level Approval List</label>
+	<label index="approvalTwo.update.permission">Second Level Approval</label>
 
 	<label index="approvalThree.label">Approve Payments</label>
 	<label index="approvalThree.step">HOD Approval</label>
