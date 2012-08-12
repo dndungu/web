@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid name="payment" title="panel.statement" searchable="true" sortable="true" paginatable="true" showColumnBar="true" showFooterBar="true" storage="local">
+	<records>
+		<leftjoin>`orderType` ON (`payment`.`order_type` = `orderType`.`ID`)</leftjoin>
+		<ordercolumn>`payment`.`id`</ordercolumn>
+		<orderdirection>desc</orderdirection>
+		<filter field="trx_status" value="Completed"/>
+	</records>
+	<columns primarykey="`payment`.`id`">
+		<column name="recipient_name" field="recipient_name" title="beneficiary.label" class="grid2of10 column"></column>
+		<column name="MSISDN" field="MSISDN" title="phone.label" class="grid2of10 column"></column>
+		<column name="trx_id" field="trx_id" title="id.label" class="grid1of10 column"></column>
+		<column name="trx_date" field="trx_date" title="date.label" class="grid2of10 column"></column>
+		<column name="title" field="`orderType`.`title`" title="orderType.label" class="grid2of10 column"></column>
+		<column name="debit_amount" field="debit_amount" title="amount.label" class="grid1of10 column"></column>
+	</columns>
+</grid>
