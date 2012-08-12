@@ -18,4 +18,8 @@
 		<column name="orderType" field="`orderType`.`title`" title="orderType.label" class="grid3of20 column"></column>
 		<column name="credit" field="credit" title="amount.label" class="grid3of20 column"/>
 	</columns>
+	<actions>
+	    <action name="approve" value="action.approve" class="gridPrimaryButton"/>
+	    <action name="reject" value="action.reject" class="gridRejectButton"/>
+	</actions>
 </grid>

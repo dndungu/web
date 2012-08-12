@@ -213,6 +213,22 @@ class Grid {
 	
 	private function headerBar(){
 		$title = $this->getTitle($this->definition);
+		$html[] = "\t<div class=\"gridActionsBar\">";
+		if($this->flow && $this->flow->isUpdateable()){
+			if(property_exists($this->definition, 'actions')){
+				$html[] = '<div class="column grid2of10">';
+				foreach($this->definition->actions->action as $action){
+					$value = $this->sandbox->getHelper('translation')->translate((string) $action->attributes()->value);
+					$html[] = '<input type="button" name="'.(string) $action->attributes()->name.'" value="'.$value.'" class="'.$action->attributes()->class.'"/>';
+				}
+				$html[] = '</div>';
+			}
+		}
+		if($this->flow && $this->flow->isInsertable()){
+			$addText = $this->sandbox->getHelper('translation')->translate('action.add').' '.$this->sandbox->getHelper('translation')->translate($this->name.'.label');
+			$html[] = "<div class=\"column grid2of10\"><input type=\"button\" name=\"addButton\" value=\"".ucwords($addText)."\" class=\"addButton gridPrimaryButton\"/></div>";
+		}
+		$html[] = "\t</div>";
 		$html[] = "\t<div class=\"gridHeader\">";
 		if($this->isSearchable()){
 			$html[] = "\t\t<div class=\"column grid6of10\">$title</div><div class=\"column grid4of10\">".$this->searchForm()."</div>";
@@ -228,10 +244,20 @@ class Grid {
 			$html[] = "\t<div class=\"gridColumns gradientSilver\">";
 			foreach($this->definition->columns->column as $column){
 				$class = (string) $column->attributes()->class;
-				$title = $this->getTitle($column);
-				$field = (string) $column->attributes()->field;
-				$sorter = $this->isSortable() ? "<span class=\"sort-icon\" name=\"$field\"></span>" : "";
-				$html[] = "\t\t<div class=\"$class\">$title $sorter</div>";
+				if(property_exists($column, 'element')){
+					$name = (string) $column->attributes()->name;
+					switch((string) $column->element->attributes()->type){
+						case "checkbox":
+							$element = '<input type="checkbox" name="' . (string) $column->element->attributes()->name . '" value="all"/>';
+							break;
+					}
+					$html[] = "\t\t\t<label class=\"$class gridSelectAll\" class=\"margin-top:6px;\" name=\"$name\">".$element."</label>";
+				}else{
+					$title = $this->getTitle($column);
+					$field = (string) $column->attributes()->field;
+					$sorter = $this->isSortable() ? "<span class=\"sort-icon\" name=\"$field\"></span>" : "";
+					$html[] = "\t\t<div class=\"$class\">$title $sorter</div>";
+				}
 			}
 			$html[] = "\t</div>";
 			return join("\n", $html);
@@ -286,12 +312,8 @@ class Grid {
 	private function searchForm(){
 		$translator = $this->sandbox->getHelper('translation');
 		$searchText = $translator->translate('action.search');
-		$addText = $translator->translate('action.add').' '.$translator->translate($this->name.'.label');
 		$URI = $this->sandbox->getMeta('URI');
 		$html[] = "<form action=\"$URI\" method=\"POST\" class=\"gridSearch\">";
-		if($this->flow && $this->flow->isInsertable()){
-			$html[] = "<input type=\"button\" name=\"addButton\" value=\"".ucwords($addText)."\" class=\"addButton gridPrimaryButton\"/>";
-		}
 		$html[] = "<input type=\"text\" name=\"keywords\" placeholder=\"$searchText\"/>";
 		$html[] = "<input type=\"submit\" value=\"&nbsp;\" class=\"searchButton gridSecondaryButton\"/>&nbsp;";
 		$html[] = "</form>";

@@ -49,7 +49,7 @@ class JsonStudio extends \apps\Application {
 				$record['creationTime'] = time();
 				$payment = $this->sandbox->getLocalStorage()->insert(array('table' => 'apiOrder', 'content' => $record));
 				error_log(json_encode($_POST), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-				return json_encode(array('status' => 'success', 'tracking' => $payment), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+				return json_encode(array('status' => 'success', 'payment' => $payment), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 				break;
 		}
 	}

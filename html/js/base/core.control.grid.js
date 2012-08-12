@@ -143,6 +143,9 @@ core.control.extend('grid', function(){
 			initGridCell: function(){
 				var that = this;
 				var rows = $('.gridContent .gridContentRecord', that.html);
+				$('.gridColumns .gridSelectAll' ,that.html).unbind('click').click(function(){
+					$('.gridContent .gridContentRecord .gridMultipleSelect input[type="checkbox"]', that.html).click();
+				});
 				$('.gridContent .gridContentRecord .gridMultipleSelect', that.html).unbind('mousedown').mousedown(function(){
 					event.stopPropagation();
 				});				
