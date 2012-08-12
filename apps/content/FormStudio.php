@@ -23,10 +23,6 @@ class FormStudio extends \apps\Application {
 					break;
 				case "update":
 					$result = $form->updateRecord();;
-					if($this->sandbox->getMeta('URI') == '/form/ApprovalFive') {
-						$url = 'http://'.$_SERVER['HTTP_HOST'].'/SendPayment';
-						error_log(file_get_contents($url));
-					}
 					return $result;
 					break;
 				case "select":
@@ -35,6 +31,32 @@ class FormStudio extends \apps\Application {
 				case "delete":
 					return $form->deleteRecord();
 					break;
+				case "approve":
+					$name = $this->getFormName();
+					switch($name){
+						case "approvalOne":
+							$amount = 'credit';
+							break;
+						case "approvalTwo":
+							$amount = 'approvalOneAmount';
+							break;
+					}
+					$result = $this->sandbox->getLocalStorage()->query(sprintf("UPDATE `apiOrder` SET `%s` = 'Approved', `%sUser` = %d, `%sTime` = %d, `%sAmount` = `%s` WHERE `ID` IN (%s)", $name, $name, $this->sandbox->getHelper('user')->getID(), $name, time(), $name, $amount, $_POST['ids']));
+					return json_encode($result);
+					break;
+				case "reject":
+					$name = $this->getFormName();
+					switch($name){
+						case "approvalOne":
+							$amount = 'credit';
+							break;
+						case "approvalTwo":
+							$amount = 'approvalOneAmount';
+							break;
+					}					
+					$result = $this->sandbox->getLocalStorage()->query(sprintf("UPDATE `apiOrder` SET `%s` = 'Rejected', `%sUser` = %d, `%sTime` = %d, `%sAmount` = `%s` WHERE `ID` IN (%s)", $name, $name, $this->sandbox->getHelper('user')->getID(), $name, time(), $name, $amount, $_POST['ids']));
+					return json_encode($result);
+					break;							
 			}
 		}catch(\helpers\HelperException $e){
 			$this->doCrash($e);
@@ -45,14 +67,18 @@ class FormStudio extends \apps\Application {
 		try{
 			$base = $this->sandbox->getMeta('base');
 			$form = $this->sandbox->getHelper('form');
-			$request = explode('/', $this->sandbox->getMeta('URI'));
-			$key = count($request) - 1;
-			$name = $request[$key];
-			$form->setSource("$base/apps/content/forms/$name.xml");
+			$form->setSource("$base/apps/content/forms/".$this->getFormName().".xml");
 			return $form;
 		}catch(\helpers\HelperException $e){
 			$this->doCrash($e);
 		}
+	}
+	
+	private function getFormName(){
+		$base = $this->sandbox->getMeta('base');
+		$request = explode('/', $this->sandbox->getMeta('URI'));
+		$key = count($request) - 1;
+		return $request[$key];		
 	}
 	
 }

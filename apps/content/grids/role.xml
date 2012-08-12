@@ -6,6 +6,7 @@
 		<orderdirection>asc</orderdirection>
 		<search parameters="2">`ID` = %d OR `title` LIKE '%s'</search>
 		<filter field="isSystem" value="No"></filter>
+		<filter field="inTrash" value="No"></filter>
 	</records>
 	<columns primarykey="ID">
 		<column name="ID" field="ID" title="id.label" class="grid1of10 column"></column>

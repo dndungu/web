@@ -6,6 +6,7 @@
 		<ordercolumn>`user`.`ID`</ordercolumn>
 		<orderdirection>desc</orderdirection>
 		<search parameters="1">`user`.`ID` = %d</search>
+		<filter field="`user`.`inTrash`" value="No"/>
 	</records>
 	<columns primarykey="`user`.`ID`">
 		<column name="login" field="login" title="login.label" class="grid2of10 column"></column>

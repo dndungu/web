@@ -1020,8 +1020,9 @@ ul.content-box-tabs li a:hover,.shortcut-button span:hover {
 }
 
 .gridActionsBar {
-	padding:10px 0;
+	height:29px;
 	display:block;
+	margin:10px 0;
 }
 
 .gridContentRecord label span {
@@ -1455,4 +1456,9 @@ ul.content-box-tabs li a:hover,.shortcut-button span:hover {
 .gridFooter .pagecurrent a {
 	font-size:1.5em;
 	color:#888;
+}
+
+.gridActionButtons {
+	display:none;
+	margin-right:20px;
 }

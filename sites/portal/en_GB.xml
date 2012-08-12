@@ -3,6 +3,8 @@
 
 	<label index="panel.dashboard">Dashboard</label>
 	<label index="panel.overview">Overview</label>
+	<label index="panel.statement">Statement</label>
+	<label index="statement.select.permission">Browse Statement</label>
 	
 	<label index="panel.finance">Finance</label>
 	<label index="panel.orders">Payment Requests</label>
@@ -86,6 +88,8 @@
 	<label index="description.placeholder">Enter description</label>
 	<label index="id.label">ID</label>
 	<label index="delete.confirm.label">Are you sure you want to delete this record?</label>
+	<label index="approve.confirm.label">Are you sure you want to approve these requests?</label>
+	<label index="reject.confirm.label">Are you sure you want to reject these requests?</label>
 	<label index="date.label">Date</label>
 	<label index="date.placeholder">MM-DD-YYYY</label>
     <label index="firstname.label">Firstname</label>

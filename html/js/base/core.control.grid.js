@@ -127,7 +127,7 @@ core.control.extend('grid', function(){
 			},
 			initInserter: function(){
 				var that = this;
-				var button = $('.gridHeader input[name="addButton"]', this.html);
+				var button = $('.gridActionsBar input[name="addButton"]', this.html);
 				button.unbind('mousedown').mousedown(function(event){
 					that.renderInserter();
 				});
@@ -140,14 +140,26 @@ core.control.extend('grid', function(){
 				this.html.find('.gridFooter').slideUp();
 				this.html.find('.addButton').fadeOut();
 			},
+			updateSelectors: function(){
+				var that = this;
+				setTimeout(function(){
+					if($('.gridContent .gridContentRecord .gridMultipleSelect input[type="checkbox"]:checked', that.html).length){
+						$('.gridActionButtons').fadeIn();
+					}else{
+						$('.gridActionButtons').fadeOut();
+					}						
+				}, 500);
+			},
 			initGridCell: function(){
 				var that = this;
 				var rows = $('.gridContent .gridContentRecord', that.html);
 				$('.gridColumns .gridSelectAll' ,that.html).unbind('click').click(function(){
-					$('.gridContent .gridContentRecord .gridMultipleSelect input[type="checkbox"]', that.html).click();
+					$('.gridContent .gridContentRecord .gridMultipleSelect input[type="checkbox"]', that.html).prop('checked', $(this).find('input[type="checkbox"]').is(':checked'));
+					that.updateSelectors();
 				});
 				$('.gridContent .gridContentRecord .gridMultipleSelect', that.html).unbind('mousedown').mousedown(function(){
 					event.stopPropagation();
+					that.updateSelectors();
 				});				
 				rows.unbind('mousedown').mousedown(function(event){
 					event.stopPropagation();
@@ -203,6 +215,23 @@ core.control.extend('grid', function(){
 							});
 							break;
 					}
+				});
+			},
+			initGridActions: function(){
+				var that = this;
+				$('.gridActionsBar input[type="button"]', this.html).not('.addButton').unbind('mousedown').mousedown(function(){
+					var command = $(this).attr('name');
+					if(!confirm(core.l18n[command + '.confirm.label'])) return;
+					var keys = $('.gridContent .gridContentRecord .gridMultipleSelect input[type="checkbox"]:checked', that.html);
+					var items = [];
+					keys.each(function(){
+						items.push($(this).attr('value'));
+					});
+					var source = that.source.replace('grid', 'form');
+					core.ajax.post(source, {"command": command, "ids": items.join(', ')}, function(){
+						if(arguments[0].readyState != 4 || arguments[0].status != 200) return;
+						control.refresh();
+					});
 				});
 			},
 			renderUpdater: function(){
@@ -306,6 +335,9 @@ core.control.extend('grid', function(){
 				}
 				if(this.insertable || this.updateable){
 					this.initInserter();
+				}
+				if(this.updateable){
+					this.initGridActions();
 				}
 			}			
 	};

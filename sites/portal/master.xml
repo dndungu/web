@@ -45,7 +45,19 @@
 		<navigation parent="dashboard" group="panel" uri="/dashboard" label="panel.overview" weight="11"/>
 		<portlet module="content" controller="FormStudio" access="dashboard.permission"/>
 	</portal>
-	
+	<portal type="raw" access="statement.select.permission">
+	    <navigation parent="dashboard" group="hidden" uri="/form/statement" label="panel.overview" weight="11"/>
+	    <portlet module="content" controller="FormStudio" access="statement.select.permission"/>
+	</portal>
+	<portal type="raw" access="statement.select.permission">
+	    <navigation parent="dashboard" group="panel" uri="/grid/statement" label="panel.statement" weight="11"/>
+	    <portlet module="content" controller="GridStudio" access="statement.select.permission"/>
+	</portal>
+	<portal type="raw" access="statement.select.permission">
+	    <navigation parent="dashboard" group="hidden" uri="/cell/statement" label="panel.overview" weight="11"/>
+	    <portlet module="content" controller="CellStudio" access="statement.select.permission"/>
+	</portal>		
+		
 	<portal type="raw" access="finance.permission">
 		<navigation id="finance" parent="root" group="panel" uri="/null" label="panel.finance" weight="20" class="nav-top-item"/>
 	</portal>
@@ -388,9 +400,5 @@
 		<navigation parent="api" group="api" uri="/api/v1/payment" label="api.label" weight="90"></navigation>
 		<navigation parent="api" group="api" uri="/api/v1/beneficiaries" label="api.label" weight="90"></navigation>
 		<portlet module="api" controller="JsonStudio" access="signin.permission"></portlet>
-	</portal>
-	
-	<portal type="raw" access="configuration.permission">
-		<navigation id="configuration" parent="root" group="_panel" uri="/null" label="panel.configuration" weight="70" class="nav-top-item"/>
-	</portal>			
+	</portal>		
 </package>
