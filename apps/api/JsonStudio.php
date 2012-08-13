@@ -36,6 +36,7 @@ class JsonStudio extends \apps\Application {
 				$record['beneficiaryType'] = $this->sandbox->getHelper('input')->postInteger('recipient_category');
 				$record['orderType'] = $this->sandbox->getHelper('input')->postInteger('payment_category');
 				$record['credit'] = $this->sandbox->getHelper('input')->postString('amount');
+				$record['approvalOneAmount'] = $this->sandbox->getHelper('input')->postString('amount');
 				$record['budget'] = $this->sandbox->getHelper('input')->postInteger('budget');
 				$record['msisdn'] = $this->sandbox->getHelper('input')->postString('msisdn');
 				$record['notes'] = $this->sandbox->getHelper('input')->postString('notes');

@@ -4,7 +4,7 @@
 		<leftjoin>`orderType` ON (`apiOrder`.`orderType` = `orderType`.`ID`)</leftjoin>
 		<ordercolumn>`apiOrder`.`ID`</ordercolumn>
 		<orderdirection>desc</orderdirection>
-		<search parameters="7">`ID` = %d OR `firstname` LIKE '%s' OR `middlename` = '%s' OR `lastname` LIKE '%s' OR `province` LIKE '%s' OR `district` LIKE '%s' OR `orderType`.`title` LIKE '%s'</search>
+		<search parameters="7">`apiOrder`.`ID` = %d OR `firstname` LIKE '%s' OR `middlename` = '%s' OR `lastname` LIKE '%s' OR `province` LIKE '%s' OR `district` LIKE '%s' OR `orderType`.`title` LIKE '%s'</search>
 		<filter field="approvalOne" value="Approved"></filter>		
 		<filter field="approvalTwo" value="Pending"></filter>
 	</records>
@@ -17,7 +17,7 @@
 		<column name="province" field="`province`" title="province.label" class="grid3of20 column"/>
 		<column name="district" field="`district`" title="district.label" class="grid3of20 column"/>
 		<column name="orderType" field="`orderType`.`title`" title="orderType.label" class="grid3of20 column"></column>
-		<column name="credit" field="credit" title="amount.label" class="grid3of20 column"/>
+		<column name="credit" field="approvalOneAmount" title="amount.label" class="grid3of20 column"/>
 	</columns>
 	<actions>
 	    <action name="approve" value="action.approve" class="gridPrimaryButton"/>

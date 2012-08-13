@@ -161,7 +161,7 @@ class Form {
 		$attributes = $this->maxLength($field);
 		$attributes .= $this->getClasses($element);
 		$attributes .= strlen($placeholder) ? ' placeholder="'.$placeholder.'"' : $attributes;
-		return "<input type=\"text\" name=\"$name\" value=\"$value\"$attributes/>";
+		return "<input type=\"text\" name=\"$name\" originalvalue=\"$value\" value=\"$value\"$attributes/>";
 	}
 	
 	protected function createInputPassword(&$field, &$element){

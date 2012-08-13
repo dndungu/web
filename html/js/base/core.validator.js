@@ -6,8 +6,19 @@ core.validator = {
 		var elements = extension.findElements(arguments[0]);
 		for(i in elements){
 			elements[i].unbind('change').change(function(){
-				extension.checkRule($(this));
-			})
+				var subject = $(this);
+				extension.checkRule();
+				if(subject.hasClass('reduceable')){
+					var originalvalue = subject.attr('originalvalue');
+					if(parseInt(subject.val()) > parseInt(originalvalue)){
+						subject.val('');
+						subject.attr('placeholder', 'Please enter an amount less that or equal to ' + originalvalue);
+						core.validator.redStatus(subject);
+					}else{
+						core.validator.greenStatus(subject);
+					}
+				}
+			});
 		}
 	},
 	setSubmitCheck: function(){

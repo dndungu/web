@@ -11,9 +11,10 @@
 			<class>required</class>
 		</element>
 	</field>
-	<field name="approvalOneAmount" type="decimal" length="5" precision="2">
+	<field name="approvalOneAmount" type="decimal" length="7" precision="2">
 		<element name="approvalOneAmount" type="text" label="amount.label" placeholder="approvalOneAmount.placeholder">
 			<class>decimal</class>
+			<class>reduceable</class>
 		</element>
 	</field>
 	<field name="approvalOne" type="enum">

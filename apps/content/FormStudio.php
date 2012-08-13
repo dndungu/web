@@ -41,7 +41,7 @@ class FormStudio extends \apps\Application {
 							$amount = 'approvalOneAmount';
 							break;
 					}
-					$result = $this->sandbox->getLocalStorage()->query(sprintf("UPDATE `apiOrder` SET `%s` = 'Approved', `%sUser` = %d, `%sTime` = %d, `%sAmount` = `%s` WHERE `ID` IN (%s)", $name, $name, $this->sandbox->getHelper('user')->getID(), $name, time(), $name, $amount, $_POST['ids']));
+					$result = $this->sandbox->getLocalStorage()->query(sprintf("UPDATE `apiOrder` SET `%s` = 'Approved', `%sUser` = %d, `%sTime` = %d, `%sAmount` = `%s`, `%sNotes` = '%s' WHERE `ID` IN (%s)", $name, $name, $this->sandbox->getHelper('user')->getID(), $name, time(), $name, $amount, $name, $notes, $_POST['ids']));
 					return json_encode($result);
 					break;
 				case "reject":
@@ -54,7 +54,7 @@ class FormStudio extends \apps\Application {
 							$amount = 'approvalOneAmount';
 							break;
 					}					
-					$result = $this->sandbox->getLocalStorage()->query(sprintf("UPDATE `apiOrder` SET `%s` = 'Rejected', `%sUser` = %d, `%sTime` = %d, `%sAmount` = `%s` WHERE `ID` IN (%s)", $name, $name, $this->sandbox->getHelper('user')->getID(), $name, time(), $name, $amount, $_POST['ids']));
+					$result = $this->sandbox->getLocalStorage()->query(sprintf("UPDATE `apiOrder` SET `%s` = 'Rejected', `%sUser` = %d, `%sTime` = %d, `%sAmount` = `%s` WHERE `ID` IN (%s)", $name, $name, $this->sandbox->getHelper('user')->getID(), $name, time(), $name, $amount, $name, $notes, $_POST['ids']));
 					return json_encode($result);
 					break;							
 			}

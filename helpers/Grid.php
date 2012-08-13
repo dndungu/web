@@ -217,6 +217,7 @@ class Grid {
 		if($this->flow && $this->flow->isUpdateable()){
 			if(property_exists($this->definition, 'actions')){
 				$html[] = '<div class="column grid8of10">';
+				$html[] = '<input type="text" name="Notes" class="grid5of10 gridActionButtons" placeholder="Enter comment here"/>';
 				foreach($this->definition->actions->action as $action){
 					$value = $this->sandbox->getHelper('translation')->translate((string) $action->attributes()->value);
 					$html[] = '<input type="button" name="'.(string) $action->attributes()->name.'" value="'.$value.'" class="gridActionButtons '.$action->attributes()->class.'"/>';
