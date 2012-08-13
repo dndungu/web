@@ -50,7 +50,7 @@
 	    <portlet module="content" controller="FormStudio" access="statement.select.permission"/>
 	</portal>
 	<portal type="raw" access="statement.select.permission">
-	    <navigation parent="dashboard" group="panel" uri="/grid/statement" label="panel.statement" weight="11"/>
+	    <navigation parent="dashboard" group="_panel" uri="/grid/statement" label="panel.statement" weight="11"/>
 	    <portlet module="content" controller="GridStudio" access="statement.select.permission"/>
 	</portal>
 	<portal type="raw" access="statement.select.permission">
