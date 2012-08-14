@@ -22,12 +22,6 @@
 			<class>password</class>
 		</element>
 	</field>
-	<field name="province" type="int" length="5">
-		<element name="province" type="select" lookup="province" value="ID" display="title" label="province.label" placeholder="province.placeholder"></element>
-	</field>
-	<field name="district" type="int" length="5">
-		<element name="expiryTime" type="select" lookup="district" value="ID" display="title" label="district.label" placeholder="district.placeholder"></element>
-	</field>
 	<relation name="role" join="rolemap" lookup="role" reference="ID" display="title">
 		<fieldset label="role.label" filter='{"isSystem":"No"}'/>
 	</relation>
