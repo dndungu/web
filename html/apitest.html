@@ -5,7 +5,7 @@
 <script src="/js/libraries/jquery-1.7.2.min.js" type="text/javascript"></script>
 <title>API Test</title>
 </head>
-<body>
+<body style="background-color:#000;color:#0f0;">
 <script type="text/javascript">
 	$.get('/api/v1/beneficiaries', function(){
 		var beneficiaries = jQuery.parseJSON(arguments[0]);
@@ -14,6 +14,7 @@
 				var beneficiary = beneficiaries[i];
 				if(beneficiary.sent === true) continue;
 				var postdata = {
+					dtlc: "Halima",
 					recipient_firstname: beneficiary.firstname,
 					recipient_middlename: beneficiary.middlename,
 					recipient_lastname: beneficiary.lastname,
@@ -21,7 +22,7 @@
 					payment_category: Math.ceil(Math.random()*4),
 					budget: "1",
 					amount: Math.ceil(Math.random() * 10) * 5,
-					msisdn: beneficiary.MSISDN,
+					msisdn: '254726383893',
 					notes:'Original reason.',
 					latitude: "35.831894",
 					longitude: "-0.207632",
@@ -30,9 +31,9 @@
 					district: beneficiary.district,
 					facility: beneficiary.facility					
 				};
-				$('body').append('<br/> POSTING : ' + JSON.stringify(postdata));
+				$('body').append('<p><strong>Speaking</strong>' + JSON.stringify(postdata) + '</p>');
 				$.post('/api/v1/payment', postdata, function(){
-					$('body').append('<br/> RESPONSE : ' + arguments[0] + '<br/><br/>');
+					$('body').append('<p style="color:#dfdfdf;"><strong>Listening<strong><br/>' + arguments[0] + '</p>');
 					beneficiaries[i].sent = true;
 				});
 				break;

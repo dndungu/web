@@ -10,9 +10,7 @@
 	</records>
 	<columns primarykey="`user`.`ID`">
 		<column name="login" field="login" title="login.label" class="grid2of10 column"></column>
-		<column name="firstname" field="firstname" title="firstname.label" class="grid2of10 column"></column>
-		<column name="lastname" field="lastname" title="lastname.label" class="grid2of10 column"></column>
-		<column name="province" field="`province`.`title`" title="province.label" class="grid2of10 column"></column>
-		<column name="district" field="`district`.`title`" title="district.label" class="grid2of10 column"></column>
+		<column name="firstname" field="firstname" title="firstname.label" class="grid4of10 column"></column>
+		<column name="lastname" field="lastname" title="lastname.label" class="grid4of10 column"></column>
 	</columns>
 </grid>

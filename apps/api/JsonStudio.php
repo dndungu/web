@@ -30,6 +30,7 @@ class JsonStudio extends \apps\Application {
 		//$this->doShield();
 		switch($this->sandbox->getMeta('URI')){
 			case "/api/v1/payment":
+				$record['claimant'] = $this->sandbox->getHelper('input')->postString('dtlc');
 				$record['firstname'] = $this->sandbox->getHelper('input')->postString('recipient_firstname');
 				$record['middlename'] = $this->sandbox->getHelper('input')->postString('recipient_middlename');
 				$record['lastname'] = $this->sandbox->getHelper('input')->postString('recipient_lastname');
@@ -49,7 +50,6 @@ class JsonStudio extends \apps\Application {
 				$record['sourceIP'] = $_SERVER['REMOTE_ADDR'];
 				$record['creationTime'] = time();
 				$payment = $this->sandbox->getLocalStorage()->insert(array('table' => 'apiOrder', 'content' => $record));
-				error_log(json_encode($_POST), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 				return json_encode(array('status' => 'success', 'payment' => $payment), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 				break;
 		}
