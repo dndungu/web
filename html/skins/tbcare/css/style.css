@@ -554,7 +554,11 @@ body#login {
 }
 
 #sidebar-wrapper .big-logo, #login h1 {
-	background:url(../images/health.png) 30px 40px scroll no-repeat;
+	background:url(../images/health.png) 130px 10px scroll no-repeat;
+}
+
+#sidebar-wrapper .big-logo {
+	background:url(../images/health.png) 0px 30px scroll no-repeat;
 }
 
 #sidebar-wrapper .big-logo {

@@ -28,13 +28,15 @@
 							</div>							
 						</xsl:for-each>
 						<xsl:value-of select="/response/core/*/*/content" disable-output-escaping="yes"/>
+						<!-- 
 						<ul class="authentication">
 							<xsl:for-each select="/response/core/Navigation/*/authentication/*/*">
 								<xsl:if test="uri != /response/core/SiteSetting/*/uri">
 								<li><a href="{uri}"><xsl:value-of select="label"/></a></li>
 								</xsl:if>
 							</xsl:for-each>
-						</ul>						
+						</ul>
+						-->						
 					</div>
 				</div>
 			</body>

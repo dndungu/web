@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="/js/libraries/jquery-1.7.2.min.js" type="text/javascript"></script>
+<style type="text/css">
+body {
+	background:#fff217;
+	font-size:100%;
+	text-align:center;
+}
+form, div.log{
+	background:url(skins/tbcare/images/logo.png) center 30px no-repeat;
+	padding:140px 20px 20px 20px;
+	width:300px;
+	text-align:left;
+	margin:0 auto;
+}
+
+div.log {
+	padding:20px;
+	background:none;
+}
+
+input[type="text"], textarea {
+	border:1px solid #ccc;
+	width:98%;
+	margin:5px 1%;
+	padding:4px 0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;		
+}
+
+input[type="submit"] {
+	border:1px outset #803300;
+	color: #FFFFFF;
+	background: #552200;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#803300), to(#552200) );
+	background: -webkit-linear-gradient(#803300, #552200);
+	background: -moz-linear-gradient(#803300, #552200);
+	background: -ms-linear-gradient(#803300, #552200);
+	background: -o-linear-gradient(#803300, #552200);
+	background: linear-gradient(#803300, #552200);
+	-pie-background: linear-gradient(#803300, #552200);
+	behavior: url(/skins/tbcare/images/pie.htc);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;	
+	padding: 8px 20px;
+}
+
+</style>
+<title>Android App Simulation</title>
+</head>
+<body>
+	<form action="simulation.html" method="POST" id="paymentsimulator">
+		<input type="text" name="recipient_firstname" placeholder="First name"/>
+		<input type="text" name="recipient_middlename" placeholder="Middle name"/>
+		<input type="text" name="recipient_lastname" placeholder="Last name"/>
+		<input type="text" name="msisdn" placeholder="Phone number"/>
+		<input type="text" name="amount" placeholder="Amount to pay"/>
+		<textarea rows="3" cols="10" placeholder="Notes"></textarea>
+		<input type="submit" name="submit" value="Request Payment"/>
+	</form>
+	<div class="log"></div>
+<script type="text/javascript">
+	var geo = {latitude: "35.831894", longitude: "-0.207632"};
+	function setGeoLocation(position) {
+		geo.latitude = position.coords.latitude;
+		geo.longitude = position.coords.longitude;
+	}
+	function getGeoLocation(){
+		if(!navigator.geolocation) return;
+		navigator.geolocation.getCurrentPosition(setGeoLocation);
+	}
+	var paymentSimulator = $('#paymentsimulator');
+	paymentSimulator.submit(function(){
+		event.preventDefault();
+		var postData = {
+				dtlc: "David Njuguna",
+				recipient_firstname: $('input[name="recipient_firstname"]').val(),
+				recipient_middlename: $('input[name="recipient_middlename"]').val(),
+				recipient_lastname: $('input[name="recipient_lastname"]').val(),
+				recipient_category: "1",
+				payment_category: "1",
+				budget: "1",
+				amount: $('input[name="amount"]').val(),
+				msisdn: $('input[name="msisdn"]').val(),
+				notes:'Original reason.',
+				latitude: geo.latitude,
+				longitude: geo.longitude,
+				province: "Nairobi",
+				county: "Nairobi",
+				district: "Nairobi",
+				facility: "Kenya National Hospital"					
+		};
+		$.post('/api/v1/payment', postData, function(){
+			$('.log').append('<br/>'+arguments[0]);
+			$('input[type="text"], textarea').val('');
+		});
+	});
+	getGeoLocation();
+</script>	
+</body>
+</html>
