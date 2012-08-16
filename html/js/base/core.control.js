@@ -15,7 +15,7 @@ core.control  = {
 			if(value && value.length && value.length === 0) {
 				return ' ';
 			}
-			return value ? value : ' ';
+			return value ? value : '';
 		});
 		return html;			
 	},
